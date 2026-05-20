@@ -138,25 +138,27 @@
         .list-item input[type="text"], .list-item input[type="number"] { background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.2); padding: 8px; border-radius: 4px; color: var(--text-dark); font-family: inherit; }
         .note-creator .list-item input[type="text"], .note-creator .list-item input[type="number"] { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; }
 
-        /* PÉNZÜGYI TÁBLÁZAT STÍLUSOK */
+        /* PÉNZÜGYI TÁBLÁZAT STÍLUSOK (Módosított) */
         .money-table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; margin-bottom: 15px; border: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.02);}
-        .money-table th { background: rgba(0,0,0,0.1); padding: 10px; font-size: 12px; text-transform: uppercase; text-align: left; color: rgba(0,0,0,0.6); }
-        .money-table td { padding: 10px; border-top: 1px solid rgba(0,0,0,0.05); }
-        .money-col-amt { width: 100px; text-align: right; background: rgba(0,0,0,0.05); border-right: 1px solid rgba(0,0,0,0.05); font-weight: bold;}
-        .money-col-desc { flex: 1; }
+        .money-table th { background: rgba(0,0,0,0.4); padding: 10px; font-size: 12px; text-transform: uppercase; text-align: left; color: rgb(255, 255, 255); }
+        .money-table td { padding: 10px; border-top: 1px solid rgba(0, 0, 0, 0.09); }
+        .money-col-amt { width: 100px; text-align: right; background: rgba(0,0,0,0.2); border-right: 1px solid rgba(0,0,0,0.05); font-weight: bold;}
+        .money-col-desc { flex: 1; background: rgba(0,0,0,0.1); }
         .money-table-total { background: #188038; color: white; font-weight: bold; font-size: 16px; }
         .money-table-total td { border-top: none; padding: 15px 10px; }
         .money-table-total .money-col-amt { background: #13652c; border-right: 1px solid rgba(255,255,255,0.1); }
 
-        /* PÉNZÜGYI ELŐNÉZET STÍLUSOK (Grid kártyához) */
+        /* PÉNZÜGYI ELŐNÉZET STÍLUSOK (Grid kártyához módosított) */
         .money-preview-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 5px; background: rgba(0,0,0,0.02); border-radius: 6px; border: 1px solid rgba(0,0,0,0.1); overflow: hidden; }
-        .money-preview-table td { padding: 6px; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .money-preview-table .col-amt { width: 70px; text-align: right; font-weight: bold; background: rgba(0,0,0,0.05); border-right: 1px solid rgba(0,0,0,0.05); }
-        .money-preview-table .col-desc { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 0; }
+        .money-preview-table th { background: rgba(0,0,0,0.4); padding: 6px; font-size: 10px; text-transform: uppercase; text-align: left; color: rgb(255, 255, 255); }
+        .money-preview-table td { padding: 6px; border-bottom: 1px solid rgba(0,0,0,0.09); border-top: 1px solid rgba(0,0,0,0.09); }
+        .money-preview-table .col-amt { width: 70px; text-align: right; font-weight: bold; background: rgba(0,0,0,0.2); border-right: 1px solid rgba(0,0,0,0.05); }
+        .money-preview-table .col-desc { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 0; background: rgba(0,0,0,0.1); }
         .money-preview-total { background: #188038; color: white; font-weight: bold; }
-        .money-preview-total td { border-bottom: none; }
+        .money-preview-total td { border-bottom: none; border-top: none; }
         .money-preview-total .col-amt { background: #13652c; border-right: 1px solid rgba(255,255,255,0.1);}
 
+        /* Pénzügyi Szerkesztő mezők */
         .money-edit-row { display: flex; border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 5px; width: 100%;}
         .money-edit-row input { border: none !important; border-radius: 0 !important; color: white; padding: 10px; outline: none; font-family: inherit; width: 100%;}
         .money-edit-amt { width: 100px; background: rgba(0,0,0,0.25) !important; text-align: right; border-right: 1px solid rgba(255,255,255,0.1) !important;}
@@ -1193,7 +1195,7 @@
             }
         };
 
-        /* KÁRTYA ELŐNÉZET LOGIKA (Most már szép asztali money preview-al) */
+        /* KÁRTYA ELŐNÉZET LOGIKA */
         window.renderAllNotes = () => {
             const grid = document.getElementById('notes-grid');
             if(!grid) return; grid.innerHTML = '';
@@ -1227,12 +1229,12 @@
                     previewHtml = (note.items || []).slice(0, 3).map(i => `<div class="preview-list-item"><span>${i.checked ? '☑' : '☐'}</span> <span>${escapeHtml(i.text)}</span></div>`).join('');
                 } else if (note.type === 'money') {
                     const sum = (note.items || []).reduce((acc, curr) => acc + (curr.amount || 0), 0);
-                    previewHtml = `<table class="money-preview-table"><tbody>`;
+                    previewHtml = `<table class="money-preview-table"><thead><tr><th class="col-amt">Összeg</th><th class="col-desc">Leírás</th></tr></thead><tbody>`;
                     (note.items || []).slice(0, 3).forEach(i => {
                         previewHtml += `<tr><td class="col-amt">${i.amount}</td><td class="col-desc">${escapeHtml(i.text)}</td></tr>`;
                     });
                     if((note.items || []).length > 3) {
-                        previewHtml += `<tr><td colspan="2" style="text-align:center; font-size: 0.75rem; opacity:0.7;">+ további elemek...</td></tr>`;
+                        previewHtml += `<tr><td colspan="2" style="text-align:center; font-size: 0.75rem; opacity:0.7; background:rgba(0,0,0,0.05);">+ további elemek...</td></tr>`;
                     }
                     previewHtml += `<tr class="money-preview-total"><td class="col-amt">${sum}</td><td class="col-desc">Végösszeg</td></tr></tbody></table>`;
                 } else if (note.type === 'recipe') {
