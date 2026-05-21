@@ -156,7 +156,7 @@
         /* MODAL ÚJ STÍLUS: Rögzített sötét fejléc, görgethető világosabb tartalom */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 1000; backdrop-filter: blur(5px); }
         .modal-content { background: var(--card-bg); color: var(--text-dark); width: 90%; max-width: 700px; max-height: 90vh; border-radius: 15px; overflow: hidden; position: relative; display: flex; flex-direction: column; transition: background 0.3s; padding: 0;}
-        .modal-content.dark-modal { background: var(--surface-color); color: var(--text-main); border: 1px solid var(--border-color); padding: 25px; overflow-y: auto;} /* Beállítások és egyebek maradtak simák */
+        .modal-content.dark-modal { background: var(--surface-color); color: var(--text-main); border: 1px solid var(--border-color); padding: 25px; overflow-y: auto;} 
         
         .note-modal-header-bg { background: rgba(0,0,0,0.15); padding: 20px; display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid rgba(0,0,0,0.1); }
         .note-modal-body-bg { padding: 20px; background: rgba(0,0,0,0.06); flex: 1; overflow-y: auto; }
@@ -473,27 +473,52 @@
             </div>
             <div id="settings-themes-view" class="hidden">
                 <button class="btn btn-primary" style="width:100%; padding:15px; margin-bottom: 10px; font-size: 16px;" onclick="openSettingsEditor()">➕ Új téma létrehozása</button>
-                <h4 style="margin-bottom:5px;">Jegyzet Témák <button class="btn" style="background:#444; color:white; font-size:10px; padding:3px 8px; float:right;" onclick="resetToDefaultTheme('note')">🔄 Alap</button></h4>
+                <h4 style="margin-bottom:5px;">Jegyzet Témák</h4>
                 <div id="saved-note-themes-list"></div>
-                <h4 style="margin-top:20px; margin-bottom:5px;">Weboldal Hátterek <button class="btn" style="background:#444; color:white; font-size:10px; padding:3px 8px; float:right;" onclick="resetToDefaultTheme('bg')">🔄 Alap</button></h4>
+                <h4 style="margin-top:20px; margin-bottom:5px;">Weboldal Hátterek</h4>
                 <div id="saved-bg-themes-list"></div>
             </div>
             <div id="settings-editor-view" class="hidden">
                 <select id="new-theme-type" onchange="toggleThemeEditorType()" class="form-control" style="margin-bottom:15px;">
                     <option value="note">Jegyzet Színek</option><option value="bg">Weboldal Háttér (Gradiens)</option>
                 </select>
+                
                 <div id="note-theme-editor">
+                    <!-- PREVIEW BOX -->
+                    <div style="background:rgba(0,0,0,0.2); padding:20px; border-radius:10px; margin-bottom: 20px;">
+                        <h4 style="margin-top:0; margin-bottom:10px; color:var(--accent-color);" id="preview-title-text">Élő Előnézet (Saját)</h4>
+                        <div id="theme-preview-card" class="note-card" style="margin:0; pointer-events:none; box-shadow:none; border:1px solid rgba(0,0,0,0.2);">
+                            <div class="note-card-title" style="background: rgba(0,0,0,0.15); border-radius: 10px 10px 0 0;">
+                                <h3 style="margin:0;">Minta Jegyzet</h3>
+                            </div>
+                            <div class="note-card-content-wrapper" style="background: rgba(0,0,0,0.06); border-radius: 0 0 10px 10px;">
+                                <div id="preview-badge" class="badge" style="display:none;">👥 Megosztva: pelda@user</div>
+                                <div class="preview-content">Ez itt egy teszt szöveg, hogy lásd, mennyire olvasható a betű a kiválasztott háttérszínen. Kattints a másik színválasztóra a megosztott nézet megtekintéséhez!</div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
-                        <div class="color-picker-wrapper"><label>Saját jegyzetek színe:</label><input type="color" id="picker-private"></div>
-                        <div class="color-picker-wrapper"><label>Megosztott jegyzetek színe:</label><input type="color" id="picker-shared"></div>
+                        <div class="color-picker-wrapper"><label>Saját jegyzetek színe:</label><input type="color" id="picker-private" oninput="updateNotePreviewColors(false)" onmousedown="updateNotePreviewColors(false)"></div>
+                        <div class="color-picker-wrapper"><label>Megosztott jegyzetek színe:</label><input type="color" id="picker-shared" oninput="updateNotePreviewColors(true)" onmousedown="updateNotePreviewColors(true)"></div>
                     </div>
                 </div>
+                
                 <div id="bg-theme-editor" class="hidden">
+                    <!-- BG PREVIEW BOX -->
+                    <div style="background:rgba(0,0,0,0.2); padding:20px; border-radius:10px; margin-bottom: 20px;">
+                        <h4 style="margin-top:0; margin-bottom:10px; color:var(--accent-color);">Élő Előnézet (Háttér)</h4>
+                        <div id="bg-preview-box" style="height: 100px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center;">
+                            <span style="background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 4px; font-size: 13px; color:white;">Weboldal Kinézete</span>
+                        </div>
+                    </div>
+
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
-                        <div class="color-picker-wrapper"><label>Kezdő Szín:</label><input type="color" id="picker-bg-start"></div>
-                        <div class="color-picker-wrapper"><label>Záró Szín:</label><input type="color" id="picker-bg-end"></div>
+                        <div class="color-picker-wrapper"><label>Kezdő Szín:</label><input type="color" id="picker-bg-start" oninput="updateBgPreviewColors()"></div>
+                        <div class="color-picker-wrapper"><label>Záró Szín:</label><input type="color" id="picker-bg-end" oninput="updateBgPreviewColors()"></div>
                     </div>
                 </div>
+
                 <div style="display:flex; gap:10px;">
                     <input type="text" id="new-theme-name" class="form-control" placeholder="Téma elnevezése...">
                     <button onclick="saveNewTheme()" class="btn btn-save">Mentés</button>
@@ -592,6 +617,7 @@
         let bgThemes = [];
         let activeNoteTheme = null; 
         let activeBgTheme = null; 
+        let settingsCurrentView = 'main';
 
         let userCategories = [];
         let userFolders = [];
@@ -628,7 +654,7 @@
         window.toggleDesktopSidebar = () => {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('collapsed');
-            document.getElementById('sidebar-toggle-icon').innerText = sidebar.classList.contains('collapsed') ? '▶' : '◀';
+            document.getElementById('sidebar-toggle-btn').innerText = sidebar.classList.contains('collapsed') ? '▶' : '◀';
         };
         window.toggleSidebarEditMode = () => { isSidebarEditMode = !isSidebarEditMode; document.getElementById('sidebar').classList.toggle('edit-mode', isSidebarEditMode); renderSidebarCategories(); };
         window.closeAllDropdowns = () => { document.querySelectorAll('.note-dropdown').forEach(d => d.classList.add('hidden')); };
@@ -728,7 +754,7 @@
             document.getElementById(containerId).appendChild(div);
         };
 
-        /* LOGIN / REGISZTRÁCIÓ (Javítva!) */
+        /* LOGIN / REGISZTRÁCIÓ */
         window.logout = () => signOut(auth);
         
         document.getElementById('login-btn').onclick = () => {
@@ -1091,7 +1117,7 @@
                     userCategories = (data.categories || []).map((c, idx) => { if (typeof c === 'string') return { id: 'c_' + Date.now() + '_' + idx, name: c, icon: '📁' }; return c; });
                     userFolders = data.folders || [];
                     
-                    applyThemeToCSS(); renderSidebarCategories(); renderAllNotes(); checkIncomingRequests(); renderFriendsList();
+                    applyThemeToCSS(); renderSidebarCategories(); renderAllNotes(); checkIncomingRequests(); renderFriendsList(); renderThemes();
                 } else {
                     setDoc(doc(db, "users", user.email), {friends:[], categories: [], folders: [], noteThemes: [], bgThemes: []});
                 }
@@ -1192,9 +1218,10 @@
             alert(`Megosztási kérelem elküldve neki: ${email}`);
         };
 
-        /* BEÁLLÍTÁSOK LOGIKA */
+        /* BEÁLLÍTÁSOK / TÉMÁK LOGIKA */
         window.openSettingsModal = () => { document.getElementById('settings-modal').style.display = 'flex'; settingsGoBack(); };
         window.settingsGoBack = () => {
+            settingsCurrentView = 'main';
             document.getElementById('settings-title').innerText = "⚙️ Beállítások";
             document.getElementById('settings-back-btn').classList.add('hidden');
             document.getElementById('settings-main-view').classList.remove('hidden');
@@ -1202,6 +1229,7 @@
             document.getElementById('settings-editor-view').classList.add('hidden');
         };
         window.openSettingsThemes = () => {
+            settingsCurrentView = 'themes';
             document.getElementById('settings-title').innerText = "🎨 Témák";
             document.getElementById('settings-back-btn').classList.remove('hidden');
             document.getElementById('settings-main-view').classList.add('hidden');
@@ -1210,15 +1238,56 @@
             renderThemes();
         };
         window.openSettingsEditor = () => {
+            settingsCurrentView = 'editor';
             document.getElementById('settings-themes-view').classList.add('hidden');
             document.getElementById('settings-editor-view').classList.remove('hidden');
             document.getElementById('settings-title').innerText = "➕ Új Téma";
+            document.getElementById('new-theme-type').value = 'note';
+            toggleThemeEditorType();
         };
+        
         window.toggleThemeEditorType = () => {
-            const isNote = document.getElementById('new-theme-type').value === 'note';
-            document.getElementById('note-theme-editor').classList.toggle('hidden', !isNote);
-            document.getElementById('bg-theme-editor').classList.toggle('hidden', isNote);
+            const type = document.getElementById('new-theme-type').value;
+            if(type === 'note') {
+                document.getElementById('note-theme-editor').classList.remove('hidden');
+                document.getElementById('bg-theme-editor').classList.add('hidden');
+                document.getElementById('picker-private').value = activeNoteTheme ? activeNoteTheme.privateColor : '#ffe359';
+                document.getElementById('picker-shared').value = activeNoteTheme ? activeNoteTheme.sharedColor : '#bef54a';
+                updateNotePreviewColors(false);
+            } else {
+                document.getElementById('note-theme-editor').classList.add('hidden');
+                document.getElementById('bg-theme-editor').classList.remove('hidden');
+                document.getElementById('picker-bg-start').value = activeBgTheme ? activeBgTheme.bgStart : '#415a7e';
+                document.getElementById('picker-bg-end').value = activeBgTheme ? activeBgTheme.bgEnd : '#0a2d5e';
+                updateBgPreviewColors();
+            }
         };
+
+        window.updateNotePreviewColors = (isSharedView) => {
+            const pColor = document.getElementById('picker-private').value;
+            const sColor = document.getElementById('picker-shared').value;
+            const previewCard = document.getElementById('theme-preview-card');
+            const previewBadge = document.getElementById('preview-badge');
+            const titleText = document.getElementById('preview-title-text');
+            
+            if (isSharedView) {
+                previewCard.style.backgroundColor = sColor;
+                previewBadge.style.display = 'inline-block';
+                titleText.innerText = "Élő Előnézet (Megosztott Jegyzet)";
+            } else {
+                previewCard.style.backgroundColor = pColor;
+                previewBadge.style.display = 'none';
+                titleText.innerText = "Élő Előnézet (Saját Jegyzet)";
+            }
+        };
+
+        window.updateBgPreviewColors = () => {
+            const sColor = document.getElementById('picker-bg-start').value;
+            const eColor = document.getElementById('picker-bg-end').value;
+            const previewBox = document.getElementById('bg-preview-box');
+            previewBox.style.background = `linear-gradient(145deg, ${sColor} 0%, ${eColor} 100%)`;
+        };
+
         window.saveNewTheme = async () => {
             const type = document.getElementById('new-theme-type').value;
             const name = document.getElementById('new-theme-name').value.trim();
@@ -1238,31 +1307,152 @@
                 await updateDoc(doc(db, "users", user.email), { bgThemes: bgThemes, activeBgTheme: activeBgTheme });
             }
             document.getElementById('new-theme-name').value = '';
-            openSettingsThemes();
+            openSettingsThemes(); applyThemeToCSS();
         };
 
         function renderThemes() {
             const ntList = document.getElementById('saved-note-themes-list');
-            if(noteThemes.length === 0) ntList.innerHTML = '<p style="opacity:0.7">Nincs saját jegyzet téma.</p>';
-            else ntList.innerHTML = noteThemes.map(t => `<div class="friend-row" style="cursor:pointer; border: ${activeNoteTheme && activeNoteTheme.id === t.id ? '2px solid var(--accent-color)' : '1px solid transparent'}" onclick="applyNoteTheme('${t.id}')"><div>${escapeHtml(t.name)}</div><div style="display:flex;gap:5px"><div style="width:20px;height:20px;background:${t.privateColor};border-radius:4px"></div><div style="width:20px;height:20px;background:${t.sharedColor};border-radius:4px"></div><button onclick="deleteTheme('note', '${t.id}', event)" class="sidebar-del-btn" style="display:block">×</button></div></div>`).join('');
+            let nListHTML = '';
+
+            const defaultNote = { name: 'Sárga / Lime (Alapértelmezett)', privateColor: '#ffe359', sharedColor: '#bef54a' };
+            const isDefaultNoteActive = !activeNoteTheme || (activeNoteTheme.privateColor === defaultNote.privateColor && activeNoteTheme.sharedColor === defaultNote.sharedColor);
+
+            nListHTML += `
+                <div class="friend-row" style="${isDefaultNoteActive ? 'border-left: 4px solid var(--accent-color);' : ''}">
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <div style="width:18px; height:18px; border-radius:50%; background:${defaultNote.privateColor}; border:1px solid rgba(255,255,255,0.3);" title="Saját"></div>
+                        <div style="width:18px; height:18px; border-radius:50%; background:${defaultNote.sharedColor}; border:1px solid rgba(255,255,255,0.3);" title="Megosztott"></div>
+                        <span style="${isDefaultNoteActive ? 'font-weight:bold; color:var(--accent-color);' : ''}">${defaultNote.name}</span>
+                    </div>
+                    <div style="display:flex; gap:5px;">
+                        ${isDefaultNoteActive ? '<span style="font-size:12px; color:var(--success-color); align-self:center; margin-right:5px;">Aktiválva</span>' : `<button onclick="resetToDefaultTheme('note')" class="btn btn-primary" style="padding:5px 10px; font-size:12px;">Alkalmaz</button>`}
+                    </div>
+                </div>
+            `;
+
+            const builtInNote = { name: 'Rózsaszín / Pasztell (Beépített)', privateColor: '#ffdbfa', sharedColor: '#fff0dc' };
+            const isBuiltInNoteActive = activeNoteTheme && activeNoteTheme.privateColor === builtInNote.privateColor && activeNoteTheme.sharedColor === builtInNote.sharedColor;
             
+            nListHTML += `
+                <div class="friend-row" style="${isBuiltInNoteActive ? 'border-left: 4px solid var(--accent-color);' : ''}">
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <div style="width:18px; height:18px; border-radius:50%; background:${builtInNote.privateColor}; border:1px solid rgba(255,255,255,0.3);" title="Saját"></div>
+                        <div style="width:18px; height:18px; border-radius:50%; background:${builtInNote.sharedColor}; border:1px solid rgba(255,255,255,0.3);" title="Megosztott"></div>
+                        <span style="${isBuiltInNoteActive ? 'font-weight:bold; color:var(--accent-color);' : ''}">${builtInNote.name}</span>
+                    </div>
+                    <div style="display:flex; gap:5px;">
+                        ${isBuiltInNoteActive ? '<span style="font-size:12px; color:var(--success-color); align-self:center; margin-right:5px;">Aktiválva</span>' : `<button onclick="applyNoteTheme('${builtInNote.privateColor}', '${builtInNote.sharedColor}')" class="btn btn-primary" style="padding:5px 10px; font-size:12px;">Alkalmaz</button>`}
+                    </div>
+                </div>
+            `;
+
+            if(noteThemes.length > 0) {
+                nListHTML += noteThemes.map(t => {
+                    const isActive = activeNoteTheme && activeNoteTheme.privateColor === t.privateColor && activeNoteTheme.sharedColor === t.sharedColor;
+                    const borderStyle = isActive ? 'border-left: 4px solid var(--accent-color);' : '';
+                    return `
+                    <div class="friend-row" style="${borderStyle}">
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <div style="width:18px; height:18px; border-radius:50%; background:${t.privateColor}; border:1px solid rgba(255,255,255,0.3);" title="Saját"></div>
+                            <div style="width:18px; height:18px; border-radius:50%; background:${t.sharedColor}; border:1px solid rgba(255,255,255,0.3);" title="Megosztott"></div>
+                            <span style="${isActive ? 'font-weight:bold; color:var(--accent-color);' : ''}">${escapeHtml(t.name)}</span>
+                        </div>
+                        <div style="display:flex; gap:5px;">
+                            ${isActive ? '<span style="font-size:12px; color:var(--success-color); align-self:center; margin-right:5px;">Aktiválva</span>' : `<button onclick="applyNoteTheme('${t.privateColor}', '${t.sharedColor}')" class="btn btn-primary" style="padding:5px 10px; font-size:12px;">Alkalmaz</button>`}
+                            <button onclick="deleteTheme('${t.id}', 'note', event)" class="btn" style="background:transparent; color:var(--danger-color); padding:5px;">✕</button>
+                        </div>
+                    </div>
+                `}).join('');
+            }
+            ntList.innerHTML = nListHTML;
+
             const bgList = document.getElementById('saved-bg-themes-list');
-            if(bgThemes.length === 0) bgList.innerHTML = '<p style="opacity:0.7">Nincs saját háttér téma.</p>';
-            else bgList.innerHTML = bgThemes.map(t => `<div class="friend-row" style="cursor:pointer; border: ${activeBgTheme && activeBgTheme.id === t.id ? '2px solid var(--accent-color)' : '1px solid transparent'}" onclick="applyBgTheme('${t.id}')"><div>${escapeHtml(t.name)}</div><div style="display:flex;gap:5px;align-items:center;"><div style="width:40px;height:20px;background:linear-gradient(90deg, ${t.bgStart}, ${t.bgEnd});border-radius:4px"></div><button onclick="deleteTheme('bg', '${t.id}', event)" class="sidebar-del-btn" style="display:block">×</button></div></div>`).join('');
+            let bListHTML = '';
+
+            const defaultBg = { name: 'Sötétkék (Alapértelmezett)', bgStart: '#415a7e', bgEnd: '#0a2d5e' };
+            const isDefaultBgActive = !activeBgTheme || (activeBgTheme.bgStart === defaultBg.bgStart && activeBgTheme.bgEnd === defaultBg.bgEnd);
+
+            bListHTML += `
+                <div class="friend-row" style="${isDefaultBgActive ? 'border-left: 4px solid var(--accent-color);' : ''}">
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <div style="width:25px; height:18px; border-radius:4px; background:linear-gradient(145deg, ${defaultBg.bgStart}, ${defaultBg.bgEnd}); border:1px solid rgba(255,255,255,0.3);"></div>
+                        <span style="${isDefaultBgActive ? 'font-weight:bold; color:var(--accent-color);' : ''}">${defaultBg.name}</span>
+                    </div>
+                    <div style="display:flex; gap:5px;">
+                        ${isDefaultBgActive ? '<span style="font-size:12px; color:var(--success-color); align-self:center; margin-right:5px;">Aktiválva</span>' : `<button onclick="resetToDefaultTheme('bg')" class="btn btn-primary" style="padding:5px 10px; font-size:12px;">Alkalmaz</button>`}
+                    </div>
+                </div>
+            `;
+
+            const builtInBg = { name: 'Lila Átmenet (Beépített)', bgStart: '#7e4164', bgEnd: '#5e0a55' };
+            const isBuiltInBgActive = activeBgTheme && activeBgTheme.bgStart === builtInBg.bgStart && activeBgTheme.bgEnd === builtInBg.bgEnd;
+            
+            bListHTML += `
+                <div class="friend-row" style="${isBuiltInBgActive ? 'border-left: 4px solid var(--accent-color);' : ''}">
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <div style="width:25px; height:18px; border-radius:4px; background:linear-gradient(145deg, ${builtInBg.bgStart}, ${builtInBg.bgEnd}); border:1px solid rgba(255,255,255,0.3);"></div>
+                        <span style="${isBuiltInBgActive ? 'font-weight:bold; color:var(--accent-color);' : ''}">${builtInBg.name}</span>
+                    </div>
+                    <div style="display:flex; gap:5px;">
+                        ${isBuiltInBgActive ? '<span style="font-size:12px; color:var(--success-color); align-self:center; margin-right:5px;">Aktiválva</span>' : `<button onclick="applyBgTheme('${builtInBg.bgStart}', '${builtInBg.bgEnd}')" class="btn btn-primary" style="padding:5px 10px; font-size:12px;">Alkalmaz</button>`}
+                    </div>
+                </div>
+            `;
+
+            if(bgThemes.length > 0) {
+                bListHTML += bgThemes.map(t => {
+                    const isActive = activeBgTheme && activeBgTheme.bgStart === t.bgStart && activeBgTheme.bgEnd === t.bgEnd;
+                    const borderStyle = isActive ? 'border-left: 4px solid var(--accent-color);' : '';
+                    return `
+                    <div class="friend-row" style="${borderStyle}">
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <div style="width:25px; height:18px; border-radius:4px; background:linear-gradient(145deg, ${t.bgStart}, ${t.bgEnd}); border:1px solid rgba(255,255,255,0.3);"></div>
+                            <span style="${isActive ? 'font-weight:bold; color:var(--accent-color);' : ''}">${escapeHtml(t.name)}</span>
+                        </div>
+                        <div style="display:flex; gap:5px;">
+                            ${isActive ? '<span style="font-size:12px; color:var(--success-color); align-self:center; margin-right:5px;">Aktiválva</span>' : `<button onclick="applyBgTheme('${t.bgStart}', '${t.bgEnd}')" class="btn btn-primary" style="padding:5px 10px; font-size:12px;">Alkalmaz</button>`}
+                            <button onclick="deleteTheme('${t.id}', 'bg', event)" class="btn" style="background:transparent; color:var(--danger-color); padding:5px;">✕</button>
+                        </div>
+                    </div>
+                `}).join('');
+            }
+            bgList.innerHTML = bListHTML;
         }
 
-        window.applyNoteTheme = async (id) => { activeNoteTheme = noteThemes.find(t => t.id === id); await updateDoc(doc(db, "users", user.email), { activeNoteTheme: activeNoteTheme }); renderThemes(); };
-        window.applyBgTheme = async (id) => { activeBgTheme = bgThemes.find(t => t.id === id); await updateDoc(doc(db, "users", user.email), { activeBgTheme: activeBgTheme }); renderThemes(); };
+        window.applyNoteTheme = async (privateColor, sharedColor) => {
+            const newT = { privateColor, sharedColor };
+            activeNoteTheme = newT;
+            await updateDoc(doc(db, "users", user.email), { activeNoteTheme: newT });
+            renderThemes(); applyThemeToCSS();
+        };
+
+        window.applyBgTheme = async (bgStart, bgEnd) => {
+            const newT = { bgStart, bgEnd };
+            activeBgTheme = newT;
+            await updateDoc(doc(db, "users", user.email), { activeBgTheme: newT });
+            renderThemes(); applyThemeToCSS();
+        };
+
         window.resetToDefaultTheme = async (type) => {
             if(type === 'note') { activeNoteTheme = null; await updateDoc(doc(db, "users", user.email), { activeNoteTheme: null }); }
             else { activeBgTheme = null; await updateDoc(doc(db, "users", user.email), { activeBgTheme: null }); }
-            renderThemes();
+            renderThemes(); applyThemeToCSS();
         };
-        window.deleteTheme = async (type, id, e) => {
+
+        window.deleteTheme = async (id, type, e) => {
             e.stopPropagation();
             if(confirm("Törlöd ezt a témát?")){
-                if(type === 'note') { noteThemes = noteThemes.filter(t => t.id !== id); if(activeNoteTheme && activeNoteTheme.id === id) resetToDefaultTheme('note'); await updateDoc(doc(db, "users", user.email), { noteThemes: noteThemes }); }
-                else { bgThemes = bgThemes.filter(t => t.id !== id); if(activeBgTheme && activeBgTheme.id === id) resetToDefaultTheme('bg'); await updateDoc(doc(db, "users", user.email), { bgThemes: bgThemes }); }
+                if(type === 'note') { 
+                    const t = noteThemes.find(x => x.id === id);
+                    noteThemes = noteThemes.filter(x => x.id !== id); 
+                    if(activeNoteTheme && t && activeNoteTheme.privateColor === t.privateColor && activeNoteTheme.sharedColor === t.sharedColor) resetToDefaultTheme('note'); 
+                    await updateDoc(doc(db, "users", user.email), { noteThemes: noteThemes }); 
+                } else { 
+                    const t = bgThemes.find(x => x.id === id);
+                    bgThemes = bgThemes.filter(x => x.id !== id); 
+                    if(activeBgTheme && t && activeBgTheme.bgStart === t.bgStart && activeBgTheme.bgEnd === t.bgEnd) resetToDefaultTheme('bg'); 
+                    await updateDoc(doc(db, "users", user.email), { bgThemes: bgThemes }); 
+                }
                 renderThemes();
             }
         };
@@ -1296,7 +1486,6 @@
                 
                 let previewHtml = "";
                 if(note.type === 'text') {
-                    // Megőrizzük az entereket előnézetben is
                     let plainText = (note.content || "")
                         .replace(/<br\s*\/?>/gi, '\n')
                         .replace(/<\/div>|<\/p>/gi, '\n')
