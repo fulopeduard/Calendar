@@ -8,8 +8,8 @@
         :root {
             --bg-gradient-start: #415a7e;
             --bg-gradient-end: #0a2d5e;
-            --creator-gradient-start: rgba(255,255,255,0.05);
-            --creator-gradient-end: rgba(0,0,0,0.2);
+            --creator-gradient-start: rgba(30, 35, 45, 0.98);
+            --creator-gradient-end: rgba(20, 25, 30, 0.98);
             
             --surface-color: rgba(30, 30, 34, 0.95);
             --sidebar-bg: rgba(20, 20, 24, 0.95);
@@ -36,11 +36,27 @@
 
         .main-layout { display: flex; flex: 1; position: relative; overflow: hidden; }
 
-        /* Asztali oldalsáv elrejtő */
-        .sidebar-toggle-strip { width: 16px; background: rgba(0, 0, 0, 0.3); color: rgba(255, 255, 255, 0.5); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 10px; border-right: 1px solid var(--border-color); transition: background 0.2s, color 0.2s, width 0.2s; flex-shrink: 0; z-index: 10; }
-        .sidebar-toggle-strip:hover { background: var(--accent-color); color: #000; width: 20px; }
+        /* Kompakt Asztali oldalsáv elrejtő gomb */
+        .sidebar-toggle-btn {
+            position: absolute;
+            left: 280px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 60px;
+            background: rgba(0,0,0,0.5);
+            color: rgba(255, 255, 255, 0.7);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 12px;
+            border: 1px solid var(--border-color);
+            border-left: none; border-radius: 0 8px 8px 0;
+            transition: left 0.3s ease, background 0.2s, color 0.2s;
+            z-index: 99; backdrop-filter: blur(5px);
+        }
+        .sidebar.collapsed ~ .sidebar-toggle-btn { left: 0; }
+        .sidebar-toggle-btn:hover { background: var(--accent-color); color: #000; }
 
-        .sidebar { width: 280px; background: var(--sidebar-bg); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; overflow-x: hidden; backdrop-filter: blur(10px); transition: width 0.3s ease, transform 0.3s ease; }
+        .sidebar { width: 280px; background: var(--sidebar-bg); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; overflow-x: hidden; backdrop-filter: blur(10px); transition: width 0.3s ease, transform 0.3s ease; z-index: 100;}
         .sidebar-inner { min-width: 280px; display: flex; flex-direction: column; height: 100%; }
         .sidebar.collapsed { width: 0; border-right: none; }
         .sidebar-overlay { display: none; position: absolute; inset: 0; background: rgba(0,0,0,0.6); z-index: 998; backdrop-filter: blur(3px); }
@@ -54,7 +70,7 @@
             .header-right { gap: 8px !important; }
             header { padding: 12px 15px; }
             .user-email-text, .header-btn-text { display: none; }
-            .sidebar-toggle-strip { display: none; } 
+            .sidebar-toggle-btn { display: none; } 
             .sidebar { position: absolute; left: 0; top: 0; bottom: 0; height: 100%; z-index: 999; transform: translateX(-100%); width: 280px; }
             .sidebar.collapsed { width: 280px; } 
             .sidebar.open { transform: translateX(0); }
@@ -97,83 +113,120 @@
         .type-dropdown button { background: transparent; border: none; color: white; padding: 12px 20px; cursor: pointer; border-radius: 6px; text-align: left; font-size: 15px; font-weight: 500; transition: background 0.2s; }
         .type-dropdown button:hover { background: rgba(255,255,255,0.1); }
 
-        .note-creator { background: linear-gradient(145deg, var(--creator-gradient-start) 0%, var(--creator-gradient-end) 100%); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 20px; max-width: 650px; margin: 0 auto 30px auto; box-shadow: 0 10px 30px rgba(0,0,0,0.4); display: none; backdrop-filter: blur(5px); }
+        /* LÉTREHOZÓ PANEL ÚJ STÍLUSA */
+        .note-creator { background: linear-gradient(145deg, var(--creator-gradient-start) 0%, var(--creator-gradient-end) 100%); border: 2px solid rgba(255,255,255,0.2); border-radius: 12px; max-width: 650px; margin: 0 auto 30px auto; box-shadow: 0 15px 40px rgba(0,0,0,0.7); display: none; padding: 0; overflow: hidden;}
+        .creator-header-bg { background: rgba(0,0,0,0.25); padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .creator-body-bg { background: rgba(0,0,0,0.1); padding: 20px; }
+        
         .type-selector { display: flex; gap: 10px; margin-bottom: 15px; }
         .type-btn { background: rgba(255,255,255,0.1); color: white; padding: 6px 14px; border-radius: 6px; font-size: 13px; opacity: 0.6; border: none; cursor: pointer; transition: 0.2s; }
         .type-btn:hover { background: rgba(255,255,255,0.2); }
         .type-btn.active { opacity: 1; background: var(--accent-color); color: #000; font-weight: bold; }
-        .form-control { background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: white; padding: 8px 10px; border-radius: 6px; width: 100%; box-sizing: border-box; font-family: inherit; outline: none; }
+        .form-control { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 8px 10px; border-radius: 6px; width: 100%; box-sizing: border-box; font-family: inherit; outline: none; transition: border-color 0.3s; }
+        .form-control:focus { border-color: var(--accent-color); }
         .form-control option { background: #222; color: white; }
-        .dark-modal .form-control { background: rgba(255,255,255,0.05); }
+        .dark-modal .form-control { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); }
 
+        .note-creator #new-title { background: transparent; border: none; border-bottom: 2px solid rgba(255,255,255,0.4); font-size: 18px; font-weight: bold; color: white; width: 100%; outline: none; padding-bottom: 8px; border-radius: 0; transition: border-color 0.3s; }
+        .note-creator #new-title:focus { border-bottom-color: var(--accent-color); }
+
+        /* GRID KÁRTYÁK ÚJ STÍLUSA (Külön Cím és Tartalom bg) */
         .notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; align-items: start; }
         @media (max-width: 650px) { .notes-grid { grid-template-columns: 1fr; } }
 
-        .note-card { background: var(--card-bg); color: var(--text-dark); border-radius: 10px; padding: 18px; cursor: pointer; transition: transform 0.2s, box-shadow 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.3); position: relative; width: 100%; box-sizing: border-box; }
+        .note-card { background: var(--card-bg); color: var(--text-dark); border-radius: 10px; cursor: pointer; transition: transform 0.2s, box-shadow 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.3); position: relative; width: 100%; box-sizing: border-box; padding: 0; display: flex; flex-direction: column; overflow: visible; }
         .note-card.shared { background: var(--card-shared-bg); }
         .note-card:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.5); }
-        .note-card h3 { margin: 0 0 10px 0; font-size: 1.1rem; line-height: 1.3; padding-right: 25px;}
-        .badge { font-size: 10px; background: rgba(0,0,0,0.1); padding: 3px 8px; border-radius: 8px; color: #202124; margin-bottom: 10px; display: inline-block; font-weight: bold; }
+        
+        .note-card-title { margin: 0; padding: 15px; padding-right: 40px; background: rgba(0,0,0,0.15); font-size: 1.1rem; line-height: 1.3; border-radius: 10px 10px 0 0; }
+        .note-card-content-wrapper { padding: 15px; background: rgba(0,0,0,0.06); border-radius: 0 0 10px 10px; flex: 1; }
+
+        .badge { font-size: 10px; background: rgba(0,0,0,0.1); padding: 4px 8px; border-radius: 8px; color: #202124; margin-bottom: 10px; display: inline-block; font-weight: bold; }
         .preview-content { font-size: 0.95rem; opacity: 0.85; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; word-wrap: break-word; }
         .preview-list-item { margin-bottom: 4px; display: flex; gap: 6px; align-items: center;}
         
         .kebab-btn { background: transparent; border: none; font-size: 22px; font-weight: bold; cursor: pointer; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(0,0,0,0.5); transition: background 0.2s; line-height: 1; padding-bottom: 5px; }
         .kebab-btn:hover { background: rgba(0,0,0,0.1); color: #000; }
         .dark-modal .kebab-btn { color: rgba(255,255,255,0.7); }
-        .dark-modal .kebab-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+        .dark-modal .kebab-btn:hover { background: rgba(255,255,255,0.2); color: #fff; }
         .note-dropdown { position: absolute; top: 100%; right: 0; background: var(--surface-color); color: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 5px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); z-index: 200; display: flex; flex-direction: column; min-width: 140px; }
         .note-dropdown button { background: transparent; border: none; color: white; padding: 10px 15px; cursor: pointer; border-radius: 4px; text-align: left; font-size: 14px; transition: background 0.2s; }
         .note-dropdown button:hover { background: rgba(255,255,255,0.1); }
 
+        /* MODAL ÚJ STÍLUS: Rögzített sötét fejléc, görgethető világosabb tartalom */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 1000; backdrop-filter: blur(5px); }
-        .modal-content { background: var(--card-bg); color: var(--text-dark); width: 90%; max-width: 700px; max-height: 90vh; border-radius: 15px; padding: 25px; overflow-y: auto; position: relative; display: flex; flex-direction: column; transition: background 0.3s; }
-        .modal-content.dark-modal { background: var(--surface-color); color: var(--text-main); border: 1px solid var(--border-color); }
+        .modal-content { background: var(--card-bg); color: var(--text-dark); width: 90%; max-width: 700px; max-height: 90vh; border-radius: 15px; overflow: hidden; position: relative; display: flex; flex-direction: column; transition: background 0.3s; padding: 0;}
+        .modal-content.dark-modal { background: var(--surface-color); color: var(--text-main); border: 1px solid var(--border-color); padding: 25px; overflow-y: auto;} /* Beállítások és egyebek maradtak simák */
+        
+        .note-modal-header-bg { background: rgba(0,0,0,0.15); padding: 20px; display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid rgba(0,0,0,0.1); }
+        .note-modal-body-bg { padding: 20px; background: rgba(0,0,0,0.06); flex: 1; overflow-y: auto; }
+
         .modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
         .close-modal { font-size: 28px; cursor: pointer; font-weight: bold; line-height: 1;}
         .close-modal:hover { color: #555; }
         .dark-modal .close-modal:hover { color: #fff; }
-        .rich-editor { min-height: 80px; outline: none; margin-bottom: 15px; line-height: 1.6; }
         
-        .list-item { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-        .list-item input[type="text"], .list-item input[type="number"] { background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.2); padding: 8px; border-radius: 4px; color: var(--text-dark); font-family: inherit; }
-        .note-creator .list-item input[type="text"], .note-creator .list-item input[type="number"] { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; }
+        /* SZERKESZTŐ MEZŐK */
+        .rich-editor { min-height: 80px; outline: none; margin-bottom: 15px; line-height: 1.6; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.4); padding: 10px; border-radius: 8px; transition: border-color 0.3s; color: white;}
+        .rich-editor:focus { border-color: var(--accent-color); }
+        .note-modal-body-bg .rich-editor { border-color: rgba(0,0,0,0.2); background: rgba(0,0,0,0.05); color: inherit; }
+        .note-modal-body-bg .rich-editor:focus { border-color: #000; }
 
-        /* PÉNZÜGYI TÁBLÁZAT STÍLUSOK */
+        .list-item { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .list-item input[type="text"], .list-item input[type="number"] { background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.2); padding: 8px; border-radius: 4px; color: inherit; font-family: inherit; }
+        .note-creator .list-item input[type="text"], .note-creator .list-item input[type="number"] { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.3); color: white; }
+        .note-creator #list-creator { border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; }
+
+        /* PÉNZÜGYI TÁBLÁZATOK */
         .money-table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; margin-bottom: 15px; border: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.02);}
-        .money-table th { background: rgba(0,0,0,0.1); padding: 10px; font-size: 12px; text-transform: uppercase; text-align: left; color: rgba(0,0,0,0.6); }
-        .money-table td { padding: 10px; border-top: 1px solid rgba(0,0,0,0.05); }
-        .money-col-amt { width: 100px; text-align: right; background: rgba(0,0,0,0.05); border-right: 1px solid rgba(0,0,0,0.05); font-weight: bold;}
-        .money-col-desc { flex: 1; }
+        .money-table th { background: rgba(0,0,0,0.4); padding: 10px; font-size: 12px; text-transform: uppercase; text-align: left; color: rgb(255, 255, 255); }
+        .money-table td { padding: 10px; border-top: 1px solid rgba(0, 0, 0, 0.09); }
+        .money-col-amt { width: 100px; text-align: right; background: rgba(0,0,0,0.2); border-right: 1px solid rgba(0,0,0,0.05); font-weight: bold;}
+        .money-col-desc { flex: 1; background: rgba(0,0,0,0.1); }
         .money-table-total { background: #188038; color: white; font-weight: bold; font-size: 16px; }
         .money-table-total td { border-top: none; padding: 15px 10px; }
         .money-table-total .money-col-amt { background: #13652c; border-right: 1px solid rgba(255,255,255,0.1); }
 
-        /* PÉNZÜGYI ELŐNÉZET STÍLUSOK (Grid kártyához) */
         .money-preview-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 5px; background: rgba(0,0,0,0.02); border-radius: 6px; border: 1px solid rgba(0,0,0,0.1); overflow: hidden; }
-        .money-preview-table td { padding: 6px; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .money-preview-table .col-amt { width: 70px; text-align: right; font-weight: bold; background: rgba(0,0,0,0.05); border-right: 1px solid rgba(0,0,0,0.05); }
-        .money-preview-table .col-desc { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 0; }
+        .money-preview-table th { background: rgba(0,0,0,0.4); padding: 6px; font-size: 10px; text-transform: uppercase; text-align: left; color: rgb(255, 255, 255); }
+        .money-preview-table td { padding: 6px; border-bottom: 1px solid rgba(0,0,0,0.09); border-top: 1px solid rgba(0,0,0,0.09); }
+        .money-preview-table .col-amt { width: 70px; text-align: right; font-weight: bold; background: rgba(0,0,0,0.2); border-right: 1px solid rgba(0,0,0,0.05); }
+        .money-preview-table .col-desc { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 0; background: rgba(0,0,0,0.1); }
         .money-preview-total { background: #188038; color: white; font-weight: bold; }
-        .money-preview-total td { border-bottom: none; }
+        .money-preview-total td { border-bottom: none; border-top: none; }
         .money-preview-total .col-amt { background: #13652c; border-right: 1px solid rgba(255,255,255,0.1);}
 
-        .money-edit-row { display: flex; border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 5px; width: 100%;}
-        .money-edit-row input { border: none !important; border-radius: 0 !important; color: white; padding: 10px; outline: none; font-family: inherit; width: 100%;}
-        .money-edit-amt { width: 100px; background: rgba(0,0,0,0.25) !important; text-align: right; border-right: 1px solid rgba(255,255,255,0.1) !important;}
-        .money-edit-desc { flex: 1; background: rgba(0,0,0,0.1) !important; }
+        .money-edit-row { display: flex; border-radius: 6px; overflow: hidden; border: 1px solid rgba(0,0,0,0.2); margin-bottom: 5px; width: 100%;}
+        .note-creator .money-edit-row { border-color: rgba(255,255,255,0.3); }
+        .money-edit-row input { border: none !important; border-radius: 0 !important; padding: 10px; outline: none; font-family: inherit; width: 100%; background: transparent !important;}
+        .money-edit-amt { width: 100px; background: rgba(0,0,0,0.15) !important; text-align: right; border-right: 1px solid rgba(0,0,0,0.1) !important;}
+        .note-creator .money-edit-amt { background: rgba(0,0,0,0.5) !important; border-right-color: rgba(255,255,255,0.3) !important;}
+        .money-edit-desc { flex: 1; background: rgba(0,0,0,0.05) !important; }
+        .note-creator .money-edit-desc { background: rgba(0,0,0,0.3) !important;}
         .money-edit-total-bar { background: #188038; color: white; padding: 12px 15px; border-radius: 6px; text-align: right; font-weight: bold; margin-top: 10px;}
 
-        /* RECEPT STÍLUSOK */
-        .recipe-edit-row { display: flex; gap: 5px; align-items: center; margin-bottom: 5px; background: rgba(0,0,0,0.1); padding: 5px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05);}
-        .recipe-edit-row input[type="text"], .recipe-edit-row input[type="number"] { background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 6px; border-radius: 4px; outline:none;}
-        .recipe-edit-row .r-name { flex: 2; }
-        .recipe-edit-row .r-qty { flex: 1; min-width: 60px;}
-        .recipe-edit-row .r-price { width: 80px; text-align:right;}
-        .recipe-info-panel { background: rgba(0,0,0,0.05); border-left: 4px solid var(--accent-color); padding: 12px; margin-bottom: 15px; border-radius: 4px; font-size: 0.95rem; display: flex; flex-direction: column; gap: 4px;}
+        /* RECEPT STÍLUSOK ÉS DOBOZOK */
+        .recipe-section-box { border: 1px solid rgba(0,0,0,0.15); background: rgba(0,0,0,0.04); border-radius: 8px; padding: 15px; margin-bottom: 15px; }
+        .note-creator .recipe-section-box { border-color: rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); }
+        .recipe-section-box h4 { margin-top: 0; margin-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 8px; color: inherit; }
+        .note-creator .recipe-section-box h4 { border-bottom-color: rgba(255,255,255,0.1); }
+
+        .recipe-edit-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px; background: rgba(0,0,0,0.05); padding: 8px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.1);}
+        .note-creator .recipe-edit-row { background: rgba(0,0,0,0.3); border-color: rgba(255,255,255,0.2); }
+        .recipe-edit-row input[type="text"], .recipe-edit-row input[type="number"] { background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.2); color: inherit; padding: 8px; border-radius: 4px; outline:none; box-sizing: border-box; width: 100%;}
+        .note-creator .recipe-edit-row input[type="text"], .note-creator .recipe-edit-row input[type="number"] { background: rgba(0,0,0,0.4); border-color: rgba(255,255,255,0.3); color: white;}
         
+        .recipe-edit-row input[type="checkbox"] { flex: 0 0 auto; }
+        .recipe-edit-row .r-name { flex: 2 1 120px; }
+        .recipe-edit-row .r-qty { flex: 1 1 60px; }
+        .recipe-edit-row .r-price { flex: 1 1 80px; text-align:right;}
+
+        .recipe-info-panel { background: rgba(0,0,0,0.05); border-left: 4px solid var(--accent-color); padding: 12px; margin-bottom: 15px; border-radius: 4px; font-size: 0.95rem; display: flex; flex-direction: column; gap: 4px;}
+        .note-creator .recipe-info-panel { background: rgba(0,0,0,0.3); color: white; }
+
         .history-section { margin-top: 30px; padding-top: 15px; border-top: 1px dashed rgba(0,0,0,0.3); font-size: 0.85rem; }
-        .history-item { margin-bottom: 8px; color: #333; cursor: pointer; padding: 5px; border-radius: 4px; transition: background 0.2s; }
-        .history-item:hover { background: rgba(0,0,0,0.05); }
+        .history-item { margin-bottom: 8px; color: inherit; cursor: pointer; padding: 5px; border-radius: 4px; transition: background 0.2s; }
+        .history-item:hover { background: rgba(0,0,0,0.1); }
 
         .btn { padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; border: none; transition: 0.2s; display:inline-flex; align-items:center; justify-content:center; gap:5px;}
         .btn-primary { background: var(--accent-color); color: #000; }
@@ -196,7 +249,6 @@
 
         #history-banner { background: #fbbc04; color: #000; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
         
-        /* Barátok, Megosztás, Beállítások extra stílusok */
         .friend-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; margin-bottom: 8px; }
         .menu-item-btn { width: 100%; text-align: left; background: rgba(255,255,255,0.05); color: white; padding: 15px; border-radius: 8px; border: 1px solid transparent; font-size: 16px; display: flex; justify-content: space-between; cursor: pointer; transition: 0.2s; margin-bottom: 10px; }
         .menu-item-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
@@ -214,7 +266,7 @@
             <input type="email" id="email-input" class="form-control" placeholder="Email cím" style="margin-bottom:10px;">
             <input type="password" id="password-input" class="form-control" placeholder="Jelszó (min 6 kar.)" style="margin-bottom:20px;">
             <button class="btn btn-primary" id="login-btn" style="width:100%">Bejelentkezés</button>
-            <button id="reg-btn" style="background:none; color:var(--text-muted); border:none; margin-top:15px; cursor:pointer">Regisztráció</button>
+            <button id="reg-btn" style="background:none; color:var(--accent-color); border:none; margin-top:15px; cursor:pointer; font-weight:bold;">Regisztráció</button>
         </div>
     </div>
 
@@ -239,12 +291,6 @@
         </header>
 
         <div class="main-layout">
-            <div class="sidebar-toggle-strip" onclick="toggleDesktopSidebar()">
-                <span id="sidebar-toggle-icon">◀</span>
-            </div>
-
-            <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
-
             <div class="sidebar" id="sidebar">
                 <div class="sidebar-inner">
                     <div class="sidebar-header">
@@ -261,6 +307,10 @@
                     <ul id="categoryList" class="category-list"></ul>
                 </div>
             </div>
+
+            <!-- Kompakt Lebegő Gomb -->
+            <div class="sidebar-toggle-btn" id="sidebar-toggle-btn" onclick="toggleDesktopSidebar()">◀</div>
+            <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
 
             <div class="content-area">
                 <div class="container">
@@ -283,42 +333,41 @@
 
                     <!-- Jegyzetlétrehozó -->
                     <div class="note-creator" id="note-creator-panel">
-                        <div class="type-selector" style="justify-content: space-between; align-items:center;">
-                            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                                <button class="type-btn" data-type="text" onclick="setCreatorType('text')">Szöveg</button>
-                                <button class="type-btn" data-type="checklist" onclick="setCreatorType('checklist')">Checklist</button>
-                                <button class="type-btn" data-type="money" onclick="setCreatorType('money')">Pénzügy</button>
-                                <button class="type-btn" data-type="recipe" onclick="setCreatorType('recipe')">Recept</button>
+                        <div class="creator-header-bg">
+                            <div class="type-selector" style="justify-content: space-between; align-items:center;">
+                                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                                    <button class="type-btn" data-type="text" onclick="setCreatorType('text')">Szöveg</button>
+                                    <button class="type-btn" data-type="checklist" onclick="setCreatorType('checklist')">Checklist</button>
+                                    <button class="type-btn" data-type="money" onclick="setCreatorType('money')">Pénzügy</button>
+                                    <button class="type-btn" data-type="recipe" onclick="setCreatorType('recipe')">Recept</button>
+                                </div>
                             </div>
-                        </div>
-
-                        <!-- CÉL KATEGÓRIA ÉS MAPPA KIVÁLASZTÁSA -->
-                        <div style="display:flex; gap:10px; margin-bottom:15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px;">
-                            <select id="creator-category" class="form-control" style="flex:1;" onchange="updateFolderOptions('creator-category', 'creator-folder')"></select>
-                            <select id="creator-folder" class="form-control" style="flex:1;"><option value="">(Nincs mappa)</option></select>
+                            <div style="display:flex; gap:10px; margin-bottom:15px;">
+                                <select id="creator-category" class="form-control" style="flex:1;" onchange="updateFolderOptions('creator-category', 'creator-folder')"></select>
+                                <select id="creator-folder" class="form-control" style="flex:1;"><option value="">(Nincs mappa)</option></select>
+                            </div>
+                            <input type="text" id="new-title" placeholder="Jegyzet címe...">
                         </div>
                         
-                        <div class="toolbar" id="creator-toolbar" style="border-bottom-color: rgba(255,255,255,0.1); color:white;">
-                            <button onclick="document.execCommand('bold')"><b>Félkövér</b></button>
-                            <button onclick="document.execCommand('underline')"><u>Aláhúzott</u></button>
-                            <div style="display:flex; align-items:center; gap:5px; margin-left:auto; background:rgba(0,0,0,0.2); padding: 4px 8px; border-radius:4px;">
-                                <input type="checkbox" id="creator-custom-color-cb" onchange="document.getElementById('creator-custom-color').disabled = !this.checked">
-                                <label style="font-size:12px; margin-right:5px; opacity:0.8;">Egyedi háttér:</label>
-                                <input type="color" id="creator-custom-color" value="#ffe359" disabled title="Jegyzet Színe">
+                        <div class="creator-body-bg">
+                            <div class="toolbar" id="creator-toolbar" style="border-bottom-color: rgba(255,255,255,0.1); color:white;">
+                                <button onclick="document.execCommand('bold')"><b>Félkövér</b></button>
+                                <button onclick="document.execCommand('underline')"><u>Aláhúzott</u></button>
+                                <div style="display:flex; align-items:center; gap:5px; margin-left:auto; background:rgba(0,0,0,0.3); padding: 4px 8px; border-radius:4px;">
+                                    <input type="checkbox" id="creator-custom-color-cb" onchange="document.getElementById('creator-custom-color').disabled = !this.checked">
+                                    <label style="font-size:12px; margin-right:5px; opacity:0.8;">Egyedi háttér:</label>
+                                    <input type="color" id="creator-custom-color" value="#ffe359" disabled title="Jegyzet Színe">
+                                </div>
                             </div>
-                        </div>
-
-                        <input type="text" id="new-title" placeholder="Jegyzet címe..." style="background:transparent; border:none; font-size:18px; font-weight:bold; color:white; width:100%; outline:none;">
-                        
-                        <div id="creator-content-area" style="margin-top:15px;">
+                            
                             <!-- SZÖVEG -->
-                            <div id="text-creator" class="rich-editor" contenteditable="true" style="color:white; background:rgba(0,0,0,0.2); padding:10px; border-radius:8px;" placeholder="Írj valamit..."></div>
+                            <div id="text-creator" class="rich-editor" contenteditable="true" placeholder="Írj valamit..."></div>
                             
                             <!-- LISTA ÉS PÉNZÜGY -->
-                            <div id="list-creator" class="hidden" style="background:rgba(0,0,0,0.1); padding:10px; border-radius:8px; border: 1px solid rgba(255,255,255,0.05);">
+                            <div id="list-creator" class="hidden">
                                 <div id="list-items-container"></div>
                                 <div id="creator-money-total" class="money-edit-total-bar hidden">Végösszeg: 0</div>
-                                <button onclick="addListItem('list-items-container', 'creator')" class="btn" style="background:none; color:var(--accent-color); font-size:13px; margin-top:10px;">+ Új sor hozzáadása</button>
+                                <button onclick="addListItem('list-items-container', 'creator')" class="btn" style="background:rgba(255,255,255,0.1); color:white; font-size:13px; margin-top:10px;">+ Új sor hozzáadása</button>
                             </div>
 
                             <!-- RECEPT -->
@@ -329,22 +378,27 @@
                                         <option value="">Nincs</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
                                     </select>
                                 </div>
-                                <div class="recipe-info-panel" id="creator-recipe-info" style="color:white;">
+                                <div class="recipe-info-panel" id="creator-recipe-info">
                                     <div>🛒 Összetevők: <b>0 db</b></div>
                                     <div>💰 Várható költség: <b>0 lei</b></div>
                                 </div>
-                                <h4 style="color:white; margin:0 0 10px 0;">Hozzávalók (opcionális):</h4>
-                                <div id="recipe-items-container"></div>
-                                <button onclick="addListItem('recipe-items-container', 'creator')" class="btn" style="background:none; color:var(--accent-color); font-size:13px; margin-top:5px; margin-bottom:15px;">+ Új hozzávaló</button>
                                 
-                                <h4 style="color:white; margin:0 0 10px 0;">Elkészítés (opcionális):</h4>
-                                <div id="recipe-instructions" class="rich-editor" contenteditable="true" style="color:white; background:rgba(0,0,0,0.2); padding:10px; border-radius:8px;" placeholder="Írd le a lépéseket..."></div>
+                                <div class="recipe-section-box">
+                                    <h4 style="color:white;">📋 Hozzávalók (opcionális):</h4>
+                                    <div id="recipe-items-container"></div>
+                                    <button onclick="addListItem('recipe-items-container', 'creator')" class="btn" style="background:rgba(255,255,255,0.1); color:white; font-size:13px; margin-top:5px;">+ Új hozzávaló</button>
+                                </div>
+                                
+                                <div class="recipe-section-box" style="margin-bottom: 0;">
+                                    <h4 style="color:white;">👨‍🍳 Elkészítés (opcionális):</h4>
+                                    <div id="recipe-instructions" class="rich-editor" contenteditable="true" placeholder="Írd le a lépéseket..." style="margin-bottom:0;"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div style="text-align:right; margin-top:20px; display:flex; justify-content:flex-end; gap:10px;">
-                            <button onclick="hideCreatorPanel()" class="btn btn-secondary">Mégse</button>
-                            <button id="save-note" class="btn btn-save">Mentés</button>
+                            <div style="text-align:right; margin-top:20px; display:flex; justify-content:flex-end; gap:10px;">
+                                <button onclick="hideCreatorPanel()" class="btn btn-secondary">Mégse</button>
+                                <button id="save-note" class="btn btn-save">Mentés</button>
+                            </div>
                         </div>
                     </div>
 
@@ -356,13 +410,13 @@
     </div>
 
     <!-- Modals: Category, Folder, Move -->
-    <div class="modal-overlay" id="category-modal"><div class="modal-content dark-modal" style="max-width: 450px;"><div class="modal-header"><h2 id="category-modal-title" style="margin:0; color:var(--accent-color);">📂 Kategória</h2><span class="close-modal" onclick="closeModal('category-modal')">×</span></div><div class="modal-body"><input type="hidden" id="category-edit-oldname"><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Kategória neve:</label><input type="text" id="category-name-input" class="form-control" placeholder="Pl. Munka, Személyes..."></div><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Kategória ikonja:</label><div id="cat-icon-picker-grid" style="display:flex; flex-wrap:wrap; gap:8px; max-height:180px; overflow-y:auto; padding:8px; background:rgba(0,0,0,0.2); border-radius:6px; border:1px solid rgba(255,255,255,0.1);"></div><input type="hidden" id="category-icon-input" value="📁"></div></div><div class="modal-footer" style="display:flex; justify-content: flex-end; gap:10px;"><button class="btn btn-secondary" onclick="closeModal('category-modal')">Mégse</button><button class="btn btn-primary" onclick="saveCategory()">Mentés</button></div></div></div>
-    <div class="modal-overlay" id="folder-modal"><div class="modal-content dark-modal" style="max-width: 450px;"><div class="modal-header"><h2 id="folder-modal-title" style="margin:0; color:var(--accent-color);">📁 Új Mappa</h2><span class="close-modal" onclick="closeModal('folder-modal')">×</span></div><div class="modal-body"><input type="hidden" id="folder-edit-id"><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Mappa neve:</label><input type="text" id="folder-name-input" class="form-control" placeholder="Pl. Pénzügyek, Munka..."></div><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Kategória / Szülő mappa:</label><select id="folder-parent-category" class="form-control" onchange="updateFolderOptions('folder-parent-category', 'folder-parent-folder')"></select></div><div style="margin-bottom:15px;"><select id="folder-parent-folder" class="form-control"><option value="">(Gyökér - Nincs szülő mappa)</option></select></div><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Ikon választás:</label><div id="icon-picker-grid" style="display:flex; flex-wrap:wrap; gap:8px; max-height:180px; overflow-y:auto; padding:8px; background:rgba(0,0,0,0.2); border-radius:6px; border:1px solid rgba(255,255,255,0.1);"></div><input type="hidden" id="folder-icon-input" value="📁"></div></div><div class="modal-footer" style="display:flex; justify-content: flex-end; gap:10px;"><button class="btn btn-secondary" onclick="closeModal('folder-modal')">Mégse</button><button class="btn btn-primary" onclick="saveFolder()">Mentés</button></div></div></div>
-    <div class="modal-overlay" id="move-modal"><div class="modal-content dark-modal" style="max-width: 400px;"><div class="modal-header"><h2 style="margin:0; color:var(--accent-color);">📦 Jegyzet mozgatása</h2><span class="close-modal" onclick="closeModal('move-modal')">×</span></div><div class="modal-body"><div style="display:flex; flex-direction:column; gap:15px; margin-bottom:15px;"><div><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Új kategória:</label><select id="move-category" class="form-control" onchange="updateFolderOptions('move-category', 'move-folder')"></select></div><div><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Új mappa:</label><select id="move-folder" class="form-control"><option value="">(Nincs mappa)</option></select></div></div></div><div class="modal-footer" style="display:flex; justify-content: flex-end; gap:10px;"><button class="btn btn-secondary" onclick="closeModal('move-modal')">Mégse</button><button class="btn btn-primary" onclick="executeMove()">Mozgatás</button></div></div></div>
+    <div class="modal-overlay" id="category-modal"><div class="modal-content dark-modal" style="max-width: 450px; padding:25px;"><div class="modal-header"><h2 id="category-modal-title" style="margin:0; color:var(--accent-color);">📂 Kategória</h2><span class="close-modal" onclick="closeModal('category-modal')">×</span></div><div class="modal-body"><input type="hidden" id="category-edit-oldname"><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Kategória neve:</label><input type="text" id="category-name-input" class="form-control" placeholder="Pl. Munka, Személyes..."></div><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Kategória ikonja:</label><div id="cat-icon-picker-grid" style="display:flex; flex-wrap:wrap; gap:8px; max-height:180px; overflow-y:auto; padding:8px; background:rgba(0,0,0,0.2); border-radius:6px; border:1px solid rgba(255,255,255,0.1);"></div><input type="hidden" id="category-icon-input" value="📁"></div></div><div class="modal-footer" style="display:flex; justify-content: flex-end; gap:10px;"><button class="btn btn-secondary" onclick="closeModal('category-modal')">Mégse</button><button class="btn btn-primary" onclick="saveCategory()">Mentés</button></div></div></div>
+    <div class="modal-overlay" id="folder-modal"><div class="modal-content dark-modal" style="max-width: 450px; padding:25px;"><div class="modal-header"><h2 id="folder-modal-title" style="margin:0; color:var(--accent-color);">📁 Új Mappa</h2><span class="close-modal" onclick="closeModal('folder-modal')">×</span></div><div class="modal-body"><input type="hidden" id="folder-edit-id"><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Mappa neve:</label><input type="text" id="folder-name-input" class="form-control" placeholder="Pl. Pénzügyek, Munka..."></div><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Kategória / Szülő mappa:</label><select id="folder-parent-category" class="form-control" onchange="updateFolderOptions('folder-parent-category', 'folder-parent-folder')"></select></div><div style="margin-bottom:15px;"><select id="folder-parent-folder" class="form-control"><option value="">(Gyökér - Nincs szülő mappa)</option></select></div><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Ikon választás:</label><div id="icon-picker-grid" style="display:flex; flex-wrap:wrap; gap:8px; max-height:180px; overflow-y:auto; padding:8px; background:rgba(0,0,0,0.2); border-radius:6px; border:1px solid rgba(255,255,255,0.1);"></div><input type="hidden" id="folder-icon-input" value="📁"></div></div><div class="modal-footer" style="display:flex; justify-content: flex-end; gap:10px;"><button class="btn btn-secondary" onclick="closeModal('folder-modal')">Mégse</button><button class="btn btn-primary" onclick="saveFolder()">Mentés</button></div></div></div>
+    <div class="modal-overlay" id="move-modal"><div class="modal-content dark-modal" style="max-width: 400px; padding:25px;"><div class="modal-header"><h2 style="margin:0; color:var(--accent-color);">📦 Jegyzet mozgatása</h2><span class="close-modal" onclick="closeModal('move-modal')">×</span></div><div class="modal-body"><div style="display:flex; flex-direction:column; gap:15px; margin-bottom:15px;"><div><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Új kategória:</label><select id="move-category" class="form-control" onchange="updateFolderOptions('move-category', 'move-folder')"></select></div><div><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Új mappa:</label><select id="move-folder" class="form-control"><option value="">(Nincs mappa)</option></select></div></div></div><div class="modal-footer" style="display:flex; justify-content: flex-end; gap:10px;"><button class="btn btn-secondary" onclick="closeModal('move-modal')">Mégse</button><button class="btn btn-primary" onclick="executeMove()">Mozgatás</button></div></div></div>
 
     <!-- Modals: Barátok, Megosztás, Beállítások -->
     <div class="modal-overlay" id="friends-modal">
-        <div class="modal-content dark-modal" style="max-width: 500px;">
+        <div class="modal-content dark-modal" style="max-width: 500px; padding:25px;">
             <div class="modal-header">
                 <h2 style="margin:0; color:var(--accent-color);">👥 Barátok</h2>
                 <span class="close-modal" onclick="closeModal('friends-modal')">×</span>
@@ -386,7 +440,7 @@
     </div>
 
     <div class="modal-overlay" id="share-modal">
-        <div class="modal-content dark-modal" style="max-width: 500px;">
+        <div class="modal-content dark-modal" style="max-width: 500px; padding:25px;">
             <div class="modal-header">
                 <h2 style="margin:0; color:var(--accent-color);">👤 Jegyzet megosztása</h2>
                 <span class="close-modal" onclick="closeModal('share-modal')">×</span>
@@ -406,7 +460,7 @@
     </div>
 
     <div class="modal-overlay" id="settings-modal">
-        <div class="modal-content dark-modal" style="max-width: 650px; min-height: 400px;">
+        <div class="modal-content dark-modal" style="max-width: 650px; min-height: 400px; padding:25px;">
             <div class="modal-header">
                 <div style="display:flex; align-items:center; gap:10px;">
                     <button id="settings-back-btn" class="hidden" onclick="settingsGoBack()" style="background:transparent; border:none; color:var(--text-main); font-size:20px; cursor:pointer; padding:0;">⬅</button>
@@ -448,16 +502,13 @@
         </div>
     </div>
 
-    <!-- Jegyzet Modal -->
+    <!-- Jegyzet Modal (Strukturálisan frissítve a rögzített címmel) -->
     <div class="modal-overlay" id="note-modal">
         <div class="modal-content view-mode" id="modal-container">
-            <div id="history-banner" class="hidden">
-                <span>🕒 Múltbeli állapotot nézel!</span>
-                <button class="btn" onclick="restoreLiveView()" style="background:#000; color:#fff; padding: 5px 10px; font-size: 12px;">Vissza a jelenbe</button>
-            </div>
-
-            <div class="modal-header">
-                <h2 id="modal-title" style="margin:0; outline:none; flex:1;"></h2>
+            <div class="note-modal-header-bg">
+                <div style="flex:1; padding-right:15px;">
+                    <h2 id="modal-title" style="margin:0; outline:none; font-size:1.5rem;"></h2>
+                </div>
                 <div style="display:flex; align-items:center; gap:10px;">
                     <div style="position:relative;">
                         <button class="kebab-btn" onclick="toggleModalMenu(event)">⋮</button>
@@ -471,7 +522,12 @@
                 </div>
             </div>
             
-            <div id="modal-body">
+            <div class="note-modal-body-bg">
+                <div id="history-banner" class="hidden">
+                    <span>🕒 Múltbeli állapotot nézel!</span>
+                    <button class="btn" onclick="restoreLiveView()" style="background:#000; color:#fff; padding: 5px 10px; font-size: 12px;">Vissza a jelenbe</button>
+                </div>
+
                 <div id="modal-category-container" class="edit-only" style="display:flex; gap:10px; margin-bottom:15px; border-bottom: 1px dashed rgba(0,0,0,0.2); padding-bottom:15px;">
                     <select id="modal-category" class="form-control" style="flex:1; background:rgba(0,0,0,0.05); border:1px solid rgba(0,0,0,0.2); color:#000;" onchange="updateFolderOptions('modal-category', 'modal-folder')"></select>
                     <select id="modal-folder" class="form-control" style="flex:1; background:rgba(0,0,0,0.05); border:1px solid rgba(0,0,0,0.2); color:#000;"><option value="">(Nincs mappa)</option></select>
@@ -486,16 +542,17 @@
                         <input type="color" id="modal-custom-color" value="#ffe359" disabled title="Jegyzet Színe" onchange="applyModalCustomColor()">
                     </div>
                 </div>
+                
                 <div id="modal-content-display"></div>
-            </div>
 
-            <div class="modal-footer" style="margin-top:20px; display:flex; justify-content: flex-end; align-items:center;">
-                <button id="save-edit-btn" class="btn btn-save edit-only" onclick="saveEdit()">Változtatások mentése</button>
-            </div>
+                <div class="modal-footer" style="margin-top:20px; display:flex; justify-content: flex-end; align-items:center;">
+                    <button id="save-edit-btn" class="btn btn-save edit-only" onclick="saveEdit()">Változtatások mentése</button>
+                </div>
 
-            <div class="history-section" id="modal-history">
-                <b>Előzmények (kattints egyre az időgéphez):</b>
-                <div id="history-list"></div>
+                <div class="history-section" id="modal-history">
+                    <b>Előzmények (kattints egyre az időgéphez):</b>
+                    <div id="history-list"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -535,7 +592,6 @@
         let bgThemes = [];
         let activeNoteTheme = null; 
         let activeBgTheme = null; 
-        let settingsCurrentView = 'main';
 
         let userCategories = [];
         let userFolders = [];
@@ -672,28 +728,27 @@
             document.getElementById(containerId).appendChild(div);
         };
 
+        /* LOGIN / REGISZTRÁCIÓ (Javítva!) */
         window.logout = () => signOut(auth);
-        document.getElementById('login-btn').onclick = () => signInWithEmailAndPassword(auth, document.getElementById('email-input').value, document.getElementById('password-input').value).catch(err => alert("Hibás email vagy jelszó."));
+        
+        document.getElementById('login-btn').onclick = () => {
+            signInWithEmailAndPassword(auth, document.getElementById('email-input').value, document.getElementById('password-input').value)
+            .catch(err => alert("Hibás email vagy jelszó."));
+        };
+        
         document.getElementById('reg-btn').onclick = () => {
-    const email = document.getElementById('email-input').value.trim();
-    const pw = document.getElementById('password-input').value;
-    
-    if(!email) return alert("Kérlek, add meg az e-mail címed!");
-    if(pw.length < 6) return alert("A jelszónak legalább 6 karakternek kell lennie!");
-    
-    createUserWithEmailAndPassword(auth, email, pw)
-    .then((cred) => {
-        // Alapértelmezett profil létrehozása az adatbázisban az új felhasználónak
-        setDoc(doc(db, "users", cred.user.email), {
-            friends: [], 
-            categories: [], 
-            folders: [], 
-            noteThemes: [], 
-            bgThemes: []
-        });
-        alert("Sikeres regisztráció!");
-    }).catch(err => alert("Regisztrációs hiba: " + err.message));
-};
+            const email = document.getElementById('email-input').value.trim();
+            const pw = document.getElementById('password-input').value;
+            if(!email) return alert("Kérlek, add meg az e-mail címed!");
+            if(pw.length < 6) return alert("A jelszónak legalább 6 karakternek kell lennie!");
+            
+            createUserWithEmailAndPassword(auth, email, pw)
+            .then((cred) => {
+                setDoc(doc(db, "users", cred.user.email), { friends: [], categories: [], folders: [], noteThemes: [], bgThemes: [] });
+                alert("Sikeres regisztráció!");
+            }).catch(err => alert("Regisztrációs hiba: " + err.message));
+        };
+        
         onAuthStateChanged(auth, u => {
             user = u;
             if(u){
@@ -849,7 +904,7 @@
                 children.forEach(f => {
                     if(f.id === excludeFolderId) return; 
                     fel.innerHTML += `<option value="${f.id}">${prefix}${f.icon || '📁'} ${escapeHtml(f.name)}</option>`;
-                    buildOptions(f.id, prefix + "   ");
+                    buildOptions(f.id, prefix + "\xA0\xA0\xA0");
                 });
             };
             buildOptions(null, "");
@@ -975,7 +1030,7 @@
             }
         };
 
-        /* JEGYZET MENTÉSE */
+        /* JEGYZET MENTÉSE KREÁTORBÓL */
         document.getElementById('save-note').onclick = async () => {
             const title = document.getElementById('new-title').value;
             let content = "", items = [], rating = "";
@@ -1212,7 +1267,7 @@
             }
         };
 
-        /* KÁRTYA ELŐNÉZET LOGIKA (Most már szép asztali money preview-al) */
+        /* KÁRTYA ELŐNÉZET LOGIKA: Sortörések és Új Megjelenés */
         window.renderAllNotes = () => {
             const grid = document.getElementById('notes-grid');
             if(!grid) return; grid.innerHTML = '';
@@ -1237,21 +1292,29 @@
                 card.className = isShared ? 'note-card shared' : 'note-card';
                 if (note.customColor) card.style.background = note.customColor;
                 
-                card.onclick = (e) => { if (!e.target.closest('a') && !e.target.closest('button')) openNote(note.id); };
+                card.onclick = (e) => { if (!e.target.closest('a') && !e.target.closest('button') && !e.target.closest('.kebab-btn')) openNote(note.id); };
                 
                 let previewHtml = "";
                 if(note.type === 'text') {
-                    previewHtml = (note.content || "").replace(/<[^>]*>?/gm, ' ').substring(0, 150) + "...";
+                    // Megőrizzük az entereket előnézetben is
+                    let plainText = (note.content || "")
+                        .replace(/<br\s*\/?>/gi, '\n')
+                        .replace(/<\/div>|<\/p>/gi, '\n')
+                        .replace(/<[^>]*>?/gm, '')
+                        .replace(/\n\s*\n/g, '\n')
+                        .trim();
+                    let truncated = plainText.substring(0, 150) + (plainText.length > 150 ? "..." : "");
+                    previewHtml = truncated.replace(/\n/g, '<br>');
                 } else if(note.type === 'checklist') {
                     previewHtml = (note.items || []).slice(0, 3).map(i => `<div class="preview-list-item"><span>${i.checked ? '☑' : '☐'}</span> <span>${escapeHtml(i.text)}</span></div>`).join('');
                 } else if (note.type === 'money') {
                     const sum = (note.items || []).reduce((acc, curr) => acc + (curr.amount || 0), 0);
-                    previewHtml = `<table class="money-preview-table"><tbody>`;
+                    previewHtml = `<table class="money-preview-table"><thead><tr><th class="col-amt">Összeg</th><th class="col-desc">Leírás</th></tr></thead><tbody>`;
                     (note.items || []).slice(0, 3).forEach(i => {
                         previewHtml += `<tr><td class="col-amt">${i.amount}</td><td class="col-desc">${escapeHtml(i.text)}</td></tr>`;
                     });
                     if((note.items || []).length > 3) {
-                        previewHtml += `<tr><td colspan="2" style="text-align:center; font-size: 0.75rem; opacity:0.7;">+ további elemek...</td></tr>`;
+                        previewHtml += `<tr><td colspan="2" style="text-align:center; font-size: 0.75rem; opacity:0.7; background:rgba(0,0,0,0.05);">+ további elemek...</td></tr>`;
                     }
                     previewHtml += `<tr class="money-preview-total"><td class="col-amt">${sum}</td><td class="col-desc">Végösszeg</td></tr></tbody></table>`;
                 } else if (note.type === 'recipe') {
@@ -1261,19 +1324,36 @@
                     const sum = (note.items || []).reduce((acc, curr) => acc + (curr.amount || 0), 0);
                     if(sum > 0) previewHtml += `<div style="margin-top: 5px; font-weight: bold;">💰 Költség: ${sum} lei</div>`;
                 }
+
+                // Címke (badge) logika
+                const safeSharedWith = note.sharedWith || [];
+                const safePending = note.pendingUsers || [];
+                let badgeHtml = "";
+                
+                if (!isOwner) {
+                    badgeHtml = `<div class="badge">👥 Tőle: ${escapeHtml(note.owner.split('@')[0])}</div>`;
+                } else if (safeSharedWith.length > 0 || safePending.length > 0) {
+                    const allSharedNames = [...safeSharedWith, ...safePending].map(e => escapeHtml(e.split('@')[0])).join(', ');
+                    badgeHtml = `<div class="badge">👥 Megosztva vele: ${allSharedNames}</div>`;
+                }
                 
                 card.innerHTML = `
-                    <div style="position:absolute; top:10px; right:10px; z-index: 10;">
-                        <button class="kebab-btn" onclick="toggleGridMenu('${note.id}', event)">⋮</button>
-                        <div class="note-dropdown hidden" id="dropdown-${note.id}">
-                            <button onclick="quickEditNote('${note.id}', event)">Szerkesztés</button>
-                            <button onclick="openMoveModal('${note.id}', event)">📦 Mozgatás</button>
-                            <button onclick="openShareModal('${note.id}', event)">Megosztás</button>
-                            <button onclick="deleteFromGrid('${note.id}', event)" style="color:var(--danger-color)">Törlés</button>
+                    <div class="note-card-title">
+                        <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 5px;">${escapeHtml(note.title) || 'Névtelen jegyzet'}</div>
+                        <div style="position:absolute; top:8px; right:10px; z-index: 10;">
+                            <button class="kebab-btn" onclick="toggleGridMenu('${note.id}', event)">⋮</button>
+                            <div class="note-dropdown hidden" id="dropdown-${note.id}">
+                                <button onclick="quickEditNote('${note.id}', event)">Szerkesztés</button>
+                                <button onclick="openMoveModal('${note.id}', event)">📦 Mozgatás</button>
+                                <button onclick="openShareModal('${note.id}', event)">Megosztás</button>
+                                <button onclick="deleteFromGrid('${note.id}', event)" style="color:var(--danger-color)">Törlés</button>
+                            </div>
                         </div>
                     </div>
-                    <h3 style="padding-right: 30px;">${note.title || 'Névtelen jegyzet'}</h3>
-                    <div class="preview-content">${previewHtml}</div>
+                    <div class="note-card-content-wrapper">
+                        ${badgeHtml}
+                        <div class="preview-content">${previewHtml}</div>
+                    </div>
                 `;
                 grid.appendChild(card);
             });
@@ -1332,7 +1412,7 @@
             document.getElementById('modal-title').contentEditable = false;
             
             if(type === 'text') { 
-                body.innerHTML = `<div id="modal-text-content" class="rich-editor" contenteditable="false">${content || ''}</div>`; 
+                body.innerHTML = `<div id="modal-text-content" class="rich-editor" contenteditable="false" style="border:none; padding:0; background:transparent;">${content || ''}</div>`; 
             } else if (type === 'checklist') {
                 body.innerHTML = `<div id="modal-items-container">` + (items || []).map(item => `<div class="list-item"><input type="checkbox" ${item.checked ? 'checked' : ''} disabled> <span>${escapeHtml(item.text)}</span></div>`).join('') + `</div>`;
             } else if (type === 'money') {
@@ -1365,12 +1445,18 @@
                             <div>🛒 Összetevők: <b>${count} db</b></div>
                             <div>💰 Teljes költség: <b>${sum} lei</b></div>
                         </div>
-                        ${items && items.length > 0 ? `<h4 style="margin:0 0 10px 0; border-bottom:1px solid rgba(0,0,0,0.1); padding-bottom:5px;">📋 Hozzávalók:</h4>
-                        <div style="margin-bottom:15px;">
-                            ${items.map(i => `<div style="margin-bottom:5px; display:flex; align-items:center; gap:8px;"><span>${i.checked ? '☑' : '☐'}</span> <b>${escapeHtml(i.text)}</b> ${i.qty ? `<span style="opacity:0.8; font-size:0.9em">(${escapeHtml(i.qty)})</span>` : ''} ${i.amount ? `<span style="margin-left:auto; font-family:monospace; background:rgba(0,0,0,0.05); padding:2px 6px; border-radius:4px;">${i.amount} lei</span>` : ''}</div>`).join('')}
-                        </div>` : ''}
-                        ${content && content !== '<br>' ? `<h4 style="margin:0 0 10px 0; border-bottom:1px solid rgba(0,0,0,0.1); padding-bottom:5px;">👨‍🍳 Elkészítés:</h4>
-                        <div>${content}</div>` : ''}
+                        
+                        <div class="recipe-section-box">
+                            <h4>📋 Hozzávalók:</h4>
+                            <div>
+                                ${items && items.length > 0 ? items.map(i => `<div style="margin-bottom:5px; display:flex; align-items:center; gap:8px;"><span>${i.checked ? '☑' : '☐'}</span> <b>${escapeHtml(i.text)}</b> ${i.qty ? `<span style="opacity:0.8; font-size:0.9em">(${escapeHtml(i.qty)})</span>` : ''} ${i.amount ? `<span style="margin-left:auto; font-family:monospace; background:rgba(0,0,0,0.05); padding:2px 6px; border-radius:4px;">${i.amount} lei</span>` : ''}</div>`).join('') : '<span style="opacity:0.7">Nincs megadva hozzávaló.</span>'}
+                            </div>
+                        </div>
+
+                        <div class="recipe-section-box" style="margin-bottom: 0;">
+                            <h4>👨‍🍳 Elkészítés:</h4>
+                            <div>${content && content !== '<br>' ? content : '<span style="opacity:0.7">Nincs megadva leírás.</span>'}</div>
+                        </div>
                     </div>
 
                     <div class="edit-only">
@@ -1385,21 +1471,26 @@
                             <div>🛒 Összetevők: <b>${count} db</b></div>
                             <div>💰 Várható költség: <b>${sum} lei</b></div>
                         </div>
-                        <h4 style="margin:0 0 10px 0;">Hozzávalók:</h4>
-                        <div id="modal-items-container">
-                            ${(items || []).map(i => `
-                                <div class="recipe-edit-row">
-                                    <input type="checkbox" ${i.checked ? 'checked' : ''}>
-                                    <input type="text" value="${escapeHtml(i.text)}" class="r-name" oninput="calcRecipeInfo('modal')">
-                                    <input type="text" value="${escapeHtml(i.qty||'')}" class="r-qty">
-                                    <input type="number" value="${i.amount||''}" class="r-price" oninput="calcRecipeInfo('modal')">
-                                </div>
-                            `).join('')}
-                        </div>
-                        <button class="btn" style="background:rgba(0,0,0,0.1); color:#000; margin-top:5px; margin-bottom:15px;" onclick="addListItem('modal-items-container', 'modal')">+ Új hozzávaló</button>
                         
-                        <h4 style="margin:0 0 10px 0;">Elkészítés:</h4>
-                        <div id="modal-recipe-instructions" class="rich-editor" contenteditable="true" style="background:rgba(0,0,0,0.05); padding:10px; border-radius:8px; border:1px solid rgba(0,0,0,0.1);">${content || ''}</div>
+                        <div class="recipe-section-box">
+                            <h4>📋 Hozzávalók:</h4>
+                            <div id="modal-items-container">
+                                ${(items || []).map(i => `
+                                    <div class="recipe-edit-row">
+                                        <input type="checkbox" ${i.checked ? 'checked' : ''}>
+                                        <input type="text" value="${escapeHtml(i.text)}" class="r-name" oninput="calcRecipeInfo('modal')">
+                                        <input type="text" value="${escapeHtml(i.qty||'')}" class="r-qty">
+                                        <input type="number" value="${i.amount||''}" class="r-price" oninput="calcRecipeInfo('modal')">
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <button class="btn" style="background:rgba(0,0,0,0.1); color:#000; margin-top:5px;" onclick="addListItem('modal-items-container', 'modal')">+ Új hozzávaló</button>
+                        </div>
+
+                        <div class="recipe-section-box" style="margin-bottom: 0;">
+                            <h4>👨‍🍳 Elkészítés:</h4>
+                            <div id="modal-recipe-instructions" class="rich-editor" contenteditable="true" style="background:rgba(0,0,0,0.05); padding:10px; border-radius:8px; border:1px solid rgba(0,0,0,0.1); margin-bottom:0;">${content || ''}</div>
+                        </div>
                     </div>
                 `;
             }
@@ -1415,7 +1506,8 @@
             const note = myNotesMap.get(currentNoteId) || sharedNotesMap.get(currentNoteId);
             const targetHistory = note.history[historyIndex];
             if(!targetHistory.state) return alert("Hiba a verzióval.");
-            document.getElementById('modal-container').className = 'modal-content view-mode';
+            document.getElementById('modal-container').classList.add('view-mode');
+            document.getElementById('modal-container').classList.remove('edit-mode');
             document.getElementById('history-banner').classList.remove('hidden');
             renderModalState(targetHistory.state.title, note.type, targetHistory.state.content, targetHistory.state.items, targetHistory.state.rating, null);
         };
