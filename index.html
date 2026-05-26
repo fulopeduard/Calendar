@@ -28,7 +28,7 @@
             --folder-active: rgba(138, 180, 248, 0.2);
         }
 
-        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(145deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%); background-attachment: fixed; margin: 0; color: var(--text-main); height: 100vh; display: flex; flex-direction: column; overflow: hidden; transition: background 0.5s ease; }
+        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(145deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%); background-attachment: fixed; margin: 0; color: var(--text-main); height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; transition: background 0.5s ease; }
         header { background: var(--surface-color); padding: 15px 30px; display: flex; align-items: center; justify-content: space-between; backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); z-index: 100; flex-shrink: 0; }
         .header-left, .header-right { display: flex; align-items: center; gap: 15px; }
         .user-email-text { font-size: 13px; color: var(--text-main); opacity: 0.8;}
@@ -56,12 +56,13 @@
         .sidebar.collapsed ~ .sidebar-toggle-btn { left: 0; }
         .sidebar-toggle-btn:hover { background: var(--accent-color); color: #000; }
 
-        .sidebar { width: 280px; background: var(--sidebar-bg); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; overflow-x: hidden; backdrop-filter: blur(10px); transition: width 0.3s ease, transform 0.3s ease; z-index: 100;}
+        .sidebar { width: 280px; background: var(--sidebar-bg); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; flex-shrink: 0; overflow: hidden; backdrop-filter: blur(10px); transition: width 0.3s ease, transform 0.3s ease; z-index: 100;}
         .sidebar-inner { min-width: 280px; display: flex; flex-direction: column; height: 100%; }
         .sidebar.collapsed { width: 0; border-right: none; }
         .sidebar-overlay { display: none; position: absolute; inset: 0; background: rgba(0,0,0,0.6); z-index: 998; backdrop-filter: blur(3px); }
 
-        .content-area { flex: 1; overflow-y: auto; padding: 20px; }
+        /* Módosított alsó padding a mobilos takarás ellen */
+        .content-area { flex: 1; overflow-y: auto; padding: 20px; padding-bottom: 120px; }
         .container { max-width: 1100px; margin: 0 auto; }
 
         @media (max-width: 768px) {
@@ -77,8 +78,8 @@
             .sidebar-overlay.open { display: block; }
         }
 
-        .sidebar-header { padding: 15px; border-bottom: 1px solid var(--border-color); }
-        .category-list { list-style: none; padding: 0; margin: 0; }
+        .sidebar-header { padding: 15px; border-bottom: 1px solid var(--border-color); flex-shrink: 0; }
+        .category-list { list-style: none; padding: 0; margin: 0; flex: 1; overflow-y: auto; }
         .category-item { padding: 10px 15px; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; color: var(--text-main); font-weight: 500; transition: background 0.2s; }
         .category-item:hover { background: var(--folder-hover); }
         .category-item.active { background: var(--accent-color); color: #000; font-weight: bold; }
@@ -105,10 +106,8 @@
         .icon-option:hover { background: rgba(255,255,255,0.1); transform: scale(1.1); }
         .icon-option.selected { border-color: var(--accent-color); background: rgba(138, 180, 248, 0.2); }
 
-        .add-note-wrapper { position: relative; text-align: center; margin: 0 auto 30px auto; }
-        .add-note-btn { background: var(--accent-color); color: #000; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 32px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.4); transition: transform 0.2s, box-shadow 0.2s; display: flex; align-items: center; justify-content: center; margin: 0 auto; }
-        .add-note-btn:hover { transform: scale(1.05); box-shadow: 0 6px 14px rgba(0,0,0,0.5); }
-        .type-dropdown { position: absolute; top: 75px; left: 50%; transform: translateX(-50%); background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 5px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); z-index: 10; min-width: 150px; display: none; opacity: 0; transition: opacity 0.2s; }
+        /* Új lenyíló a fejlécben a hozzáadáshoz */
+        .type-dropdown { position: absolute; right: 0; top: 45px; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 5px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); z-index: 10; min-width: 150px; display: none; opacity: 0; transition: opacity 0.2s; }
         .type-dropdown.show { display: flex; opacity: 1; }
         .type-dropdown button { background: transparent; border: none; color: white; padding: 12px 20px; cursor: pointer; border-radius: 6px; text-align: left; font-size: 15px; font-weight: 500; transition: background 0.2s; }
         .type-dropdown button:hover { background: rgba(255,255,255,0.1); }
@@ -130,11 +129,10 @@
         .note-creator #new-title { background: transparent; border: none; border-bottom: 2px solid rgba(255,255,255,0.4); font-size: 18px; font-weight: bold; color: white; width: 100%; outline: none; padding-bottom: 8px; border-radius: 0; transition: border-color 0.3s; }
         .note-creator #new-title:focus { border-bottom-color: var(--accent-color); }
 
-        /* GRID KÁRTYÁK ÚJ STÍLUSA (Külön Cím és Tartalom bg) */
+        /* GRID KÁRTYÁK ÚJ STÍLUSA */
         .notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; align-items: start; }
         @media (max-width: 650px) { .notes-grid { grid-template-columns: 1fr; } }
 
-        /* MÓDOSÍTÁS: A note-card kapott egy alap z-indexet, amit meg fogunk emelni a JS-ből */
         .note-card { background: var(--card-bg); color: var(--text-dark); border-radius: 10px; cursor: pointer; transition: transform 0.2s, box-shadow 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.3); position: relative; z-index: 1; width: 100%; box-sizing: border-box; padding: 0; display: flex; flex-direction: column; overflow: visible; }
         .note-card.shared { background: var(--card-shared-bg); }
         .note-card:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.5); }
@@ -154,7 +152,7 @@
         .note-dropdown button { background: transparent; border: none; color: white; padding: 10px 15px; cursor: pointer; border-radius: 4px; text-align: left; font-size: 14px; transition: background 0.2s; }
         .note-dropdown button:hover { background: rgba(255,255,255,0.1); }
 
-        /* MODAL ÚJ STÍLUS: Rögzített sötét fejléc, görgethető világosabb tartalom */
+        /* MODAL ÚJ STÍLUS */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 1000; backdrop-filter: blur(5px); }
         .modal-content { background: var(--card-bg); color: var(--text-dark); width: 90%; max-width: 700px; max-height: 90vh; border-radius: 15px; overflow: hidden; position: relative; display: flex; flex-direction: column; transition: background 0.3s; padding: 0;}
         .modal-content.dark-modal { background: var(--surface-color); color: var(--text-main); border: 1px solid var(--border-color); padding: 25px; overflow-y: auto;} 
@@ -253,9 +251,12 @@
         .friend-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; margin-bottom: 8px; }
         .menu-item-btn { width: 100%; text-align: left; background: rgba(255,255,255,0.05); color: white; padding: 15px; border-radius: 8px; border: 1px solid transparent; font-size: 16px; display: flex; justify-content: space-between; cursor: pointer; transition: 0.2s; margin-bottom: 10px; }
         .menu-item-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
-        .color-picker-wrapper { display: flex; flex-direction: column; gap: 5px; }
-        .color-picker-wrapper label { font-size: 13px; opacity: 0.9; }
-        .color-picker-wrapper input[type="color"] { width: 100%; height: 45px; border: 1px solid var(--border-color); border-radius: 8px; padding: 0; background: transparent; cursor: pointer; }
+        
+        /* ÚJ KERESŐ SÁV A FEJLÉCBEN */
+        #header-note-search { width: 220px; transition: width 0.3s ease, opacity 0.3s ease; }
+        #header-note-search.hidden { width: 0; padding: 0; border: none; opacity: 0; margin: 0; }
+        @media (max-width: 500px) { #header-note-search { width: 140px; } }
+        
     </style>
 </head>
 <body>
@@ -270,22 +271,29 @@
         </div>
     </div>
 
-    <div id="app-container" class="hidden" style="display: flex; flex-direction: column; height: 100vh;">
+    <div id="app-container" class="hidden" style="display: flex; flex-direction: column; height: 100%;">
         <header>
             <div class="header-left">
                 <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
                 <div class="app-title" style="font-weight:bold; font-size: 22px;">✨ CloudKeep <span style="color:var(--accent-color)">Pro</span></div>
             </div>
-            <div class="header-right">
+            <div class="header-right" style="gap: 10px;">
                 <span id="user-mail" class="user-email-text"></span>
-                <button onclick="openFriendsModal()" class="btn btn-secondary" style="position: relative;" title="Barátok">
-                    👥 <span class="header-btn-text">Barátok</span>
-                    <span id="req-badge" class="hidden" style="position: absolute; top:-5px; right:-5px; background:var(--danger-color); color:#000; border-radius:50%; width:18px; height:18px; font-size:11px; display:flex; align-items:center; justify-content:center;">0</span>
-                </button>
-                <button onclick="openSettingsModal()" class="btn btn-secondary" title="Beállítások">
-                    ⚙️ <span class="header-btn-text">Beállítások</span>
-                </button>
-                <button onclick="logout()" class="btn" style="background:#3c4043; color:white; font-size:12px;" title="Kijelentkezés">🚪 <span class="header-btn-text">Kijelentkezés</span></button>
+                
+                <div style="display:flex; align-items:center; gap:5px;">
+                    <input type="text" id="header-note-search" class="form-control hidden" placeholder="Keresés..." style="font-size: 13px;" onkeyup="renderAllNotes()">
+                    <button onclick="toggleHeaderSearch()" class="btn btn-secondary" style="padding: 6px 10px; border-radius: 50%;" title="Keresés">🔍</button>
+                </div>
+
+                <div style="position: relative;">
+                    <button class="btn btn-primary add-header-btn" onclick="toggleDropdown(event)" style="border-radius: 50%; width: 36px; height: 36px; font-size: 24px; padding: 0; display:flex; justify-content:center; align-items:center; line-height:1;" title="Új Jegyzet">+</button>
+                    <div class="type-dropdown" id="type-dropdown">
+                        <button onclick="startCreating('text')">📝 Szöveg</button>
+                        <button onclick="startCreating('checklist')">☑ Checklist</button>
+                        <button onclick="startCreating('money')">💰 Pénzügy</button>
+                        <button onclick="startCreating('recipe')">🍳 Recept</button>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -303,7 +311,18 @@
                             <button class="btn btn-secondary" style="flex:1; font-size: 0.8rem; padding: 6px;" onclick="openFolderModal()">+ Új Mappa</button>
                         </div>
                     </div>
+                    
                     <ul id="categoryList" class="category-list"></ul>
+                    
+                    <div class="sidebar-footer" style="padding: 15px; border-top: 1px solid var(--border-color); display:flex; flex-direction:column; gap:8px; flex-shrink: 0; background: rgba(0,0,0,0.1);">
+                        <button onclick="openFriendsModal()" class="btn btn-secondary" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+                            <span>👥 Barátok</span>
+                            <span id="req-badge" class="hidden" style="background:var(--danger-color); color:#000; border-radius:10px; padding: 2px 6px; font-size:11px; font-weight:bold;">0</span>
+                        </button>
+                        <button onclick="openSettingsModal()" class="btn btn-secondary" style="display:flex; justify-content:flex-start; width:100%;">⚙️ Beállítások</button>
+                        <button onclick="logout()" class="btn" style="background:#3c4043; color:white; display:flex; justify-content:flex-start; width:100%;">🚪 Kijelentkezés</button>
+                    </div>
+
                 </div>
             </div>
 
@@ -313,19 +332,8 @@
             <div class="content-area">
                 <div class="container">
                     
-                    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom:10px; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                    <div style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom:10px; margin-bottom: 20px;">
                         <h2 id="current-view-title" style="margin:0;">📚 Minden jegyzet</h2>
-                        <input type="text" id="note-search" class="form-control" style="max-width: 300px;" placeholder="🔍 Keresés jegyzetekben..." onkeyup="renderAllNotes()">
-                    </div>
-
-                    <div class="add-note-wrapper" id="add-note-wrapper">
-                        <button class="add-note-btn" onclick="toggleDropdown(event)">+</button>
-                        <div class="type-dropdown" id="type-dropdown">
-                            <button onclick="startCreating('text')">📝 Szöveg</button>
-                            <button onclick="startCreating('checklist')">☑ Checklist</button>
-                            <button onclick="startCreating('money')">💰 Pénzügy</button>
-                            <button onclick="startCreating('recipe')">🍳 Recept</button>
-                        </div>
                     </div>
 
                     <div class="note-creator" id="note-creator-panel">
@@ -644,15 +652,28 @@
         };
         window.toggleSidebarEditMode = () => { isSidebarEditMode = !isSidebarEditMode; document.getElementById('sidebar').classList.toggle('edit-mode', isSidebarEditMode); renderSidebarCategories(); };
         
-        /* MÓDOSÍTÁS: Az összes kártya z-indexének visszaállítása a menük bezárásakor */
         window.closeAllDropdowns = () => { 
             document.querySelectorAll('.note-dropdown').forEach(d => d.classList.add('hidden')); 
-            document.querySelectorAll('.note-card').forEach(c => c.style.zIndex = ''); // Visszaállás az alapértelmezettre
+            document.querySelectorAll('.note-card').forEach(c => c.style.zIndex = '');
         };
 
-        window.onclick = function(event) { if (!event.target.matches('.add-note-btn')) { const dropdown = document.getElementById('type-dropdown'); if(dropdown) dropdown.classList.remove('show'); } if (!event.target.matches('.kebab-btn')) closeAllDropdowns(); }
+        // Kereső Sáv Logika
+        window.toggleHeaderSearch = () => {
+            const searchInput = document.getElementById('header-note-search');
+            searchInput.classList.toggle('hidden');
+            if(!searchInput.classList.contains('hidden')) {
+                searchInput.focus();
+            }
+        };
+
+        window.onclick = function(event) { 
+            if (!event.target.closest('.add-header-btn')) { 
+                const dropdown = document.getElementById('type-dropdown'); 
+                if(dropdown) dropdown.classList.remove('show'); 
+            } 
+            if (!event.target.closest('.kebab-btn')) closeAllDropdowns(); 
+        }
         
-        /* MÓDOSÍTÁS: Aktív kártya felemelése a z-index megváltoztatásával */
         window.toggleGridMenu = (id, event) => { 
             event.stopPropagation(); 
             const dropdown = document.getElementById(`dropdown-${id}`);
@@ -661,7 +682,7 @@
             closeAllDropdowns(); 
             if (isHidden) { 
                 dropdown.classList.remove('hidden'); 
-                if (card) card.style.zIndex = '500'; // Nagyon magas érték, hogy minden felett legyen
+                if (card) card.style.zIndex = '500';
             } 
         };
 
@@ -670,7 +691,6 @@
 
         window.startCreating = (type) => {
             document.getElementById('type-dropdown').classList.remove('show');
-            document.getElementById('add-note-wrapper').classList.add('hidden');
             document.getElementById('note-creator-panel').style.display = 'block';
             setCreatorType(type);
 
@@ -685,7 +705,6 @@
 
         window.hideCreatorPanel = () => {
             document.getElementById('note-creator-panel').style.display = 'none';
-            document.getElementById('add-note-wrapper').classList.remove('hidden');
             document.getElementById('new-title').value = '';
             document.getElementById('text-creator').innerHTML = '';
             document.getElementById('recipe-instructions').innerHTML = '';
@@ -1462,11 +1481,13 @@
             }
         };
 
-        /* KÁRTYA ELŐNÉZET LOGIKA: Sortörések és Új Megjelenés */
+        /* KÁRTYA ELŐNÉZET LOGIKA */
         window.renderAllNotes = () => {
             const grid = document.getElementById('notes-grid');
             if(!grid) return; grid.innerHTML = '';
-            const term = document.getElementById('note-search') ? document.getElementById('note-search').value.toLowerCase() : '';
+            
+            // AZ ÚJ KERESŐ MEZŐBŐL VESSZÜK AZ ÉRTÉKET
+            const term = document.getElementById('header-note-search') ? document.getElementById('header-note-search').value.toLowerCase() : '';
 
             const combined = [...myNotesMap.values(), ...sharedNotesMap.values()].sort((a,b) => (b.createdAt || 0) - (a.createdAt || 0));
             
@@ -1519,7 +1540,6 @@
                     if(sum > 0) previewHtml += `<div style="margin-top: 5px; font-weight: bold;">💰 Költség: ${sum} lei</div>`;
                 }
 
-                // Címke (badge) logika
                 const safeSharedWith = note.sharedWith || [];
                 const safePending = note.pendingUsers || [];
                 let badgeHtml = "";
