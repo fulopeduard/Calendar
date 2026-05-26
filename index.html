@@ -134,7 +134,8 @@
         .notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; align-items: start; }
         @media (max-width: 650px) { .notes-grid { grid-template-columns: 1fr; } }
 
-        .note-card { background: var(--card-bg); color: var(--text-dark); border-radius: 10px; cursor: pointer; transition: transform 0.2s, box-shadow 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.3); position: relative; width: 100%; box-sizing: border-box; padding: 0; display: flex; flex-direction: column; overflow: visible; }
+        /* MÓDOSÍTÁS: A note-card kapott egy alap z-indexet, amit meg fogunk emelni a JS-ből */
+        .note-card { background: var(--card-bg); color: var(--text-dark); border-radius: 10px; cursor: pointer; transition: transform 0.2s, box-shadow 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.3); position: relative; z-index: 1; width: 100%; box-sizing: border-box; padding: 0; display: flex; flex-direction: column; overflow: visible; }
         .note-card.shared { background: var(--card-shared-bg); }
         .note-card:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.5); }
         
@@ -259,7 +260,6 @@
 </head>
 <body>
 
-    <!-- Hitelesítés -->
     <div id="auth-container" style="display: flex; justify-content: center; align-items: center; height: 100vh; width: 100%;">
         <div style="background: var(--surface-color); padding: 40px; border-radius: 15px; text-align: center; border: 1px solid var(--border-color); width: 100%; max-width: 380px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
             <h2 style="color: var(--accent-color)">✨ CloudKeep Pro</h2>
@@ -270,7 +270,6 @@
         </div>
     </div>
 
-    <!-- Fő alkalmazás -->
     <div id="app-container" class="hidden" style="display: flex; flex-direction: column; height: 100vh;">
         <header>
             <div class="header-left">
@@ -308,7 +307,6 @@
                 </div>
             </div>
 
-            <!-- Kompakt Lebegő Gomb -->
             <div class="sidebar-toggle-btn" id="sidebar-toggle-btn" onclick="toggleDesktopSidebar()">◀</div>
             <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
 
@@ -320,7 +318,6 @@
                         <input type="text" id="note-search" class="form-control" style="max-width: 300px;" placeholder="🔍 Keresés jegyzetekben..." onkeyup="renderAllNotes()">
                     </div>
 
-                    <!-- Plusz gomb (Dropdown) -->
                     <div class="add-note-wrapper" id="add-note-wrapper">
                         <button class="add-note-btn" onclick="toggleDropdown(event)">+</button>
                         <div class="type-dropdown" id="type-dropdown">
@@ -331,7 +328,6 @@
                         </div>
                     </div>
 
-                    <!-- Jegyzetlétrehozó -->
                     <div class="note-creator" id="note-creator-panel">
                         <div class="creator-header-bg">
                             <div class="type-selector" style="justify-content: space-between; align-items:center;">
@@ -360,17 +356,14 @@
                                 </div>
                             </div>
                             
-                            <!-- SZÖVEG -->
                             <div id="text-creator" class="rich-editor" contenteditable="true" placeholder="Írj valamit..."></div>
                             
-                            <!-- LISTA ÉS PÉNZÜGY -->
                             <div id="list-creator" class="hidden">
                                 <div id="list-items-container"></div>
                                 <div id="creator-money-total" class="money-edit-total-bar hidden">Végösszeg: 0</div>
                                 <button onclick="addListItem('list-items-container', 'creator')" class="btn" style="background:rgba(255,255,255,0.1); color:white; font-size:13px; margin-top:10px;">+ Új sor hozzáadása</button>
                             </div>
 
-                            <!-- RECEPT -->
                             <div id="recipe-creator" class="hidden">
                                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:15px; color:white; font-size:14px;">
                                     ⭐ Értékelés: 
@@ -402,19 +395,16 @@
                         </div>
                     </div>
 
-                    <!-- Jegyzetek Grid -->
                     <div class="notes-grid" id="notes-grid"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modals: Category, Folder, Move -->
     <div class="modal-overlay" id="category-modal"><div class="modal-content dark-modal" style="max-width: 450px; padding:25px;"><div class="modal-header"><h2 id="category-modal-title" style="margin:0; color:var(--accent-color);">📂 Kategória</h2><span class="close-modal" onclick="closeModal('category-modal')">×</span></div><div class="modal-body"><input type="hidden" id="category-edit-oldname"><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Kategória neve:</label><input type="text" id="category-name-input" class="form-control" placeholder="Pl. Munka, Személyes..."></div><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Kategória ikonja:</label><div id="cat-icon-picker-grid" style="display:flex; flex-wrap:wrap; gap:8px; max-height:180px; overflow-y:auto; padding:8px; background:rgba(0,0,0,0.2); border-radius:6px; border:1px solid rgba(255,255,255,0.1);"></div><input type="hidden" id="category-icon-input" value="📁"></div></div><div class="modal-footer" style="display:flex; justify-content: flex-end; gap:10px;"><button class="btn btn-secondary" onclick="closeModal('category-modal')">Mégse</button><button class="btn btn-primary" onclick="saveCategory()">Mentés</button></div></div></div>
     <div class="modal-overlay" id="folder-modal"><div class="modal-content dark-modal" style="max-width: 450px; padding:25px;"><div class="modal-header"><h2 id="folder-modal-title" style="margin:0; color:var(--accent-color);">📁 Új Mappa</h2><span class="close-modal" onclick="closeModal('folder-modal')">×</span></div><div class="modal-body"><input type="hidden" id="folder-edit-id"><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Mappa neve:</label><input type="text" id="folder-name-input" class="form-control" placeholder="Pl. Pénzügyek, Munka..."></div><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Kategória / Szülő mappa:</label><select id="folder-parent-category" class="form-control" onchange="updateFolderOptions('folder-parent-category', 'folder-parent-folder')"></select></div><div style="margin-bottom:15px;"><select id="folder-parent-folder" class="form-control"><option value="">(Gyökér - Nincs szülő mappa)</option></select></div><div style="margin-bottom:15px;"><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Ikon választás:</label><div id="icon-picker-grid" style="display:flex; flex-wrap:wrap; gap:8px; max-height:180px; overflow-y:auto; padding:8px; background:rgba(0,0,0,0.2); border-radius:6px; border:1px solid rgba(255,255,255,0.1);"></div><input type="hidden" id="folder-icon-input" value="📁"></div></div><div class="modal-footer" style="display:flex; justify-content: flex-end; gap:10px;"><button class="btn btn-secondary" onclick="closeModal('folder-modal')">Mégse</button><button class="btn btn-primary" onclick="saveFolder()">Mentés</button></div></div></div>
     <div class="modal-overlay" id="move-modal"><div class="modal-content dark-modal" style="max-width: 400px; padding:25px;"><div class="modal-header"><h2 style="margin:0; color:var(--accent-color);">📦 Jegyzet mozgatása</h2><span class="close-modal" onclick="closeModal('move-modal')">×</span></div><div class="modal-body"><div style="display:flex; flex-direction:column; gap:15px; margin-bottom:15px;"><div><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Új kategória:</label><select id="move-category" class="form-control" onchange="updateFolderOptions('move-category', 'move-folder')"></select></div><div><label style="font-size:13px; opacity:0.8; margin-bottom:5px; display:block;">Új mappa:</label><select id="move-folder" class="form-control"><option value="">(Nincs mappa)</option></select></div></div></div><div class="modal-footer" style="display:flex; justify-content: flex-end; gap:10px;"><button class="btn btn-secondary" onclick="closeModal('move-modal')">Mégse</button><button class="btn btn-primary" onclick="executeMove()">Mozgatás</button></div></div></div>
 
-    <!-- Modals: Barátok, Megosztás, Beállítások -->
     <div class="modal-overlay" id="friends-modal">
         <div class="modal-content dark-modal" style="max-width: 500px; padding:25px;">
             <div class="modal-header">
@@ -484,7 +474,6 @@
                 </select>
                 
                 <div id="note-theme-editor">
-                    <!-- PREVIEW BOX -->
                     <div style="background:rgba(0,0,0,0.2); padding:20px; border-radius:10px; margin-bottom: 20px;">
                         <h4 style="margin-top:0; margin-bottom:10px; color:var(--accent-color);" id="preview-title-text">Élő Előnézet (Saját)</h4>
                         <div id="theme-preview-card" class="note-card" style="margin:0; pointer-events:none; box-shadow:none; border:1px solid rgba(0,0,0,0.2);">
@@ -505,7 +494,6 @@
                 </div>
                 
                 <div id="bg-theme-editor" class="hidden">
-                    <!-- BG PREVIEW BOX -->
                     <div style="background:rgba(0,0,0,0.2); padding:20px; border-radius:10px; margin-bottom: 20px;">
                         <h4 style="margin-top:0; margin-bottom:10px; color:var(--accent-color);">Élő Előnézet (Háttér)</h4>
                         <div id="bg-preview-box" style="height: 100px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center;">
@@ -527,7 +515,6 @@
         </div>
     </div>
 
-    <!-- Jegyzet Modal (Strukturálisan frissítve a rögzített címmel) -->
     <div class="modal-overlay" id="note-modal">
         <div class="modal-content view-mode" id="modal-container">
             <div class="note-modal-header-bg">
@@ -582,7 +569,6 @@
         </div>
     </div>
 
-    <!-- FIREBASE & LOGIKA -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
         import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc, query, where, arrayUnion, arrayRemove, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
@@ -657,9 +643,28 @@
             document.getElementById('sidebar-toggle-btn').innerText = sidebar.classList.contains('collapsed') ? '▶' : '◀';
         };
         window.toggleSidebarEditMode = () => { isSidebarEditMode = !isSidebarEditMode; document.getElementById('sidebar').classList.toggle('edit-mode', isSidebarEditMode); renderSidebarCategories(); };
-        window.closeAllDropdowns = () => { document.querySelectorAll('.note-dropdown').forEach(d => d.classList.add('hidden')); };
+        
+        /* MÓDOSÍTÁS: Az összes kártya z-indexének visszaállítása a menük bezárásakor */
+        window.closeAllDropdowns = () => { 
+            document.querySelectorAll('.note-dropdown').forEach(d => d.classList.add('hidden')); 
+            document.querySelectorAll('.note-card').forEach(c => c.style.zIndex = ''); // Visszaállás az alapértelmezettre
+        };
+
         window.onclick = function(event) { if (!event.target.matches('.add-note-btn')) { const dropdown = document.getElementById('type-dropdown'); if(dropdown) dropdown.classList.remove('show'); } if (!event.target.matches('.kebab-btn')) closeAllDropdowns(); }
-        window.toggleGridMenu = (id, event) => { event.stopPropagation(); const dropdown = document.getElementById(`dropdown-${id}`); const isHidden = dropdown.classList.contains('hidden'); closeAllDropdowns(); if (isHidden) dropdown.classList.remove('hidden'); };
+        
+        /* MÓDOSÍTÁS: Aktív kártya felemelése a z-index megváltoztatásával */
+        window.toggleGridMenu = (id, event) => { 
+            event.stopPropagation(); 
+            const dropdown = document.getElementById(`dropdown-${id}`);
+            const card = dropdown.closest('.note-card'); 
+            const isHidden = dropdown.classList.contains('hidden'); 
+            closeAllDropdowns(); 
+            if (isHidden) { 
+                dropdown.classList.remove('hidden'); 
+                if (card) card.style.zIndex = '500'; // Nagyon magas érték, hogy minden felett legyen
+            } 
+        };
+
         window.toggleModalMenu = (event) => { event.stopPropagation(); const dropdown = document.getElementById('modal-note-dropdown'); const isHidden = dropdown.classList.contains('hidden'); closeAllDropdowns(); if (isHidden) dropdown.classList.remove('hidden'); };
         window.toggleDropdown = (event) => { document.getElementById('type-dropdown').classList.toggle('show'); event.stopPropagation(); };
 
