@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinamikus Órarend (V16)</title>
+    <title>Calendar V17</title>
+    <!-- Favicon: Naptár (Calendar) ikon böngésző fülekhez -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='10' width='52' height='48' rx='9' fill='%23ffffff' stroke='%23cbd5e1' stroke-width='2'/%3E%3Cpath d='M6 19c0-5 4-9 9-9h34c5 0 9 4 9 9v5H6v-5z' fill='%23e11d48'/%3E%3Crect x='15' y='4' width='6' height='12' rx='3' fill='%231e293b'/%3E%3Crect x='43' y='4' width='6' height='12' rx='3' fill='%231e293b'/%3E%3Crect x='14' y='29' width='8.5' height='8.5' rx='2' fill='%233b82f6'/%3E%3Crect x='27.75' y='29' width='8.5' height='8.5' rx='2' fill='%233b82f6'/%3E%3Crect x='41.5' y='29' width='8.5' height='8.5' rx='2' fill='%2310b981'/%3E%3Crect x='14' y='42' width='8.5' height='8.5' rx='2' fill='%233b82f6'/%3E%3Crect x='27.75' y='42' width='8.5' height='8.5' rx='2' fill='%23f59e0b'/%3E%3Crect x='41.5' y='42' width='8.5' height='8.5' rx='2' fill='%238b5cf6'/%3E%3C/svg%3E">
+    <link rel="alternate icon" type="image/png" href="data:image/png;base64,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">
+    <link rel="apple-touch-icon" href="data:image/png;base64,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">
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -19,7 +23,7 @@
         }
 
         /* ==============================================================
-           HOZZÁFÉRÉS-KONTROLL: BE NEM LÉPETT FELHASZNÁLÓK VÉDELME (V16)
+           HOZZÁFÉRÉS-KONTROLL: BE NEM LÉPETT FELHASZNÁLÓK VÉDELME (V17)
            ============================================================== */
         /* Alapértelmezetten a fő tartalom rejtve van, csak hitelesítés után válik elérhetővé */
         body:not(.authenticated) #app-content {
@@ -30,7 +34,7 @@
             display: none !important;
         }
 
-        /* --- BEJELENTKEZÉSI / REGISZTRÁCIÓS KÉPERNYŐ (V16) --- */
+        /* --- BEJELENTKEZÉSI / REGISZTRÁCIÓS KÉPERNYŐ (V17) --- */
         #auth-screen {
             display: flex;
             align-items: center;
@@ -214,7 +218,7 @@
             transition: padding-top 0.2s ease;
         }
 
-        /* --- FELSŐ VEZÉRLŐ SÁV (V11/V12/V16: ULTRA-KOMPAKT ÖSSZECSUKVA) --- */
+        /* --- FELSŐ VEZÉRLŐ SÁV (V11/V12/V17: ULTRA-KOMPAKT ÖSSZECSUKVA) --- */
         .top-bar-wrapper {
             display: flex;
             justify-content: center;
@@ -1084,7 +1088,7 @@
 <body>
 
 <!-- ==============================================================
-     1. KIZÁRÓLAGOS EMAIL BEJELENTKEZÉSI ÉS REGISZTRÁCIÓS KÉPERNYŐ (V16)
+     1. KIZÁRÓLAGOS EMAIL BEJELENTKEZÉSI ÉS REGISZTRÁCIÓS KÉPERNYŐ (V17)
      A weboldal tartalma regisztráció/bejelentkezés nélkül NEM érhető el.
      ============================================================== -->
 <div id="auth-screen">
@@ -1499,7 +1503,7 @@
 <div id="toast" class="toast">Értesítés</div>
 
 <!-- ==============================================================
-     JAVASCRIPT ÉS FIREBASE HITELÉSÍTÉS & SZINKRONIZÁCIÓ (V16)
+     JAVASCRIPT ÉS FIREBASE HITELÉSÍTÉS & SZINKRONIZÁCIÓ (V17)
      ============================================================== -->
 <script type="module">
     // Firebase SDK modulok betöltése
@@ -1582,8 +1586,8 @@
         topControlsHidden: false
     };
 
-    const STORAGE_KEY = 'mme_orarend_v16_data';
-    const SETTINGS_KEY = 'mme_orarend_v16_settings';
+    const STORAGE_KEY = 'mme_orarend_v17_data';
+    const SETTINGS_KEY = 'mme_orarend_v17_settings';
 
     const DAY_CLASSES = ['', 'mon', 'tue', 'wed', 'thu', 'fri'];
     const DAY_NAMES = ['', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek'];
@@ -1690,7 +1694,7 @@
     }
 
     // ==============================================================
-    // KIZÁRÓLAGOS EMAIL HITELESÍTÉS ÉS FIREBASE AUTH ESEMÉNYEK (V16)
+    // KIZÁRÓLAGOS EMAIL HITELESÍTÉS ÉS FIREBASE AUTH ESEMÉNYEK (V17)
     // ==============================================================
     onAuthStateChanged(auth, async (user) => {
         currentUser = user;
@@ -2663,7 +2667,7 @@
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'orarend_v16_mentett.html';
+        a.download = 'calendar_v17_mentett.html';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
