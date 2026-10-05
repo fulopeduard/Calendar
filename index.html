@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar V17</title>
+    <title>Calendar V20</title>
     <!-- Favicon: Naptár (Calendar) ikon böngésző fülekhez -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='10' width='52' height='48' rx='9' fill='%23ffffff' stroke='%23cbd5e1' stroke-width='2'/%3E%3Cpath d='M6 19c0-5 4-9 9-9h34c5 0 9 4 9 9v5H6v-5z' fill='%23e11d48'/%3E%3Crect x='15' y='4' width='6' height='12' rx='3' fill='%231e293b'/%3E%3Crect x='43' y='4' width='6' height='12' rx='3' fill='%231e293b'/%3E%3Crect x='14' y='29' width='8.5' height='8.5' rx='2' fill='%233b82f6'/%3E%3Crect x='27.75' y='29' width='8.5' height='8.5' rx='2' fill='%233b82f6'/%3E%3Crect x='41.5' y='29' width='8.5' height='8.5' rx='2' fill='%2310b981'/%3E%3Crect x='14' y='42' width='8.5' height='8.5' rx='2' fill='%233b82f6'/%3E%3Crect x='27.75' y='42' width='8.5' height='8.5' rx='2' fill='%23f59e0b'/%3E%3Crect x='41.5' y='42' width='8.5' height='8.5' rx='2' fill='%238b5cf6'/%3E%3C/svg%3E">
     <link rel="alternate icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAK+0lEQVR4nO1ba2xcxRX+zsy9613b8SsNKU6cECBJeSSogEoKqUyVQKAUUEFGVKqE1IKq0lb90QdVhEhSpEpVf7SoBX60Sn9QtVKsQls1atSHwLQCiYJIRR4IcFJik8RO7HjXj92793Gqc+duslnv2rt31+BEHGu03pk595w5c55zZ4GPoSFAUbtY6c0BfX265H+6qOhVA5fecEPz6ut6O3AB0qP4qEzATlp11T+2A/R1AM0g/NH19GMn3hkYK0xqBJMLSc+Kx4yoHvk9V23eru2mJ30vDzDDshJfhZ9fCey408zb1SABLBw9isFNiLN0/c2tzUTvKUVLmQPpVgA8UtpWcD9z9OCr/zGM9/sxaHxo9FSt3OwASMS8jFIJgBMAZHfkOQSwOCVGoNsZoF6Myty6Whx6DRcAA/Qiei353AUEQvntrmyeQLIVpUCTVuDInAEMePJZT4tDj9GnGTtUQ3zAHvRpCtVqwJPvE6vu6mSy+OdjEx2/IVeVClx26+o8dTy36q7OdzxbrbPcckzXDLvHptrnoven1fd2nHBJX3XcnjD8Gt4fmMckaK5BkSJhV/De8tsuaUlYjxLhTof5Ss1M4wT1YMt0W5qYrIgREfkMMZ6ZaZm61dVuhph0nZHAB0h0fz56va52c5rYYjrJwCseu0+tGv77AdFa0YqaNYCjxR9ZuW1bUqndLWR15ziAQgCLCAnistITSglQq0UKNnHtTqYEdMTkfPRsUsgyy2q7UqSvzgZ4aKjnjh9gaN9TYhIFrahKABwi7PIHe26/rZ3sfQ58jPuuB2IVkgDgGqHO4kk6PDDLuLR6BcBRq4aeJ/6QA85xIH5DL9dNP/tfz7aONUP9OysJQZUhSEB/MNy9ZWkC6jkHPuc58IlgEUiRUSlxw6F3Ln6A/B8GqGhOI1v19EIeQ4d9ynfcFrKeOLbyjl5ZvAhhXgEAffIA9rX17Q5lL3dk8RBTPidxF8DyQOEW38IpJWZhVGmMGGt9jet8HdpmI5L0uPREGB5YWUQUEHbuCKPC1bN8AZV2sESf3lv1+0dSrzeT3phlL0CRAMwcwAaQJuCJZBb/0h58YSbQeDKbwoaIoXrVvwH0JJSK6jjKt9avOPGXYwzIBgdlBcCRxzy28vYuJjVogTpcsDyEKjGlmfCm5SEL4NO+RrN45jgZVpVCqJUeg4MWspQDf+vKY/v+WeoLrLJIkzOMlhRDW/OqpkuMGzzrbEhaiMXXTY8ZPDNTNh9R5TrTz/wQ/tIOwA+qOpWYJsYkcahXC7H4uugFAbg5idy2W8z3vvOHrXI47b/bi2A6a6ylCljIRddNT+JC3oV1cNB876/mWf9+C8rJG49woYOswfNhnTxddliV7W1vvzgWXwBZi1Xen1kVkXTB4i50QUSxrUJJZJXtTQNkOyAQzOHDBQxhemgBQb4KAbCRVvqZb8CHjaRto+eTHdD6w3ZzjYNjI2eQ8xVc3wUe3Ir+PX3AA/1za0B682YkPAcq2YRkd3tYkV2oEIxm4PgK7OdMR19fNSaQBsEHeR7YaQas8iKYq9Cfy3PUh1cOW4y1AkxNg0QAjqRRtThBpQGlAFH/MiYQREl1WUbZsFkukMTHY6gKkYnDvwpikDWwqrhSCzEgLEsjWukshwHDMGAW2JaiBcCj8POMm4UunPFIVcOMTjuFuGDVilDYwcPHA+x6wcX4dABLSbQwO5f3gA09Cju/ZKOt2TAq/fHxzM6/mT6OR956HqP5aWhS4Z4rEJzAw00dPfjVhvvQlUjNZxD1C4BgmP3RC3kcHGa0pQyTBRBr2bvfw7I2wva7bfhsUop68GSRjxx4Hm+kh9FuN8MvCs1y9PbCB/vRnWzDL6+5JxwLNWQhBMDRruRcxvgU0N5sdrX0lGZJijA8bpgMtTUuHuQAjpD1XIw4U+HiNQiq6HhCFpuwUxicGY82qLbETSEGCHNam2KRC86r0EwBBls3EA9yHqfD3TVnhMV/CPsT55/ZVA0qFlbEfJzx2HjznK7PN95wARDFG4+NN49q16r6dYdB1zOOKzxBLRor9InDaySeOEJxeGLz544/JZSaPhn/MM4WIOGsJUG4tkdhNMOYdoDJnGlTOSCTBTI5xk1XRDbJdeCBwkjRaiWwqaMHE7kMMp6DCTcbtVz4mXdz2PKJK2KZghUnDEpytfM+G8uWED44E4SZcnE8l0U8tNkyCYyqE09KeSj8euP9uDTZhqMz47BJn80DcoEXLv57l38u7BONWFgBkPlsTxG232MvPF6k7l12Ck9fcw8aDVZcRNk5UetKUKmCNniV3vNRZTww/BCvPGatO1+/ADD3IguqXQqEALqg32WfambNHpJcoEKtwOdS6lrBqh0lflFjPJssnsHOxNn/o1WAmjoro0WPzE6xKfAKb3ECINlKi78YgnBKCsHpN5AfeBhBdgQkJXeEyH4e+pJNSPTuBiW7ImpUQMPJIwH2PutiOh1AFaQvR30u0L1W4YuP2ki1moqxFk2wahVA3KLGcJtDfuBr8Ef/C2pqBnPRSaWy4L37Z1DL40hsflZez5pXknKq7QJ7n83j+LuMVKukzOfoiQwPvOxhSRfhjkfss2gLIgCOWdQU1ID9LFh2vqk5WlwRpnxv0uBM9AIjPJA1+K7DmEmLqhuU83yPApIthImRYnoLJIByRU14B6YoGsib1EpFjTmitaLdLbJ/g2n6dWI2lghZ6ETvworpyaUB6Z/jNebiKoaAeIjx6S2yYggxEWPTW0zFEGSm74QOz3iqYl0Wn6ABzymLJo5QzKDUcsK7M8qMN1YDeLZSxS1qzKXOAGQvgbrks+DpabCbAeeL2xnA8aFWbjm76kKcT6QIK9YpTI4znBnAmT6/5aYZl20w9OawBK5aA7Q5gg3HSjUrblFjdNRC4tbdYagLMkdBoglRCsW+A71iC+zrHouiRiRAcYAKuOtRG62dhDMjgXF4Uebl54HLNmpsulecaxG98zZOUuzweuHsMRSLKLwNA7z66lDSbuM3k6nk+itXdAbJJlvFTTU/ShAlPnRkhB03yJPvXn/9tZcdYmYl96YKc1QxAhFxP6BuvnlVlsFvk7J4KuuUfTsqApEwKCZR2ua+WBKFO9HtWa3yrdawiJIpUdgrbtJfOlfAyXuBFzD5vjuWy6ij5xg4B6qU0LKCVhD+oLSi46fSVC7EhLlA5PBK29zvUiUXiLzZrFY5hQtzAVV0abCozVZ7w/CJ0+nAbkpK6rwv3FRmLZs8pwA+L4eszNRhr94zPZV5VzL946cm5KJkqFIN/AnIgoDwKDafmcryWDpLXt7x4AU/LQyXzleznmAkROvWkTN+5vTDikAj41OhNOXBi90NCI/pySwPDp/2OruW6rHxscdv3Ljm7T1m96u/7LCHwx8j4K8vvf6dQ++P8euHh/nwkRPuxOSM7/l+wIsPgqmZXDA4NOq9dvB9/70TU/zSa4d+KzIprKWswDAHFDzmc8//7cufWrf+F63t7UudbBaKGLalFs/VEWb4ASv5ZUIikYTjZIMPhoZ+fPfWTTtFMDKl1PYLQPM/2wjh+4//ZP3W22/7VkdX5xcIqjuZTCUXi0eQtCWbzfqKaDQ9mXll/xv7n/7uN7/yophDFNorMkrVECiOnd1X3NjT9+D9a9auWXu548kvVT7a+yOKmZMtSZw8OXLyxYGBwZf3/v5I+LbM8Fy4bV8/MDMVEqXFDFrrcMOqnU+1EigWgtZ6UdiA7/tneRK1b+wPNj8GXNTwf7furoKLDYKQAAAAAElFTkSuQmCC">
@@ -23,7 +23,7 @@
         }
 
         /* ==============================================================
-           HOZZÁFÉRÉS-KONTROLL: BE NEM LÉPETT FELHASZNÁLÓK VÉDELME (V17)
+           HOZZÁFÉRÉS-KONTROLL: BE NEM LÉPETT FELHASZNÁLÓK VÉDELME (V20)
            ============================================================== */
         /* Alapértelmezetten a fő tartalom rejtve van, csak hitelesítés után válik elérhetővé */
         body:not(.authenticated) #app-content {
@@ -34,7 +34,7 @@
             display: none !important;
         }
 
-        /* --- BEJELENTKEZÉSI / REGISZTRÁCIÓS KÉPERNYŐ (V17) --- */
+        /* --- BEJELENTKEZÉSI / REGISZTRÁCIÓS KÉPERNYŐ (V20) --- */
         #auth-screen {
             display: flex;
             align-items: center;
@@ -218,7 +218,7 @@
             transition: padding-top 0.2s ease;
         }
 
-        /* --- FELSŐ VEZÉRLŐ SÁV (V11/V12/V17: ULTRA-KOMPAKT ÖSSZECSUKVA) --- */
+        /* --- FELSŐ VEZÉRLŐ SÁV (V11/V12/V20: ULTRA-KOMPAKT ÖSSZECSUKVA) --- */
         .top-bar-wrapper {
             display: flex;
             justify-content: center;
@@ -501,6 +501,7 @@
         .timetable-scroll-wrapper {
             width: 100%;
             max-width: 1340px;
+            margin: 0 auto;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             border-radius: 8px;
@@ -1083,12 +1084,808 @@
             .user-email-text { max-width: 110px; }
             .auth-card { padding: 28px 20px 22px; }
         }
+
+        /* ==============================================================
+           V18 ÚJ STÍLUSOK: NÉZETVÁLTÓ ÉS EDUKA MUNKAPROGRAM ILLESZTÉS
+           ============================================================== */
+        :root {
+
+            --bg-color: #f1f5f9;
+            --calendar-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --primary-light: #eff6ff;
+            
+            /* Műszak színek */
+            --shift-15: #dbeafe;
+            --shift-15-text: #1e40af;
+            --shift-15-border: #93c5fd;
+            
+            --shift-09: #dcfce7;
+            --shift-09-text: #166534;
+            --shift-09-border: #86efac;
+            
+            /* 07:00 - 15:30 Kora reggeli műszak (Friss menta / teal) */
+            --shift-0700: #ccfbf1;
+            --shift-0700-text: #0f766e;
+            --shift-0700-border: #5eead4;
+
+            /* 07:30 - 16:00 Reggeli normál hétköznap (Meleg borostyán / sárga) */
+            --shift-07: #fef9c3;
+            --shift-07-text: #854d0e;
+            --shift-07-border: #fde047;
+            
+            /* 07:30 - 19:30 Hétvégi 12 órás (Lila / ibolya) */
+            --shift-12: #f3e8ff;
+            --shift-12-text: #6b21a8;
+            --shift-12-border: #d8b4fe;
+
+            /* 03 ROWRE Rest Day (Égszínkék) */
+            --shift-rest: #e0f2fe;
+            --shift-rest-text: #0369a1;
+            --shift-rest-border: #7dd3fc;
+            
+            /* Szabadság (Rózsaszín) */
+            --shift-vacation: #fce7f3;
+            --shift-vacation-text: #9d174d;
+            --shift-vacation-border: #f472b6;
+
+            /* Sick leave (Piros színű betegszabadság, mint a szabadságnál) */
+            --shift-sick: #fee2e2;
+            --shift-sick-text: #991b1b;
+            --shift-sick-border: #f87171;
+
+            /* Szabadnap (Semleges szürke) */
+            --shift-free: #f8fafc;
+            --shift-free-text: #64748b;
+            --shift-free-border: #cbd5e1;
+        
+        }
+
+        /* Nézetváltó Toggle Gomb */
+        .btn-view-toggle {
+            background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%) !important;
+            color: #ffffff !important;
+            font-weight: 700 !important;
+            border: 1px solid rgba(255,255,255,0.25) !important;
+            box-shadow: 0 2px 6px rgba(79, 70, 229, 0.35);
+            padding: 7px 15px !important;
+            border-radius: 20px !important;
+            cursor: pointer;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            user-select: none;
+            transition: all 0.2s ease !important;
+        }
+        .btn-view-toggle:hover {
+            background: linear-gradient(135deg, #4338ca 0%, #2563eb 100%) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.45);
+        }
+        .btn-view-toggle.on-munkaprogram {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.35);
+        }
+        .btn-view-toggle.on-munkaprogram:hover {
+            background: linear-gradient(135deg, #047857 0%, #059669 100%) !important;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.45);
+        }
+
+        /* Oldal / Nézet Konténerek (V19: Tökéletesen középre igazítva) */
+        .app-page-view {
+            width: 100%;
+            transition: opacity 0.2s ease;
+        }
+        #view-orarend {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #view-munkaprogram {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            padding-top: 10px;
+        }
+
+        /* V19: Csak ikon megjelenítésű gombok a felső sávban */
+        .btn-icon-only {
+            width: 36px !important;
+            height: 36px !important;
+            min-width: 36px !important;
+            padding: 0 !important;
+            border-radius: 50% !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 16px !important;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            transition: all 0.15s ease !important;
+        }
+        .btn-icon-only:hover {
+            transform: scale(1.08);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+
+        /* V19: Felhőszinkron státusz gomb (Zöld / Piros / Kék gomb, hover/click részletekkel) */
+        .sync-status-btn {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border-radius: 50%;
+            border: 1.5px solid #d1d5db;
+            background: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .sync-status-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+        .sync-status-btn .sync-dot {
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+        .sync-status-btn.synced {
+            background: #f0fdf4;
+            border-color: #86efac;
+        }
+        .sync-status-btn.synced .sync-dot {
+            background: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+        }
+        .sync-status-btn.saving {
+            background: #eff6ff;
+            border-color: #93c5fd;
+        }
+        .sync-status-btn.saving .sync-dot {
+            background: #3b82f6;
+            animation: pulseSync 1s infinite alternate;
+        }
+        .sync-status-btn.error {
+            background: #fef2f2;
+            border-color: #fca5a5;
+        }
+        .sync-status-btn.error .sync-dot {
+            background: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+        }
+        @keyframes pulseSync {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            100% { transform: scale(1.15); opacity: 1; }
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Közös Modális szabály: azonnali eltűnés és megjelenés */
+        .modal-overlay:not(.open):not(.active) {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+        .modal-overlay.open,
+        .modal-overlay.active {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: flex !important;
+            pointer-events: auto !important;
+            z-index: 10000 !important;
+        }
+        .modal-card {
+            pointer-events: auto !important;
+        }
+        .modal-overlay.active .modal-card,
+        .modal-overlay.open .modal-card {
+            transform: translateY(0) !important;
+        }
+
+        /* Munkaprogram naptár integráció */
+
+        
+
+        
+
+        
+
+        .calendar-container {
+            background-color: var(--calendar-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            width: 100%;
+            max-width: 1180px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Felső vezérlősáv */
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(to right, #ffffff, #f8fafc);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .header-center {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-center h2 {
+            margin: 0;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--text-main);
+            min-width: 220px;
+            text-align: center;
+        }
+
+        #view-munkaprogram .btn, .modal-card .btn {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 8px 14px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s ease-in-out;
+            user-select: none;
+        }
+
+        #view-munkaprogram .btn:hover, .modal-card .btn:hover {
+            background-color: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        #view-munkaprogram .btn-primary, .modal-card .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        #view-munkaprogram .btn-primary:hover, .modal-card .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+
+        .btn-toggle-ts {
+            font-weight: 700;
+            border-width: 1.5px;
+        }
+
+        .btn-toggle-ts.active {
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+
+
+        /* Hét napjai fejléc */
+        .weekdays {
+            display: grid;
+            grid-template-columns: 46px repeat(7, 1fr);
+            background-color: #f8fafc;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .weekday-corner {
+            padding: 12px 6px;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #94a3b8;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .weekday {
+            padding: 12px 10px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .weekday:last-child {
+            border-right: none;
+        }
+
+        .weekday.weekend {
+            color: #ef4444;
+        }
+
+        /* Naptárrács */
+        .days-grid {
+            display: grid;
+            grid-template-columns: 46px repeat(7, 1fr);
+            grid-auto-rows: minmax(130px, auto);
+        }
+
+        /* Hét vezérlő sáv bal oldalon */
+        .week-control-cell {
+            background-color: #f8fafc;
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 6px 2px;
+            gap: 6px;
+        }
+
+        .week-number {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #94a3b8;
+        }
+
+        .btn-week-edit {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 5px 6px;
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+
+        .btn-week-edit:hover {
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+            transform: scale(1.05);
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+        }
+
+        /* Napi cella */
+        .day-cell {
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            position: relative;
+            cursor: default; /* Nem kattintható az egész nap véletlenül! */
+            transition: background-color 0.15s;
+        }
+
+        .day-cell:hover {
+            background-color: #fbfcfd;
+        }
+
+        .day-cell:nth-child(8n) {
+            border-right: none;
+        }
+
+        .day-cell.empty {
+            background-color: #f8fafc;
+            cursor: default;
+        }
+
+        .cell-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .day-number {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #334155;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .today .day-number {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+        }
+
+        .custom-indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            display: inline-block;
+            margin-left: 3px;
+        }
+
+        /* Dedikált Szerkesztés ikon gomb: MINDIG KATTINTHATÓ ÉS JÓL LÁTHATÓ */
+        .btn-day-edit {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            width: 26px;
+            height: 26px;
+            padding: 0;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #475569;
+            cursor: pointer;
+            user-select: none;
+            opacity: 0.7;
+            visibility: visible;
+            pointer-events: auto;
+            transition: all 0.15s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+        }
+
+        .day-cell:hover .btn-day-edit {
+            opacity: 1;
+            border-color: #94a3b8;
+        }
+
+        .btn-day-edit:hover {
+            opacity: 1 !important;
+            background: #2563eb !important;
+            color: #ffffff !important;
+            border-color: #2563eb !important;
+            transform: scale(1.16);
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);
+        }
+
+        /* Érintőképernyőn (ahol nincs mouse hover) mindig látható maradjon */
+        @media (hover: none) {
+            .btn-day-edit {
+                opacity: 0.85;
+                visibility: visible;
+                pointer-events: auto;
+            }
+        }
+
+        /* Műszak kártya a cellában */
+        .shift-badge {
+            margin-top: auto;
+            padding: 7px 8px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-align: center;
+            word-break: break-word;
+            border: 1px solid transparent;
+            user-select: none;
+        }
+
+        .shift-15 { background-color: var(--shift-15); color: var(--shift-15-text); border-color: var(--shift-15-border); }
+        .shift-09 { background-color: var(--shift-09); color: var(--shift-09-text); border-color: var(--shift-09-border); }
+        .shift-0700 { background-color: var(--shift-0700); color: var(--shift-0700-text); border-color: var(--shift-0700-border); }
+        .shift-07 { background-color: var(--shift-07); color: var(--shift-07-text); border-color: var(--shift-07-border); }
+        .shift-12 { background-color: var(--shift-12); color: var(--shift-12-text); border-color: var(--shift-12-border); }
+        .shift-rest { background-color: var(--shift-rest); color: var(--shift-rest-text); border-color: var(--shift-rest-border); }
+        .shift-vacation { background-color: var(--shift-vacation); color: var(--shift-vacation-text); border-color: var(--shift-vacation-border); }
+        .shift-sick { background-color: var(--shift-sick) !important; color: var(--shift-sick-text) !important; border-color: var(--shift-sick-border) !important; font-weight: 700; }
+        .shift-free { background-color: var(--shift-free); color: var(--shift-free-text); border: 1px dashed var(--shift-free-border); }
+        .shift-no-data { background-color: #f8fafc !important; color: #94a3b8 !important; border: 1px dashed #cbd5e1 !important; font-style: italic; }
+
+        .ts-code-block {
+            font-size: 0.76rem;
+            font-weight: 500;
+            line-height: 1.25;
+            margin-top: 4px;
+            padding-top: 4px;
+            border-top: 1px dashed currentColor;
+            opacity: 0.9;
+        }
+
+        /* Modális ablak stílusok */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(3px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            padding: 16px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 580px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: translateY(12px) scale(0.97);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-card .modal-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8fafc;
+        }
+
+        .modal-card .modal-header h3 {
+            margin: 0;
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .modal-card .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: #64748b;
+            padding: 4px 8px;
+            border-radius: 6px;
+            line-height: 1;
+        }
+
+        .modal-card .modal-close:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        .modal-
+
+        .modal-card .modal-footer {
+            padding: 14px 20px;
+            border-top: 1px solid var(--border-color);
+            background: #f8fafc;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        /* Beállítási lehetőségek gombjai */
+        .option-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .shift-option-btn {
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.15s;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .shift-option-btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(0.97);
+        }
+
+        .shift-option-btn.selected {
+            border-color: #2563eb !important;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+        }
+
+        .option-title {
+            font-weight: 700;
+            font-size: 0.88rem;
+        }
+
+        .option-desc {
+            font-size: 0.74rem;
+            opacity: 0.85;
+        }
+
+        .scope-picker {
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+        }
+
+        .scope-picker label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #475569;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .scope-radios {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .scope-radio-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.83rem;
+            cursor: pointer;
+            color: #1e293b;
+        }
+
+        /* Heti sablon varázsló */
+        .preset-card {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.15s;
+            background: #ffffff;
+        }
+
+        .preset-card:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+        }
+
+        .preset-card.active {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .preset-card-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            color: #0f172a;
+        }
+
+        .preset-card-sub {
+            font-size: 0.78rem;
+            color: #64748b;
+        }
+
+        /* Napi egyedi szerkesztő sorok heti varázslóban */
+        .day-row-editor {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .day-row-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: 120px;
+        }
+
+        .day-row-select {
+            padding: 5px 8px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            font-size: 0.82rem;
+            flex: 1;
+            max-width: 280px;
+        }
+
+        /* Reszponzivitás */
+        @media (max-width: 768px) {
+            .calendar-container {
+                border-radius: 0;
+                box-shadow: none;
+            }
+            .calendar-header {
+                padding: 12px 16px;
+            }
+            .header-center h2 {
+                min-width: auto;
+                font-size: 1.2rem;
+            }
+            .weekdays {
+                display: none;
+            }
+            .days-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: auto;
+            }
+            .week-control-cell {
+                padding: 8px 16px;
+                flex-direction: row;
+                justify-content: space-between;
+                border-right: none;
+                background-color: #f1f5f9;
+            }
+            .day-cell {
+                border-right: none;
+                min-height: 80px;
+            }
+            .day-cell.empty {
+                display: none;
+            }
+            .option-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+
     </style>
 </head>
 <body>
 
 <!-- ==============================================================
-     1. KIZÁRÓLAGOS EMAIL BEJELENTKEZÉSI ÉS REGISZTRÁCIÓS KÉPERNYŐ (V17)
+     1. KIZÁRÓLAGOS EMAIL BEJELENTKEZÉSI ÉS REGISZTRÁCIÓS KÉPERNYŐ (V20)
      A weboldal tartalma regisztráció/bejelentkezés nélkül NEM érhető el.
      ============================================================== -->
 <div id="auth-screen">
@@ -1155,30 +1952,27 @@
     <!-- FELSŐ SÁV: SZERKESZTÉS, BEÁLLÍTÁSOK, FELHŐ SZINKRON, PROFIL ÉS ÖSSZECSUKÓ GOMB -->
     <div class="top-bar-wrapper" id="top-bar-wrapper">
         <div class="top-controls-container" id="top-controls-container">
-            <!-- Szerkesztés gomb -->
-            <button id="btn-toggle-edit" class="btn-pill-mode" onclick="toggleEditMode()">
+            <!-- NÉZETVÁLTÓ TOGGLE GOMB (ÓRAREND <-> MUNKAPROGRAM) -->
+            <button id="btn-toggle-view" class="btn-pill-mode btn-view-toggle" onclick="toggleMainView()" title="Váltás az Órarend és a Munkaprogram között">
+                <span id="view-toggle-icon">💼</span>
+                <span id="view-toggle-text">Munkaprogram</span>
+            </button>
+
+            <!-- Szerkesztés gomb (V19: CSAK IKON) -->
+            <button id="btn-toggle-edit" class="btn-pill-mode btn-icon-only orarend-only-btn" onclick="toggleEditMode()" title="Szerkesztés mód be/kikapcsolása">
                 <span id="edit-btn-icon">✏️</span>
-                <span id="edit-btn-text">Szerkesztés</span>
             </button>
 
-            <!-- Beállítások gomb -->
-            <button id="btn-open-settings" class="btn-pill-mode btn-settings" onclick="openSettingsModal()">
+            <!-- Beállítások gomb (V19: CSAK IKON) -->
+            <button id="btn-open-settings" class="btn-pill-mode btn-icon-only btn-settings orarend-only-btn" onclick="openSettingsModal()" title="Beállítások és Fiók megnyitása">
                 <span>⚙️</span>
-                <span>Beállítások</span>
             </button>
 
-            <!-- Felhőszinkron státusz jelző -->
-            <div id="sync-status-badge" class="sync-badge synced" title="Firebase Firestore szinkronizáció">
+            <!-- Felhőszinkron státusz gomb (V19: ZÖLD / PIROS GOMB, RÁKATTINTVA/FÖLÉ MENVE KIÍRJA A STÁTUSZT) -->
+            <button type="button" id="sync-status-badge" class="sync-status-btn synced" onclick="showSyncStatusInfo()" title="Közös órarend szinkronizálva (Kattints a részletekért)">
                 <span class="sync-dot"></span>
-                <span id="sync-status-text">Szinkronizálva</span>
-            </div>
-
-            <!-- Felhasználói profil és Kijelentkezés -->
-            <div id="user-profile-badge" class="user-profile-badge">
-                <span>👤</span>
-                <span id="user-display-email" class="user-email-text">felhasznalo@email.com</span>
-                <button type="button" class="btn-sign-out" onclick="handleSignOut()" title="Kijelentkezés a fiókból">Kilépés</button>
-            </div>
+                <span id="sync-status-text" class="sr-only">Közös órarend szinkronizálva</span>
+            </button>
         </div>
 
         <!-- V11/V12: Összecsukó (Hide/Show) gomb -->
@@ -1188,46 +1982,102 @@
         </button>
     </div>
 
-    <!-- VEZÉRLŐPULT (CSAK SZERKESZTÉS MÓDBAN LÁTHATÓ) -->
-    <div class="toolbar edit-only">
-        <button class="btn btn-primary" onclick="openAddModal()">
-            <span>➕</span> Új óra hozzáadása
-        </button>
-        <button class="btn btn-save" onclick="saveAsNewHtml()">
-            <span>💾</span> Mentés új HTML-ként (opcionális biztonsági mentés)
-        </button>
-        <button class="btn btn-secondary" onclick="resetToDefault()">
-            <span>🔄</span> Visszaállítás alapértelmezettre
-        </button>
-    </div>
+    <!-- ==============================================================
+         1. OLDAL / NÉZET: DINAMIKUS ÓRAREND (V20)
+         ============================================================== -->
+    <div id="view-orarend" class="app-page-view">
+        <!-- VEZÉRLŐPULT (CSAK SZERKESZTÉS MÓDBAN LÁTHATÓ) -->
+        <div class="toolbar edit-only">
+            <button class="btn btn-primary" onclick="openAddModal()">
+                <span>➕</span> Új óra hozzáadása
+            </button>
+            <button class="btn btn-save" onclick="saveAsNewHtml()">
+                <span>💾</span> Mentés új HTML-ként (opcionális biztonsági mentés)
+            </button>
+            <button class="btn btn-secondary" onclick="resetToDefault()">
+                <span>🔄</span> Visszaállítás alapértelmezettre
+            </button>
+        </div>
 
-    <!-- HASZNÁLATI TIPPEK (CSAK SZERKESZTÉS MÓDBAN LÁTHATÓ) -->
-    <div class="info-tip edit-only">
-        <span>🖐️ <strong>Áthelyezés / Megcserélés:</strong> Húzd az órát szabad mezőre vagy egy másik órára!</span>
-        <span>✏️ <strong>Szerkesztés:</strong> Kattints bármelyik órára!</span>
-        <span>➕ <strong>Új óra felvétele:</strong> Kattints egy üres idősávra!</span>
-        <span>👥 <strong>Megosztott órarend:</strong> Bármelyik felhasználó módosít valamit, az valós időben azonnal megjelenik mindenkinél!</span>
-    </div>
+        <!-- HASZNÁLATI TIPPEK (CSAK SZERKESZTÉS MÓDBAN LÁTHATÓ) -->
+        <div class="info-tip edit-only">
+            <span>🖐️ <strong>Áthelyezés / Megcserélés:</strong> Húzd az órát szabad mezőre vagy egy másik órára!</span>
+            <span>✏️ <strong>Szerkesztés:</strong> Kattints bármelyik órára!</span>
+            <span>➕ <strong>Új óra felvétele:</strong> Kattints egy üres idősávra!</span>
+            <span>👥 <strong>Megosztott órarend:</strong> Bármelyik felhasználó módosít valamit, az valós időben azonnal megjelenik mindenkinél!</span>
+        </div>
 
-    <!-- TÁBLÁZAT GÖRGETŐ WRAPPER -->
-    <div class="timetable-scroll-wrapper" id="timetable-scroll-wrapper">
-        <table id="timetable">
-            <thead>
-                <tr id="timetable-header-row">
-                    <th class="time-col time-col-left">Időpont</th>
-                    <th data-day="1">Hétfő</th>
-                    <th data-day="2">Kedd</th>
-                    <th data-day="3">Szerda</th>
-                    <th data-day="4">Csütörtök</th>
-                    <th data-day="5">Péntek</th>
-                    <th class="time-col time-col-right" id="header-right-time-col" style="display: none;">Időpont</th>
-                </tr>
-            </thead>
-            <tbody id="timetable-body">
-                <!-- Dinamikusan generálódik JavaScriptből -->
-            </tbody>
-        </table>
+        <!-- TÁBLÁZAT GÖRGETŐ WRAPPER -->
+        <div class="timetable-scroll-wrapper" id="timetable-scroll-wrapper">
+            <table id="timetable">
+                <thead>
+                    <tr id="timetable-header-row">
+                        <th class="time-col time-col-left">Időpont</th>
+                        <th data-day="1">Hétfő</th>
+                        <th data-day="2">Kedd</th>
+                        <th data-day="3">Szerda</th>
+                        <th data-day="4">Csütörtök</th>
+                        <th data-day="5">Péntek</th>
+                        <th class="time-col time-col-right" id="header-right-time-col" style="display: none;">Időpont</th>
+                    </tr>
+                </thead>
+                <tbody id="timetable-body">
+                    <!-- Dinamikusan generálódik JavaScriptből -->
+                </tbody>
+            </table>
+        </div>
+    </div> <!-- /#view-orarend -->
+
+    <!-- ==============================================================
+         2. OLDAL / NÉZET: MUNKAPROGRAM (Eduka munkaprogram v6)
+         ============================================================== -->
+    <div id="view-munkaprogram" class="app-page-view" style="display: none;">
+<div class="calendar-container">
+        <!-- Fő navigációs és műveleti sáv -->
+        <div class="calendar-header">
+            <div class="header-left">
+                <button class="btn" id="prevBtn" title="Előző hónap">&lt; Előző</button>
+                <button class="btn" id="todayBtn" title="Ugrás a mai naphoz">Ma</button>
+                <button class="btn" id="nextBtn" title="Következő hónap">Következő &gt;</button>
+            </div>
+
+            <div class="header-center">
+                <h2 id="monthYear">2026. Október</h2>
+            </div>
+
+            <div class="header-right">
+                <button class="btn" id="weeklyWizardBtn" title="Egy egész hét beosztásának beállítása">
+                    <span>📅</span> <strong>Heti beállító</strong>
+                </button>
+                <button class="btn btn-toggle-ts" id="timesheetBtn" title="Timesheet kódok és óraszámok megjelenítése">
+                    📋 Timesheet: <span id="tsStatus">OFF</span>
+                </button>
+                <button class="btn" id="dataManageBtn" title="Adatok mentése, exportálása vagy visszaállítása">
+                    ⚙️ Adatok
+                </button>
+            </div>
+        </div>
+
+
+        
+        <!-- Hét napjai fejléc -->
+        <div class="weekdays">
+            <div class="weekday-corner">HÉT</div>
+            <div class="weekday">Hétfő</div>
+            <div class="weekday">Kedd</div>
+            <div class="weekday">Szerda</div>
+            <div class="weekday">Csütörtök</div>
+            <div class="weekday">Péntek</div>
+            <div class="weekday weekend">Szombat</div>
+            <div class="weekday weekend">Vasárnap</div>
+        </div>
+
+        <!-- Naptárrács -->
+        <div class="days-grid" id="daysGrid">
+            <!-- JavaScript tölti fel -->
+        </div>
     </div>
+    </div> <!-- /#view-munkaprogram -->
 
 </div> <!-- /#app-content -->
 
@@ -1334,6 +2184,21 @@
                     <input type="checkbox" id="setting-highlight-today" onchange="updateSettingsFromUI('highlight')">
                     <span class="slider"></span>
                 </label>
+            </div>
+
+            <!-- 7. FELHASZNÁLÓI FIÓK ÉS KIJELENTKEZÉS (V19: ÁTHELYEZVE A BEÁLLÍTÁSOKBA) -->
+            <div class="setting-account-box" style="margin-top: 18px; padding: 14px 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 22px;">👤</span>
+                    <div>
+                        <div style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: #64748b; letter-spacing: 0.5px;">Bejelentkezett fiók</div>
+                        <div id="user-display-email" style="font-size: 13.5px; font-weight: 600; color: #0f172a; word-break: break-all;">felhasznalo@email.com</div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-danger" onclick="handleSignOutFromSettings()" style="padding: 8px 14px; font-size: 12.5px; border-radius: 8px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;" title="Kijelentkezés a fiókból">
+                    <span>🚪</span>
+                    <span>Kijelentkezés</span>
+                </button>
             </div>
         </div>
 
@@ -1500,10 +2365,164 @@
 </div>
 
 <!-- TOAST ÉRTESÍTŐ SÁV -->
-<div id="toast" class="toast">Értesítés</div>
+
+    <!-- ==============================================================
+         MUNKAPROGRAM MODALOK (Eduka munkaprogram v6)
+         ============================================================== -->
+    <!-- NAPI SZERKESZTŐ MODAL -->
+    <div class="modal-overlay" id="dayEditModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modalDayTitle">Nap szerkesztése</h3>
+                <button class="modal-close" onclick="closeDayModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size:0.85rem; color:#64748b; margin-top:0; margin-bottom:14px;">
+                    Válaszd ki a kívánt műszakot vagy státuszt erre a napra:
+                </p>
+
+                <div class="option-grid" id="shiftOptionsGrid">
+                    <!-- JavaScript tölti fel a választható műszakokat -->
+                </div>
+
+                <!-- Egyéni időpont mező -->
+                <div id="customShiftContainer" style="display:none; margin-bottom:14px; background:#f8fafc; padding:10px; border-radius:8px; border:1px solid #e2e8f0;">
+                    <label style="font-size:0.8rem; font-weight:600; display:block; margin-bottom:4px;">Egyéni időtartam kiírása:</label>
+                    <input type="text" id="customShiftInput" placeholder="pl. 10:00 - 18:30 vagy Túlóra" style="width:100%; padding:7px 10px; border-radius:6px; border:1px solid #cbd5e1; font-size:0.85rem;">
+                </div>
+
+                <!-- Alkalmazás hatóköre -->
+                <div class="scope-picker">
+                    <label>Hatókör (hová szeretnéd alkalmazni?):</label>
+                    <div class="scope-radios">
+                        <label class="scope-radio-item">
+                            <input type="radio" name="applyScope" value="day" checked> Csak erre a napra
+                        </label>
+                        <label class="scope-radio-item">
+                            <input type="radio" name="applyScope" value="workdays"> Hétfőtől Péntekig
+                        </label>
+                        <label class="scope-radio-item">
+                            <input type="radio" name="applyScope" value="fullweek"> Teljes hétre (H-V)
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" style="color:#ef4444; border-color:#fca5a5;" onclick="resetCurrentDay()" title="Visszaállítás az eredeti importált értékre">Alaphelyzet</button>
+                <button type="button" class="btn" style="color:#64748b; border-color:#cbd5e1; margin-right:auto;" onclick="setDayNoData()" title="A kiválasztott hatókör (nap vagy hét) beállítása 'Nincs adat'-ra">⚪ Nincs adat</button>
+                <button type="button" class="btn" onclick="closeDayModal()">Mégse</button>
+                <button type="button" class="btn btn-primary" onclick="saveDayShift()">Mentés</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HETI BEÁLLÍTÓ VARÁZSLÓ MODAL -->
+    <div class="modal-overlay" id="weeklyWizardModal">
+        <div class="modal-card" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3>📅 Heti Munkaprogram Beállító</h3>
+                <button class="modal-close" onclick="closeWeeklyModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="margin-bottom:16px;">
+                    <label style="font-size:0.82rem; font-weight:700; color:#475569; display:block; margin-bottom:6px;">Válaszd ki a hetet:</label>
+                    <select id="wizardWeekSelect" style="width:100%; padding:8px 12px; border-radius:8px; border:1px solid #cbd5e1; font-size:0.9rem; font-weight:600;">
+                        <!-- JS tölti fel -->
+                    </select>
+                </div>
+
+                <label style="font-size:0.82rem; font-weight:700; color:#475569; display:block; margin-bottom:8px;">Válassz egy heti mintát (sablon):</label>
+                
+                <div class="preset-card active" onclick="selectPreset('shift-15', this)">
+                    <div class="preset-card-title">🌙 Délutános hét (15:00 - 23:30)</div>
+                    <div class="preset-card-sub">Hétfő - Péntek: 15:00 - 23:30 | Szombat - Vasárnap: Szabadnap</div>
+                </div>
+
+                <div class="preset-card" onclick="selectPreset('shift-09', this)">
+                    <div class="preset-card-title">☀️ Normál hét (09:30 - 18:00)</div>
+                    <div class="preset-card-sub">Hétfő - Péntek: 09:30 - 18:00 | Szombat - Vasárnap: Szabadnap</div>
+                </div>
+
+                <div class="preset-card" onclick="selectPreset('shift-0700', this)">
+                    <div class="preset-card-title">☕ Kora reggeli hét (07:00 - 15:30)</div>
+                    <div class="preset-card-sub">Hétfő - Péntek: 07:00 - 15:30 | Szombat - Vasárnap: Szabadnap</div>
+                </div>
+
+                <div class="preset-card" onclick="selectPreset('shift-07', this)">
+                    <div class="preset-card-title">🌅 Reggeli normál hét (07:30 - 16:00)</div>
+                    <div class="preset-card-sub">Hétfő - Péntek: 07:30 - 16:00 | Szombat - Vasárnap: Szabadnap</div>
+                </div>
+
+                <div class="preset-card" onclick="selectPreset('weekend-shift', this)">
+                    <div class="preset-card-title">⚡ Hétvégi 12 órás hét (Rest Day pihenőkkel)</div>
+                    <div class="preset-card-sub">H-K: 09:30 - 18:00 | Sze-Cs-P: 03 ROWRE (Rest Day) | Szo-V: 07:30 - 19:30 (12h)</div>
+                </div>
+
+                <div class="preset-card" onclick="selectPreset('vacation-week', this)">
+                    <div class="preset-card-title">🌴 Szabadság hét (Vacation)</div>
+                    <div class="preset-card-sub">Hétfő - Péntek: Szabadság (Vacation) | Szombat - Vasárnap: Szabadnap</div>
+                </div>
+
+                <div class="preset-card" onclick="selectPreset('sick-week', this)">
+                    <div class="preset-card-title">🩺 Sick leave hét (Betegszabadság)</div>
+                    <div class="preset-card-sub">Hétfő - Péntek: Sick leave | Szombat - Vasárnap: Szabadnap</div>
+                </div>
+
+                <div class="preset-card" onclick="selectPreset('no-data-week', this)">
+                    <div class="preset-card-title">⚪ Nincs adat hét (Kiürítés)</div>
+                    <div class="preset-card-sub">A teljes hét (Hétfőtől Vasárnapig) minden napját "Nincs adat"-ra állítja</div>
+                </div>
+
+                <div class="preset-card" onclick="selectPreset('custom-week', this)">
+                    <div class="preset-card-title">🛠️ Naponkénti egyedi heti kiosztás</div>
+                    <div class="preset-card-sub">Külön kiválaszthatod a hétfőt, keddet, szerdát, stb.</div>
+                </div>
+
+                <div id="customWeekDaysPanel" style="display:none; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px; margin-top:10px;">
+                    <div id="customWeekRows"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" style="color:#64748b; border-color:#cbd5e1; margin-right:auto;" onclick="resetWeekToNoData()" title="A kiválasztott hét törlése 'Nincs adat'-ra">⚪ Hét törlése (Nincs adat)</button>
+                <button type="button" class="btn" onclick="closeWeeklyModal()">Mégse</button>
+                <button type="button" class="btn btn-primary" onclick="applyWeeklyPreset()">Alkalmazás a hétre</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADATKEZELÉS MODAL -->
+    <div class="modal-overlay" id="dataManageModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>⚙️ Munkaprogram adatok és felhőszinkron</h3>
+                <button class="modal-close" onclick="closeDataModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size:0.85rem; color:#64748b; margin-top:0;">
+                    A naptárban végzett módosításaid <strong>automatikusan elmentődnek a Firebase felhőbe</strong> és elérhetők minden eszközödről.
+                </p>
+                <div style="display:flex; flex-direction:column; gap:10px;">
+                    <button class="btn" onclick="exportDataJson()" style="justify-content:center; padding:10px;">
+                        📥 Beosztás exportálása (JSON másolása)
+                    </button>
+                    <button class="btn" onclick="importDataJsonPrompt()" style="justify-content:center; padding:10px;">
+                        📤 Beosztás importálása (JSON beillesztése)
+                    </button>
+                    <button class="btn" style="color:#ef4444; border-color:#fca5a5; justify-content:center; padding:10px;" onclick="resetAllOverrides()">
+                        🔄 Összes manuális módosítás törlése (Alaphelyzet)
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="closeDataModal()">Bezárás</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Értesítés</div>
 
 <!-- ==============================================================
-     JAVASCRIPT ÉS FIREBASE HITELÉSÍTÉS & SZINKRONIZÁCIÓ (V17)
+     JAVASCRIPT ÉS FIREBASE HITELÉSÍTÉS & SZINKRONIZÁCIÓ (V20)
      ============================================================== -->
 <script type="module">
     // Firebase SDK modulok betöltése
@@ -1586,8 +2605,8 @@
         topControlsHidden: false
     };
 
-    const STORAGE_KEY = 'mme_orarend_v17_data';
-    const SETTINGS_KEY = 'mme_orarend_v17_settings';
+    const STORAGE_KEY = 'mme_orarend_v20_data';
+    const SETTINGS_KEY = 'mme_orarend_v20_settings';
 
     const DAY_CLASSES = ['', 'mon', 'tue', 'wed', 'thu', 'fri'];
     const DAY_NAMES = ['', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek'];
@@ -1678,23 +2697,44 @@
         }, 300);
     }
 
+    let currentSyncStatusMsg = 'Közös órarend szinkronizálva';
+    let currentSyncStatusType = 'synced';
+
     function setSyncStatus(status, text) {
         const badge = document.getElementById('sync-status-badge');
         const textEl = document.getElementById('sync-status-text');
-        if (!badge || !textEl) return;
+        currentSyncStatusType = status;
 
-        badge.className = `sync-badge ${status}`;
-        if (text) {
-            textEl.textContent = text;
-        } else {
-            if (status === 'synced') textEl.textContent = 'Közös órarend szinkronizálva';
-            else if (status === 'saving') textEl.textContent = 'Mentés folyamatban...';
-            else if (status === 'error') textEl.textContent = 'Szinkron hiba';
+        let msg = text;
+        if (!msg) {
+            if (status === 'synced') msg = 'Közös órarend szinkronizálva';
+            else if (status === 'saving') msg = 'Mentés folyamatban...';
+            else if (status === 'error') msg = 'Szinkronizációs hiba';
+        }
+        currentSyncStatusMsg = msg;
+
+        if (badge) {
+            badge.className = `sync-status-btn ${status}`;
+            const icon = status === 'synced' ? '🟢' : (status === 'saving' ? '🔄' : '🔴');
+            badge.setAttribute('title', `${icon} ${msg} (Kattints a részletekért)`);
+        }
+        if (textEl) {
+            textEl.textContent = msg;
         }
     }
 
+    function showSyncStatusInfo() {
+        const icon = currentSyncStatusType === 'synced' ? '🟢' : (currentSyncStatusType === 'saving' ? '🔄' : '🔴');
+        showToast(`${icon} ${currentSyncStatusMsg}`);
+    }
+
+    function handleSignOutFromSettings() {
+        closeSettingsModal();
+        handleSignOut();
+    }
+
     // ==============================================================
-    // KIZÁRÓLAGOS EMAIL HITELESÍTÉS ÉS FIREBASE AUTH ESEMÉNYEK (V17)
+    // KIZÁRÓLAGOS EMAIL HITELESÍTÉS ÉS FIREBASE AUTH ESEMÉNYEK (V20)
     // ==============================================================
     onAuthStateChanged(auth, async (user) => {
         currentUser = user;
@@ -1761,6 +2801,10 @@
             if (unsubscribeFirestore) {
                 unsubscribeFirestore();
                 unsubscribeFirestore = null;
+            }
+            if (unsubscribeMunkaprogramFirestore) {
+                unsubscribeMunkaprogramFirestore();
+                unsubscribeMunkaprogramFirestore = null;
             }
         }
     });
@@ -2035,19 +3079,27 @@
         isEditMode = !isEditMode;
         const icon = document.getElementById('edit-btn-icon');
         const text = document.getElementById('edit-btn-text');
+        const btn = document.getElementById('btn-toggle-edit');
 
         if (isEditMode) {
             document.body.classList.add('edit-mode');
-            icon.textContent = '✅';
-            text.textContent = 'Kész (Szerkesztés befejezése)';
-            showToast('✏️ Szerkesztési mód: órák szabadon húzhatók és szerkeszthetők!');
+            if (icon) icon.textContent = '✅';
+            if (text) text.textContent = 'Kész';
+            if (btn) {
+                btn.title = 'Kész (Szerkesztés befejezése)';
+                btn.classList.add('active');
+            }
+            showToast('✏️ Szerkesztési mód: Órák szabadon húzhatók és szerkeszthetők!');
         } else {
             document.body.classList.remove('edit-mode');
-            icon.textContent = '✏️';
-            text.textContent = 'Szerkesztés';
-            showToast('👁️ Megtekintési mód: órarend zárolva.');
+            if (icon) icon.textContent = '✏️';
+            if (text) text.textContent = 'Szerkesztés';
+            if (btn) {
+                btn.title = 'Szerkesztés mód bekapcsolása';
+                btn.classList.remove('active');
+            }
+            showToast('👁️ Megtekintési mód: Órarend zárolva.');
         }
-
         renderTimetable();
     }
 
@@ -2667,7 +3719,7 @@
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'calendar_v17_mentett.html';
+        a.download = 'calendar_v20_mentett.html';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -2733,8 +3785,1067 @@
             closeModal();
             closeDropChoiceModal();
             closeSettingsModal();
+            closeDayModal();
+            closeWeeklyModal();
+            closeDataModal();
         }
     });
+
+    
+    // ==============================================================
+    // V18: KÉT OLDAL / NÉZET VÁLTÁSA (ÓRAREND <-> MUNKAPROGRAM)
+    // ==============================================================
+    const VIEW_PREF_KEY = 'mme_calendar_v20_active_view';
+    let currentView = localStorage.getItem(VIEW_PREF_KEY) || 'orarend';
+
+    function setMainView(viewName) {
+        currentView = viewName;
+        localStorage.setItem(VIEW_PREF_KEY, currentView);
+
+        const viewOrarend = document.getElementById('view-orarend');
+        const viewMunkaprog = document.getElementById('view-munkaprogram');
+        const toggleBtn = document.getElementById('btn-toggle-view');
+        const toggleIcon = document.getElementById('view-toggle-icon');
+        const toggleText = document.getElementById('view-toggle-text');
+        const orarendOnlyBtns = document.querySelectorAll('.orarend-only-btn');
+
+        if (currentView === 'munkaprogram') {
+            if (viewOrarend) viewOrarend.style.display = 'none';
+            if (viewMunkaprog) viewMunkaprog.style.display = 'flex';
+            
+            if (toggleBtn) {
+                toggleBtn.classList.add('on-munkaprogram');
+                toggleBtn.title = 'Visszaváltás az Órarend oldalra';
+            }
+            if (toggleIcon) toggleIcon.textContent = '🎓';
+            if (toggleText) toggleText.textContent = 'Órarend';
+
+            orarendOnlyBtns.forEach(btn => btn.style.display = 'none');
+
+            // Munkaprogram naptár kirajzolása
+            if (daysGridEl) {
+                renderCalendar(currentDate);
+            }
+        } else {
+            if (viewMunkaprog) viewMunkaprog.style.display = 'none';
+            if (viewOrarend) viewOrarend.style.display = 'block';
+
+            if (toggleBtn) {
+                toggleBtn.classList.remove('on-munkaprogram');
+                toggleBtn.title = 'Átváltás a Munkaprogram oldalra';
+            }
+            if (toggleIcon) toggleIcon.textContent = '💼';
+            if (toggleText) toggleText.textContent = 'Munkaprogram';
+
+            orarendOnlyBtns.forEach(btn => btn.style.display = 'inline-flex');
+
+            renderTimetable();
+        }
+    }
+
+    function toggleMainView() {
+        const targetView = currentView === 'orarend' ? 'munkaprogram' : 'orarend';
+        setMainView(targetView);
+    }
+
+    // ==============================================================
+    // V18: MUNKAPROGRAM KÓD ÉS FIREBASE FELHŐSZINKRONIZÁCIÓ
+    // ==============================================================
+    const SHARED_MUNKAPROGRAM_DOC = 'shared_munkaprogram';
+    let munkaprogramSyncDebounceTimer = null;
+    let isSavingMunkaprogramLocally = false;
+    let unsubscribeMunkaprogramFirestore = null;
+
+    let monthYearEl = null;
+    let daysGridEl = null;
+    let prevBtn = null;
+    let nextBtn = null;
+    let todayBtn = null;
+    let timesheetBtn = null;
+    let tsStatusEl = null;
+
+    // Firebase Firestore szinkronizáció a munkaprogramhoz
+    function syncMunkaprogramToFirestore() {
+        if (!currentUser) return;
+
+        setSyncStatus('saving', 'Munkaprogram mentése...');
+        isSavingMunkaprogramLocally = true;
+
+        clearTimeout(munkaprogramSyncDebounceTimer);
+        munkaprogramSyncDebounceTimer = setTimeout(async () => {
+            try {
+                const sharedDocRef = doc(db, "users", SHARED_MUNKAPROGRAM_DOC);
+                await setDoc(sharedDocRef, {
+                    userOverrides: userOverrides,
+                    lastUpdatedBy: currentUser.email || 'Ismeretlen',
+                    updatedAt: new Date().toISOString()
+                }, { merge: true });
+
+                setSyncStatus('synced', 'Közös munkaprogram szinkronizálva');
+            } catch (error) {
+                console.error('Munkaprogram Firestore mentési hiba:', error);
+                setSyncStatus('error', 'Mentési hiba');
+                showToast('⚠️ Nem sikerült a munkaprogramot a felhőbe menteni. A változtatások helyben megmaradtak.');
+            } finally {
+                setTimeout(() => { isSavingMunkaprogramLocally = false; }, 350);
+            }
+        }, 300);
+    }
+
+    function initMunkaprogramFirestoreListener() {
+        if (unsubscribeMunkaprogramFirestore) {
+            unsubscribeMunkaprogramFirestore();
+            unsubscribeMunkaprogramFirestore = null;
+        }
+
+        const sharedDocRef = doc(db, "users", SHARED_MUNKAPROGRAM_DOC);
+
+        unsubscribeMunkaprogramFirestore = onSnapshot(sharedDocRef, (docSnap) => {
+            if (isSavingMunkaprogramLocally) {
+                return;
+            }
+
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                if (data && data.userOverrides) {
+                    userOverrides = data.userOverrides;
+                    try {
+                        localStorage.setItem(STORAGE_KEY_V20, JSON.stringify(userOverrides));
+                    } catch (e) {}
+                    
+                    if (daysGridEl) {
+                        renderCalendar(currentDate);
+                    }
+                    setSyncStatus('synced', 'Közös munkaprogram szinkronizálva');
+                    if (data.lastUpdatedBy && data.lastUpdatedBy !== (currentUser?.email || '')) {
+                        showToast(`🔄 A munkaprogram frissült (${data.lastUpdatedBy} által)!`);
+                    }
+                }
+            } else {
+                // Még nem létezik Firestore-ban, inicializáljuk
+                syncMunkaprogramToFirestore();
+            }
+        }, (error) => {
+            console.error('Munkaprogram Firestore figyelési hiba:', error);
+            setSyncStatus('error', 'Hiba');
+        });
+    }
+
+    // EDUKA MUNKAPROGRAM ALAP LOGIKA (Eduka munkaprogram v6)
+
+        // ==============================================================
+        // ALAPÉRTELMEZETT BEOSZTÁS ADATOK (YYYY-MM-DD formátumban)
+        // ==============================================================
+        const scheduleData = {
+            "2026-07-06": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-07-07": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-07-08": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-07-09": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-07-10": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-07-11": { "type": "shift-07", "text": "07:30 - 19:30" },
+            "2026-07-12": { "type": "shift-07", "text": "07:30 - 19:30" },
+            "2026-07-13": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-07-14": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-07-15": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-07-16": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-07-17": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-07-18": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-07-19": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-07-20": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-07-21": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-07-22": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-07-23": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-07-24": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-07-25": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-07-26": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-07-27": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-07-28": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-07-29": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-07-30": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-07-31": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-01": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-02": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-03": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-04": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-05": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-08-06": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-08-07": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-08-08": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-09": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-10": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-08-11": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-08-12": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-13": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-14": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-15": { "type": "shift-07", "text": "07:30 - 19:30" },
+            "2026-08-16": { "type": "shift-07", "text": "07:30 - 19:30" },
+            "2026-08-17": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-08-18": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-08-19": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-08-20": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-08-21": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-08-22": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-23": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-24": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-08-25": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-08-26": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-08-27": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-08-28": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-08-29": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-30": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-08-31": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-09-01": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-09-02": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-09-03": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-09-04": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-09-05": { "type": "shift-07", "text": "07:30 - 19:30" },
+            "2026-09-06": { "type": "shift-07", "text": "07:30 - 19:30" },
+            "2026-09-07": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-09-08": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-09-09": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-09-10": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-09-11": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-09-12": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-09-13": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-09-14": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-09-15": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-09-16": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-09-17": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-09-18": { "type": "shift-15", "text": "15:00 - 23:30" },
+            "2026-09-19": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-09-20": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-09-21": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-09-22": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-09-23": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-09-24": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-09-25": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-09-26": { "type": "shift-07", "text": "07:30 - 19:30" },
+            "2026-09-27": { "type": "shift-07", "text": "07:30 - 19:30" },
+            "2026-09-28": { "type": "shift-07", "text": "07:30 - 16:00" },
+            "2026-09-29": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-09-30": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-10-01": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-10-02": { "type": "shift-09", "text": "09:30 - 18:00" },
+            "2026-10-03": { "type": "shift-free", "text": "Szabadnap" },
+            "2026-10-04": { "type": "shift-free", "text": "Szabadnap" }
+        };
+
+        // ==============================================================
+        // MŰSZAK TÍPUSOK ÉS DEFINÍCIÓK
+        // ==============================================================
+        const SHIFT_TYPES = {
+            "shift-15": {
+                name: "Délutáni műszak",
+                text: "15:00 - 23:30",
+                type: "shift-15",
+                tsCode: "01 ROREG - 8 hours<br>05 RO8N - 2 Hours<br>04 RO30N - 1.5 Hours",
+                colorClass: "shift-15",
+                icon: "🌙"
+            },
+            "shift-09": {
+                name: "Normál műszak",
+                text: "09:30 - 18:00",
+                type: "shift-09",
+                tsCode: "01 ROREG 8hours",
+                colorClass: "shift-09",
+                icon: "☀️"
+            },
+            "shift-0700": {
+                name: "Kora reggeli",
+                text: "07:00 - 15:30",
+                type: "shift-0700",
+                tsCode: "01 ROREG 8hours",
+                colorClass: "shift-0700",
+                icon: "☕"
+            },
+            "shift-07-weekday": {
+                name: "Reggeli normál",
+                text: "07:30 - 16:00",
+                type: "shift-07",
+                tsCode: "01 ROREG 8hours",
+                colorClass: "shift-07",
+                icon: "🌅"
+            },
+            "shift-12": {
+                name: "Hétvégi 12 órás",
+                text: "07:30 - 19:30",
+                type: "shift-12",
+                tsCode: "02 ROWKD : 8 hours<br>09 ROOOF : 4 hours",
+                colorClass: "shift-12",
+                icon: "⚡"
+            },
+            "shift-rest": {
+                name: "Rest Day (Pihenőnap)",
+                text: "Rest Day",
+                type: "shift-rest",
+                tsCode: "03 ROWRE - 8hours",
+                colorClass: "shift-rest",
+                icon: "🛋️"
+            },
+            "shift-free": {
+                name: "Szabadnap (Day Off)",
+                text: "Szabadnap",
+                type: "shift-free",
+                tsCode: "Szabadnap",
+                colorClass: "shift-free",
+                icon: "🏖️"
+            },
+            "shift-vacation": {
+                name: "Szabadság (Vacation)",
+                text: "Szabadság",
+                type: "shift-vacation",
+                tsCode: "06 ROVAC - Szabadság",
+                colorClass: "shift-vacation",
+                icon: "🌴"
+            },
+            "shift-sick": {
+                name: "Sick leave (Betegszabadság)",
+                text: "Sick leave",
+                type: "shift-sick",
+                tsCode: "Sick leave",
+                colorClass: "shift-sick",
+                icon: "🩺"
+            },
+            "shift-no-data": {
+                name: "Nincs adat",
+                text: "Nincs adat",
+                type: "shift-no-data",
+                tsCode: "Nincs adat",
+                colorClass: "shift-no-data",
+                icon: "⚪"
+            },
+            "shift-custom": {
+                name: "Egyéni időpont",
+                text: "Egyéni",
+                type: "shift-custom",
+                tsCode: "Egyéni",
+                colorClass: "shift-09",
+                icon: "✏️"
+            }
+        };
+
+        // ==============================================================
+        // ÁLLAPOT ÉS HELYI TÁROLÁS (LocalStorage v4 + migráció v3/v2-ből)
+        // ==============================================================
+        const STORAGE_KEY_V20 = "eduka_schedule_data_v20";
+        const STORAGE_KEY_V6 = "eduka_schedule_data_v6";
+        const STORAGE_KEY_V5 = "eduka_schedule_data_v5";
+        const STORAGE_KEY_V4 = "eduka_schedule_data_v4";
+        const STORAGE_KEY_V3 = "eduka_schedule_data_v3";
+        const STORAGE_KEY_V2 = "eduka_schedule_data_v2";
+        let userOverrides = {};
+
+        function loadUserOverrides() {
+            try {
+                let stored = localStorage.getItem(STORAGE_KEY_V20);
+                if (!stored) stored = localStorage.getItem(STORAGE_KEY_V6);
+                if (!stored) stored = localStorage.getItem(STORAGE_KEY_V5);
+                if (!stored) stored = localStorage.getItem(STORAGE_KEY_V4);
+                if (!stored) stored = localStorage.getItem(STORAGE_KEY_V3);
+                if (!stored) stored = localStorage.getItem(STORAGE_KEY_V2);
+                if (stored) {
+                    userOverrides = JSON.parse(stored);
+                }
+            } catch (e) {
+                console.error("Nem sikerült betölteni a helyi tárolóból", e);
+                userOverrides = {};
+            }
+            updateSavedCountInfo();
+        }
+
+        function saveUserOverrides() {
+            try {
+                localStorage.setItem(STORAGE_KEY_V20, JSON.stringify(userOverrides));
+            } catch (e) {
+                console.error("Nem sikerült menteni a helyi tárolóba", e);
+            }
+            updateSavedCountInfo();
+        }
+
+        function getShiftForDate(dateStr, dateObj) {
+            if (userOverrides[dateStr]) {
+                return { ...userOverrides[dateStr], isCustom: true };
+            }
+            if (scheduleData[dateStr]) {
+                return { ...scheduleData[dateStr], isCustom: false };
+            }
+            return null;
+        }
+
+        function updateSavedCountInfo() {
+            // Nincs tipp / számláló sáv
+        }
+
+        // ==============================================================
+        // NAPTÁR NAVIGÁCIÓ ÉS MEGJELENÍTÉS
+        // ==============================================================
+        let currentDate = new Date();
+        window.timesheetMode = false;
+
+        
+        
+        
+        
+        
+        
+        
+
+        const monthsHu = [
+            "Január", "Február", "Március", "Április", "Május", "Június",
+            "Július", "Augusztus", "Szeptember", "Október", "November", "December"
+        ];
+
+        function getISOWeekNumber(d) {
+            const date = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+            date.setUTCDate(date.getUTCDate() + 4 - (date.getUTCDay() || 7));
+            const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
+            const weekNo = Math.ceil((((date - yearStart) / 86400000) + 1) / 7);
+            return weekNo;
+        }
+
+        function renderCalendar(date) {
+            daysGridEl.innerHTML = '';
+            
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            
+            monthYearEl.textContent = `${year}. ${monthsHu[month]}`;
+
+            const firstDayIndex = new Date(year, month, 1).getDay();
+            const firstDayAdjusted = firstDayIndex === 0 ? 6 : firstDayIndex - 1;
+            
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const today = new Date();
+            const isCurrentMonth = today.getFullYear() === year && today.getMonth() === month;
+
+            const totalDaysShown = firstDayAdjusted + daysInMonth;
+            const numWeeks = Math.ceil(totalDaysShown / 7);
+
+            let dayCounter = 1;
+
+            for (let w = 0; w < numWeeks; w++) {
+                let sampleDay = dayCounter <= daysInMonth ? dayCounter : daysInMonth;
+                if (w === 0 && firstDayAdjusted > 0) {
+                    sampleDay = 1;
+                }
+                const weekRefDate = new Date(year, month, sampleDay);
+                const weekNum = getISOWeekNumber(weekRefDate);
+
+                const mondayOfThisWeek = new Date(year, month, (w * 7) - firstDayAdjusted + 1);
+                const mondayDateStr = `${mondayOfThisWeek.getFullYear()}-${String(mondayOfThisWeek.getMonth() + 1).padStart(2, '0')}-${String(mondayOfThisWeek.getDate()).padStart(2, '0')}`;
+
+                // 1. Hét számozó és szerkesztő cella a bal szélen (CSAK a gomb nyitja meg!)
+                const weekCell = document.createElement('div');
+                weekCell.classList.add('week-control-cell');
+                weekCell.innerHTML = `
+                    <div class="week-number">W${weekNum}</div>
+                    <button class="btn-week-edit" onclick="openWeeklyModalForDate('${mondayDateStr}')" title="Hét (${weekNum}. hét) beállítása">
+                        ⚙ Hét
+                    </button>
+                `;
+                daysGridEl.appendChild(weekCell);
+
+                // 2. A hét 7 napja (Hétfőtől Vasárnapig)
+                for (let d = 0; d < 7; d++) {
+                    const cellIndex = w * 7 + d;
+                    
+                    if (cellIndex < firstDayAdjusted || dayCounter > daysInMonth) {
+                        const emptyCell = document.createElement('div');
+                        emptyCell.classList.add('day-cell', 'empty');
+                        daysGridEl.appendChild(emptyCell);
+                    } else {
+                        const currentDayNum = dayCounter;
+                        const dayCell = document.createElement('div');
+                        dayCell.classList.add('day-cell');
+                        
+                        if (isCurrentMonth && today.getDate() === currentDayNum) {
+                            dayCell.classList.add('today');
+                        }
+
+                        const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(currentDayNum).padStart(2, '0')}`;
+                        const currentDayObj = new Date(year, month, currentDayNum);
+                        const dayOfWeek = currentDayObj.getDay();
+
+                        const shift = getShiftForDate(dateString, currentDayObj);
+
+                        // Dedikált Szerkesztés gomb: CSAK erre kattintva nyílik meg a napi szerkesztő!
+                        let contentHtml = `
+                            <div class="cell-top">
+                                <span class="day-number">${currentDayNum}${shift && shift.isCustom ? '<span class="custom-indicator" title="Manuálisan beállított nap"></span>' : ''}</span>
+                                <button class="btn-day-edit" onclick="openDayModal('${dateString}')" title="${currentDayNum}. nap szerkesztése">
+                                    ✏️
+                                </button>
+                            </div>
+                        `;
+
+                        if (shift && shift.type !== 'shift-no-data') {
+                            let badgeClass = shift.type || 'shift-free';
+                            let displayTime = shift.text;
+                            let tsText = "";
+
+                            // BadgeClass meghatározása
+                            if (shift.type === 'shift-sick' || displayTime.toLowerCase().includes("sick leave")) {
+                                badgeClass = "shift-sick";
+                            } else if (displayTime.includes("07:00") || shift.type === 'shift-0700') {
+                                badgeClass = "shift-0700";
+                            } else if (displayTime.includes("19:30") || (shift.type === 'shift-12') || (shift.type === 'shift-07' && (dayOfWeek === 0 || dayOfWeek === 6))) {
+                                badgeClass = "shift-12";
+                            } else if (displayTime.includes("07:30") || shift.type === 'shift-07') {
+                                badgeClass = "shift-07";
+                            }
+
+                            // Timesheet kód kiszámítása (V20: Sick leave esetén 'Sick leave'-et ír)
+                            if (window.timesheetMode) {
+                                if (shift.type === 'shift-sick' || displayTime.toLowerCase().includes("sick leave")) {
+                                    tsText = "Sick leave";
+                                    badgeClass = "shift-sick";
+                                } else if (shift.type === 'shift-15' || displayTime.includes("15:00")) {
+                                    tsText = "01 ROREG - 8 hours<br>05 RO8N - 2 Hours<br>04 RO30N - 1.5 Hours";
+                                } else if (shift.type === 'shift-09' || displayTime.includes("09:30")) {
+                                    tsText = "01 ROREG 8hours";
+                                } else if (shift.type === 'shift-0700' || displayTime.includes("07:00")) {
+                                    tsText = "01 ROREG 8hours";
+                                    badgeClass = "shift-0700";
+                                } else if (shift.type === 'shift-12' || displayTime.includes("19:30") || (shift.type === 'shift-07' && (dayOfWeek === 0 || dayOfWeek === 6))) {
+                                    tsText = "02 ROWKD : 8 hours<br>09 ROOOF : 4 hours";
+                                    badgeClass = "shift-12";
+                                } else if (shift.type === 'shift-07' || displayTime.includes("07:30")) {
+                                    tsText = "01 ROREG 8hours";
+                                    badgeClass = "shift-07";
+                                } else if (shift.type === 'shift-rest' || displayTime.includes("Rest")) {
+                                    tsText = "03 ROWRE - 8hours";
+                                    badgeClass = "shift-rest";
+                                } else if (shift.type === 'shift-vacation' || displayTime.includes("Szabadság")) {
+                                    tsText = "06 ROVAC - Szabadság (8h)";
+                                } else if (shift.type === 'shift-free') {
+                                    let isRowre = false;
+                                    if (dayOfWeek >= 3 && dayOfWeek <= 5) {
+                                        const daysUntilSat = 6 - dayOfWeek;
+                                        const satDate = new Date(year, month, currentDayNum + daysUntilSat);
+                                        const satStr = `${satDate.getFullYear()}-${String(satDate.getMonth() + 1).padStart(2, '0')}-${String(satDate.getDate()).padStart(2, '0')}`;
+                                        const sunDate = new Date(year, month, currentDayNum + daysUntilSat + 1);
+                                        const sunStr = `${sunDate.getFullYear()}-${String(sunDate.getMonth() + 1).padStart(2, '0')}-${String(sunDate.getDate()).padStart(2, '0')}`;
+                                        
+                                        const satShift = getShiftForDate(satStr, satDate);
+                                        const sunShift = getShiftForDate(sunStr, sunDate);
+
+                                        if ((satShift && (satShift.type === 'shift-07' || satShift.type === 'shift-12')) || 
+                                            (sunShift && (sunShift.type === 'shift-07' || sunShift.type === 'shift-12'))) {
+                                            isRowre = true;
+                                        }
+                                    }
+                                    if (isRowre) {
+                                        tsText = "03 ROWRE - 8hours";
+                                        badgeClass = "shift-rest";
+                                    }
+                                } else if (shift.tsCode) {
+                                    tsText = shift.tsCode;
+                                }
+
+                                if (tsText !== "") {
+                                    contentHtml += `
+                                        <div class="shift-badge ${badgeClass}">
+                                            <div><strong>${displayTime}</strong></div>
+                                            <div class="ts-code-block">${tsText}</div>
+                                        </div>
+                                    `;
+                                } else {
+                                    contentHtml += `
+                                        <div class="shift-badge ${badgeClass}">
+                                            <strong>${displayTime}</strong>
+                                        </div>
+                                    `;
+                                }
+                            } else {
+                                contentHtml += `
+                                    <div class="shift-badge ${badgeClass}">
+                                        ${displayTime}
+                                    </div>
+                                `;
+                            }
+                        } else {
+                            contentHtml += `<div class="shift-badge shift-no-data">Nincs adat</div>`;
+                        }
+
+                        dayCell.innerHTML = contentHtml;
+                        // MEGJEGYZÉS: dayCell.onclick szándékosan NINCS! Csak a "✏️ Szerkesztés" gomb kattintható!
+                        daysGridEl.appendChild(dayCell);
+
+                        dayCounter++;
+                    }
+                }
+            }
+        }
+
+        // ==============================================================
+        // EGYEDI NAP SZERKESZTÉSE (MODAL)
+        // ==============================================================
+        let activeModalDateStr = "";
+        let activeModalDateObj = null;
+        let selectedShiftKey = "shift-15";
+
+        function buildShiftOptions() {
+            const grid = document.getElementById("shiftOptionsGrid");
+            grid.innerHTML = "";
+
+            for (const [key, item] of Object.entries(SHIFT_TYPES)) {
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = `shift-option-btn ${item.colorClass}`;
+                btn.id = `opt_${key}`;
+                btn.onclick = () => selectShiftOption(key);
+                btn.innerHTML = `
+                    <div class="option-title">${item.icon} ${item.name}</div>
+                    <div class="option-desc">${item.text}</div>
+                `;
+                grid.appendChild(btn);
+            }
+        }
+
+        function selectShiftOption(key) {
+            selectedShiftKey = key;
+            document.querySelectorAll(".shift-option-btn").forEach(el => el.classList.remove("selected"));
+            const selectedBtn = document.getElementById(`opt_${key}`);
+            if (selectedBtn) selectedBtn.classList.add("selected");
+
+            const customContainer = document.getElementById("customShiftContainer");
+            if (key === "shift-custom") {
+                customContainer.style.display = "block";
+            } else {
+                customContainer.style.display = "none";
+            }
+        }
+
+        function openDayModal(dateStr, dateObj, currentShift) {
+            if (!dateObj && dateStr) {
+                const parts = dateStr.split('-');
+                dateObj = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+            }
+            activeModalDateStr = dateStr;
+            activeModalDateObj = dateObj;
+
+            if (!currentShift && dateStr && dateObj) {
+                currentShift = getShiftForDate(dateStr, dateObj);
+            }
+
+            const daysHu = ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat"];
+            const formatted = `${dateObj.getFullYear()}. ${monthsHu[dateObj.getMonth()]} ${dateObj.getDate()}., ${daysHu[dateObj.getDay()]}`;
+            document.getElementById("modalDayTitle").textContent = formatted;
+
+            let defaultKey = "shift-09";
+            if (currentShift) {
+                if (currentShift.type === "shift-no-data" || currentShift.text === "Nincs adat") defaultKey = "shift-no-data";
+                else if (currentShift.type === "shift-sick" || currentShift.text.toLowerCase().includes("sick leave") || currentShift.text.toLowerCase().includes("beteg")) defaultKey = "shift-sick";
+                else if (currentShift.text.includes("15:00")) defaultKey = "shift-15";
+                else if (currentShift.text.includes("09:30")) defaultKey = "shift-09";
+                else if (currentShift.text.includes("07:00") || currentShift.type === "shift-0700") defaultKey = "shift-0700";
+                else if (currentShift.text.includes("19:30") || (currentShift.type === "shift-12") || (currentShift.type === "shift-07" && (dateObj.getDay() === 0 || dateObj.getDay() === 6))) defaultKey = "shift-12";
+                else if (currentShift.text.includes("07:30")) defaultKey = "shift-07-weekday";
+                else if (currentShift.type === "shift-rest" || currentShift.text.includes("Rest")) defaultKey = "shift-rest";
+                else if (currentShift.type === "shift-vacation" || currentShift.text.includes("Szabadság") || currentShift.text.includes("Vacation")) defaultKey = "shift-vacation";
+                else if (currentShift.type === "shift-free" || currentShift.text.includes("Szabadnap")) defaultKey = "shift-free";
+                else {
+                    defaultKey = "shift-custom";
+                    document.getElementById("customShiftInput").value = currentShift.text;
+                }
+            } else {
+                if (dateObj.getDay() === 0 || dateObj.getDay() === 6) {
+                    defaultKey = "shift-free";
+                }
+            }
+
+            selectShiftOption(defaultKey);
+            document.querySelector('input[name="applyScope"][value="day"]').checked = true;
+
+            document.getElementById("dayEditModal").classList.add("active");
+        }
+
+        function setDayNoData() {
+            const scope = document.querySelector('input[name="applyScope"]:checked').value;
+            const noDataObj = { type: 'shift-no-data', text: 'Nincs adat' };
+
+            if (scope === "day") {
+                userOverrides[activeModalDateStr] = noDataObj;
+            } else if (scope === "workdays" || scope === "fullweek") {
+                const curDay = activeModalDateObj.getDay();
+                const diffToMonday = curDay === 0 ? -6 : 1 - curDay;
+                const monday = new Date(activeModalDateObj);
+                monday.setDate(activeModalDateObj.getDate() + diffToMonday);
+
+                const daysToSet = scope === "workdays" ? 5 : 7;
+                for (let i = 0; i < daysToSet; i++) {
+                    const d = new Date(monday);
+                    d.setDate(monday.getDate() + i);
+                    const dStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+                    userOverrides[dStr] = noDataObj;
+                }
+            }
+            saveUserOverrides();
+            renderCalendar(currentDate);
+            closeDayModal();
+            showToast('⚪ Sikeresen beállítva: Nincs adat');
+        }
+
+        function closeDayModal() {
+            document.getElementById("dayEditModal").classList.remove("active");
+        }
+
+        function saveDayShift() {
+            const shiftDef = SHIFT_TYPES[selectedShiftKey];
+            let shiftText = shiftDef.text;
+            let shiftType = shiftDef.type;
+
+            if (selectedShiftKey === "shift-custom") {
+                const val = document.getElementById("customShiftInput").value.trim();
+                shiftText = val || "Egyéni";
+                shiftType = "shift-09";
+            }
+
+            const shiftObj = {
+                type: shiftType,
+                text: shiftText
+            };
+
+            const scope = document.querySelector('input[name="applyScope"]:checked').value;
+
+            if (scope === "day") {
+                userOverrides[activeModalDateStr] = shiftObj;
+            } else if (scope === "workdays" || scope === "fullweek") {
+                const curDay = activeModalDateObj.getDay();
+                const diffToMonday = curDay === 0 ? -6 : 1 - curDay;
+                
+                const monday = new Date(activeModalDateObj);
+                monday.setDate(activeModalDateObj.getDate() + diffToMonday);
+
+                const count = scope === "workdays" ? 5 : 7;
+                for (let i = 0; i < count; i++) {
+                    const targetDate = new Date(monday);
+                    targetDate.setDate(monday.getDate() + i);
+                    const tStr = `${targetDate.getFullYear()}-${String(targetDate.getMonth() + 1).padStart(2, '0')}-${String(targetDate.getDate()).padStart(2, '0')}`;
+                    userOverrides[tStr] = { ...shiftObj };
+                }
+            }
+
+            saveUserOverrides();
+            renderCalendar(currentDate);
+            closeDayModal();
+        }
+
+        function resetCurrentDay() {
+            if (userOverrides[activeModalDateStr]) {
+                delete userOverrides[activeModalDateStr];
+                saveUserOverrides();
+                renderCalendar(currentDate);
+            }
+            closeDayModal();
+        }
+
+        // ==============================================================
+        // HETI SABLON ÉS BEÁLLÍTÓ VARÁZSLÓ
+        // ==============================================================
+        let selectedWeeklyPreset = 'shift-15';
+
+        function populateWeeklySelect(preselectedMondayStr) {
+            const select = document.getElementById("wizardWeekSelect");
+            select.innerHTML = "";
+
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            const mondays = [];
+            for (let i = 1; i <= daysInMonth; i++) {
+                const d = new Date(year, month, i);
+                if (d.getDay() === 1) {
+                    mondays.push(d);
+                }
+            }
+
+            const firstDay = new Date(year, month, 1);
+            if (firstDay.getDay() !== 1) {
+                const diff = firstDay.getDay() === 0 ? -6 : 1 - firstDay.getDay();
+                const prevMon = new Date(year, month, 1 + diff);
+                mondays.unshift(prevMon);
+            }
+
+            mondays.forEach(mon => {
+                const sun = new Date(mon);
+                sun.setDate(mon.getDate() + 6);
+
+                const monStr = `${mon.getFullYear()}-${String(mon.getMonth() + 1).padStart(2, '0')}-${String(mon.getDate()).padStart(2, '0')}`;
+                const weekNum = getISOWeekNumber(mon);
+                const label = `${weekNum}. hét: ${mon.getFullYear()}. ${monthsHu[mon.getMonth()]} ${mon.getDate()} - ${monthsHu[sun.getMonth()]} ${sun.getDate()}.`;
+
+                const opt = document.createElement("option");
+                opt.value = monStr;
+                opt.textContent = label;
+                if (preselectedMondayStr && preselectedMondayStr === monStr) {
+                    opt.selected = true;
+                }
+                select.appendChild(opt);
+            });
+        }
+
+        function openWeeklyModalForDate(mondayDateStr) {
+            populateWeeklySelect(mondayDateStr);
+            document.getElementById("weeklyWizardModal").classList.add("active");
+        }
+
+        
+
+        function closeWeeklyModal() {
+            document.getElementById("weeklyWizardModal").classList.remove("active");
+        }
+
+        function selectPreset(presetKey, cardElem) {
+            selectedWeeklyPreset = presetKey;
+            document.querySelectorAll(".preset-card").forEach(el => el.classList.remove("active"));
+            cardElem.classList.add("active");
+
+            const customPanel = document.getElementById("customWeekDaysPanel");
+            if (presetKey === "custom-week") {
+                buildCustomWeekRows();
+                customPanel.style.display = "block";
+            } else {
+                customPanel.style.display = "none";
+            }
+        }
+
+        function buildCustomWeekRows() {
+            const container = document.getElementById("customWeekRows");
+            container.innerHTML = "";
+            const dayNames = ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"];
+
+            dayNames.forEach((dName, idx) => {
+                const row = document.createElement("div");
+                row.className = "day-row-editor";
+                
+                let selectHtml = `<select class="day-row-select" id="customDaySelect_${idx}">`;
+                for (const [key, item] of Object.entries(SHIFT_TYPES)) {
+                    const isSelected = idx >= 5 ? key === 'shift-free' : key === 'shift-09';
+                    selectHtml += `<option value="${key}" ${isSelected ? 'selected' : ''}>${item.icon} ${item.name} (${item.text})</option>`;
+                }
+                selectHtml += `</select>`;
+
+                row.innerHTML = `<span class="day-row-label">${dName}:</span>${selectHtml}`;
+                container.appendChild(row);
+            });
+        }
+
+        function applyWeeklyPreset() {
+            const monDateStr = document.getElementById("wizardWeekSelect").value;
+            if (!monDateStr) return;
+
+            const [y, m, d] = monDateStr.split("-").map(Number);
+            const monday = new Date(y, m - 1, d);
+
+            for (let i = 0; i < 7; i++) {
+                const targetDate = new Date(monday);
+                targetDate.setDate(monday.getDate() + i);
+                const dateKey = `${targetDate.getFullYear()}-${String(targetDate.getMonth() + 1).padStart(2, '0')}-${String(targetDate.getDate()).padStart(2, '0')}`;
+
+                let shiftObj = null;
+
+                if (selectedWeeklyPreset === "shift-15") {
+                    if (i < 5) shiftObj = { type: "shift-15", text: "15:00 - 23:30" };
+                    else shiftObj = { type: "shift-free", text: "Szabadnap" };
+                } else if (selectedWeeklyPreset === "shift-09") {
+                    if (i < 5) shiftObj = { type: "shift-09", text: "09:30 - 18:00" };
+                    else shiftObj = { type: "shift-free", text: "Szabadnap" };
+                } else if (selectedWeeklyPreset === "shift-0700") {
+                    if (i < 5) shiftObj = { type: "shift-0700", text: "07:00 - 15:30" };
+                    else shiftObj = { type: "shift-free", text: "Szabadnap" };
+                } else if (selectedWeeklyPreset === "shift-07") {
+                    if (i < 5) shiftObj = { type: "shift-07", text: "07:30 - 16:00" };
+                    else shiftObj = { type: "shift-free", text: "Szabadnap" };
+                } else if (selectedWeeklyPreset === "weekend-shift") {
+                    if (i === 0 || i === 1) {
+                        shiftObj = { type: "shift-09", text: "09:30 - 18:00" };
+                    } else if (i >= 2 && i <= 4) {
+                        shiftObj = { type: "shift-rest", text: "Rest Day" };
+                    } else {
+                        shiftObj = { type: "shift-12", text: "07:30 - 19:30" };
+                    }
+                } else if (selectedWeeklyPreset === "vacation-week") {
+                    if (i < 5) shiftObj = { type: "shift-vacation", text: "Szabadság" };
+                    else shiftObj = { type: "shift-free", text: "Szabadnap" };
+                } else if (selectedWeeklyPreset === "sick-week") {
+                    if (i < 5) shiftObj = { type: "shift-sick", text: "Sick leave" };
+                    else shiftObj = { type: "shift-free", text: "Szabadnap" };
+                } else if (selectedWeeklyPreset === "no-data-week") {
+                    shiftObj = { type: "shift-no-data", text: "Nincs adat" };
+                } else if (selectedWeeklyPreset === "custom-week") {
+                    const selectEl = document.getElementById(`customDaySelect_${i}`);
+                    const chosenKey = selectEl ? selectEl.value : "shift-09";
+                    const def = SHIFT_TYPES[chosenKey];
+                    shiftObj = { type: def.type, text: def.text };
+                }
+
+                if (shiftObj) {
+                    userOverrides[dateKey] = shiftObj;
+                }
+            }
+
+            saveUserOverrides();
+            renderCalendar(currentDate);
+            closeWeeklyModal();
+            showToast('📅 Heti sablon sikeresen alkalmazva!');
+        }
+
+        function resetWeekToNoData() {
+            const monDateStr = document.getElementById("wizardWeekSelect").value;
+            if (!monDateStr) return;
+            const [y, m, d] = monDateStr.split("-").map(Number);
+            const monday = new Date(y, m - 1, d);
+            const noDataObj = { type: 'shift-no-data', text: 'Nincs adat' };
+
+            for (let i = 0; i < 7; i++) {
+                const targetDate = new Date(monday);
+                targetDate.setDate(monday.getDate() + i);
+                const dateKey = `${targetDate.getFullYear()}-${String(targetDate.getMonth() + 1).padStart(2, '0')}-${String(targetDate.getDate()).padStart(2, '0')}`;
+                userOverrides[dateKey] = noDataObj;
+            }
+            saveUserOverrides();
+            renderCalendar(currentDate);
+            closeWeeklyModal();
+            showToast('⚪ A kiválasztott hét minden napja beállítva: Nincs adat');
+        }
+
+        // ==============================================================
+        // BIZTONSÁGI MENTÉS ÉS IMPORT/EXPORT
+        // ==============================================================
+        
+
+        function closeDataModal() {
+            document.getElementById("dataManageModal").classList.remove("active");
+        }
+
+        function exportDataJson() {
+            const dataStr = JSON.stringify(userOverrides, null, 2);
+            navigator.clipboard.writeText(dataStr).then(() => {
+                alert("A manuális beosztás sikeresen a vágólapra másolva JSON formátumban!");
+            }).catch(() => {
+                prompt("Másold ki a mentett beosztást:", dataStr);
+            });
+        }
+
+        function importDataJsonPrompt() {
+            const input = prompt("Illeszd be a korábban kimásolt JSON adatot:");
+            if (!input) return;
+            try {
+                const parsed = JSON.parse(input);
+                if (typeof parsed === "object") {
+                    userOverrides = { ...userOverrides, ...parsed };
+                    saveUserOverrides();
+                    renderCalendar(currentDate);
+                    alert("Sikeres importálás!");
+                    closeDataModal();
+                }
+            } catch (e) {
+                alert("Érvénytelen JSON formátum!");
+            }
+        }
+
+        function resetAllOverrides() {
+            if (confirm("Biztosan törölni szeretnéd az összes manuális módosítást és visszatérsz az alapértelmezett importált adatokhoz?")) {
+                userOverrides = {};
+                saveUserOverrides();
+                renderCalendar(currentDate);
+                closeDataModal();
+            }
+        }
+
+        // ==============================================================
+        // GOMBOK ÉS ESEMÉNYKEZELŐK
+        // ==============================================================
+        
+
+        
+
+        
+
+        
+
+        // ==============================================================
+        // INICIALIZÁLÁS
+        // ==============================================================
+        
+    
+
+    // Felülírjuk a saveUserOverrides függvényt, hogy automatikusan küldje a felhőbe is
+    const originalSaveUserOverrides = saveUserOverrides;
+    saveUserOverrides = function() {
+        originalSaveUserOverrides();
+        syncMunkaprogramToFirestore();
+    };
+
+    // Munkaprogram inicializálása
+    function initMunkaprogram() {
+        monthYearEl = document.getElementById('monthYear');
+        daysGridEl = document.getElementById('daysGrid');
+        prevBtn = document.getElementById('prevBtn');
+        nextBtn = document.getElementById('nextBtn');
+        todayBtn = document.getElementById('todayBtn');
+        timesheetBtn = document.getElementById('timesheetBtn');
+        tsStatusEl = document.getElementById('tsStatus');
+
+        buildShiftOptions();
+        loadUserOverrides();
+
+        if (prevBtn) {
+            prevBtn.onclick = () => {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                renderCalendar(currentDate);
+            };
+        }
+        if (nextBtn) {
+            nextBtn.onclick = () => {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                renderCalendar(currentDate);
+            };
+        }
+        if (todayBtn) {
+            todayBtn.onclick = () => {
+                currentDate = new Date();
+                renderCalendar(currentDate);
+            };
+        }
+        if (timesheetBtn) {
+            timesheetBtn.onclick = () => {
+                window.timesheetMode = !window.timesheetMode;
+                if (tsStatusEl) tsStatusEl.textContent = window.timesheetMode ? 'ON' : 'OFF';
+                if (window.timesheetMode) {
+                    timesheetBtn.classList.add('active');
+                } else {
+                    timesheetBtn.classList.remove('active');
+                }
+                renderCalendar(currentDate);
+            };
+        }
+
+        const weeklyWizBtn = document.getElementById("weeklyWizardBtn");
+        if (weeklyWizBtn) {
+            weeklyWizBtn.onclick = () => {
+                const today = new Date();
+                const diff = today.getDay() === 0 ? -6 : 1 - today.getDay();
+                const mon = new Date(today);
+                mon.setDate(today.getDate() + diff);
+                const monStr = `${mon.getFullYear()}-${String(mon.getMonth() + 1).padStart(2, '0')}-${String(mon.getDate()).padStart(2, '0')}`;
+                openWeeklyModalForDate(monStr);
+            };
+        }
+
+        const dataManBtn = document.getElementById("dataManageBtn");
+        if (dataManBtn) {
+            dataManBtn.onclick = () => {
+                document.getElementById("dataManageModal").classList.add("active");
+            };
+        }
+
+        if (daysGridEl) {
+            renderCalendar(currentDate);
+        }
+    }
 
     // Globális ablakfüggvények csatolása az inline eseménykezelőkhöz (onclick, onchange, onsubmit, stb.)
     window.toggleEditMode = toggleEditMode;
@@ -2759,11 +4870,44 @@
     window.toggleAuthTab = toggleAuthTab;
     window.togglePasswordVisibility = togglePasswordVisibility;
 
+    window.toggleMainView = toggleMainView;
+    window.setMainView = setMainView;
+
+    window.closeDayModal = closeDayModal;
+    window.resetCurrentDay = resetCurrentDay;
+    window.saveDayShift = saveDayShift;
+    window.openDayModal = openDayModal;
+    window.selectShiftOption = selectShiftOption;
+    window.setDayNoData = setDayNoData;
+    window.getShiftForDate = getShiftForDate;
+
+    window.closeWeeklyModal = closeWeeklyModal;
+    window.openWeeklyModalForDate = openWeeklyModalForDate;
+    window.selectPreset = selectPreset;
+    window.applyWeeklyPreset = applyWeeklyPreset;
+    window.resetWeekToNoData = resetWeekToNoData;
+
+    window.closeDataModal = closeDataModal;
+    window.exportDataJson = exportDataJson;
+    window.importDataJsonPrompt = importDataJsonPrompt;
+    window.resetAllOverrides = resetAllOverrides;
+    window.showSyncStatusInfo = showSyncStatusInfo;
+    window.handleSignOutFromSettings = handleSignOutFromSettings;
+
+    window.renderCalendar = renderCalendar;
+    window.getCurrentDate = () => currentDate;
+    window.saveUserOverrides = saveUserOverrides;
+    window.getUserOverrides = () => userOverrides;
+    window.setUserOverride = (date, shift) => { userOverrides[date] = shift; };
+
+
     // Alkalmazás indítása
     initData();
     initSettings();
     populateTimeOptions();
     renderTimetable();
+    initMunkaprogram();
+    setMainView(currentView);
     setInterval(refreshCurrentTime, 60000);
 </script>
 
